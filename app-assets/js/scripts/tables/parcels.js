@@ -13,7 +13,7 @@ $(function () {
     // 1. CONFIGURATION AND GLOBAL VARIABLES
     //================================================================================
 
-    const assetPath = '../../../app-assets/';
+    const assetPath = '/app-assets/';
     let dt_parcels = null;
     let datePickerInstance = null;
     let parcelDetailModal = null;

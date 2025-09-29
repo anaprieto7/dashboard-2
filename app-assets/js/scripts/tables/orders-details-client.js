@@ -22,7 +22,7 @@ $(function () {
         mockProductDatabase: [],
         editItemsModal: null,
         editItemsNotAllowedModal: null,
-        assetPath: '../../../app-assets/',
+        assetPath: '/app-assets/',
 
         elements: {
             container: $('#orderDetailsContainer'),

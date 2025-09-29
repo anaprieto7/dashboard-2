@@ -41,7 +41,7 @@ $(function () {
 
     //--- SELECTORS JQUERY ---
     const dt_basic_table = $('.datatables-basic');
-    let assetPath = '../../../app-assets/';
+    let assetPath = '/app-assets/';
     const statusFilter = $('#status-filter');
     const customerFilter = $('#customer-filter');
     const storageFilter = $('#storage-filter');
