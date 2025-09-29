@@ -1,7 +1,7 @@
 [build]
-  publish = "."            # publica la raíz (ahí están /app-assets y /starter-kit)
   command = "echo no-build"
+  publish = "."
 
 [build.environment]
-  NETLIFY_SKIP_INSTALL = "true"   # << clave: NO instales npm
-  NODE_VERSION = "18"             # por si algún script usa Node
+  NETLIFY_SKIP_INSTALL = "true"
+  NODE_VERSION = "18"
