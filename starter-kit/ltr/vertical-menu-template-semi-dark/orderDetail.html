@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html class="loading semi-dark-layout" lang="en" data-layout="semi-dark-layout" data-textdirection="ltr">
+<!-- BEGIN: Head--> 
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,minimal-ui">
+    <meta name="description" content="Vuexy admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
+    <meta name="keywords" content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
+    <meta name="author" content="PIXINVENT">
+    <title>Dashboard</title>
+    <link rel="apple-touch-icon" href="../../../app-assets/images/ico/apple-icon-120.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../app-assets/images/ico/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet">
+
+    <!-- BEGIN: Vendor CSS-->
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/vendors.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/vendors.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/tables/datatable/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/tables/datatable/responsive.bootstrap5.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/tables/datatable/buttons.bootstrap5.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/tables/datatable/rowGroup.bootstrap5.min.css">
+
+    <!-- BEGIN: Theme CSS-->
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/bootstrap-extended.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/colors.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/components.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/themes/semi-dark-layout.css">
+
+    <!-- BEGIN: Page CSS-->
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/core/menu/menu-types/vertical-menu.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/themes/semi-dark-layout.css">
+    <!-- END: Page CSS-->
+
+    <!-- BEGIN: Custom CSS-->
+    <link rel="stylesheet" type="text/css" href="../../../assets/css/style.css">
+    
+
+    <!-- END: Custom CSS-->
+
+</head>
+<!-- END: Head-->
+
+<!-- BEGIN: Body-->
+
+<body class="vertical-layout vertical-menu-modern  navbar-floating footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col="">
+
+    <!-- BEGIN: Header-->
+    <nav class="header-navbar navbar navbar-expand-lg align-items-center floating-nav navbar-light navbar-shadow">
+        <div class="navbar-container d-flex content">
+            <div class="bookmark-wrapper d-flex align-items-center">
+                <ul class="nav navbar-nav d-xl-none">
+                    <li class="nav-item"><a class="nav-link menu-toggle" href="#"><i class="ficon" data-feather="menu"></i></a></li>
+                </ul>
+            </div>
+                       <!-- ▼▼▼ NEW DESIGN TOGGLE ▼▼▼ -->
+            <div class="bookmark-wrapper d-flex align-items-center">
+                <ul class="nav navbar-nav align-items-center">
+                    <li class="nav-item d-flex align-items-center">
+                        <div class="d-flex align-items-end me-2">
+                            <span class="badge bg-info me-1">BETA</span>
+                            <span class="toggle-label user-name">Activate New Design</span>
+                        </div>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="new-design-switch-nav">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+                
+                <!-- ▲▲▲ END NEW DESIGN TOGGLE▲▲ -->
+            <ul class="nav navbar-nav align-items-center ms-auto">
+                <li class="nav-item dropdown dropdown-user"><a class="nav-link dropdown-toggle dropdown-user-link" id="dropdown-user" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <div class="user-nav d-sm-flex d-none"><span class="user-name fw-bolder">John Doe</span><span class="user-status">Admin</span></div><span class="avatar"><img class="round" src="../../../app-assets/images/portrait/small/avatar-s-11.jpg" alt="avatar" height="40" width="40"><span class="avatar-status-online"></span></span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-user"><a class="dropdown-item" href="#"><i class="me-50" data-feather="user"></i> Profile</a><a class="dropdown-item" href="#"><i class="me-50" data-feather="help-circle"></i> FAQ</a><a class="dropdown-item" href="#"><i class="me-50" data-feather="power"></i> Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- END: Header-->
+
+
+    <!-- BEGIN: Main Menu-->
+    <div class="main-menu menu-fixed menu-dark menu-accordion menu-shadow" data-scroll-to-active="true">
+        <div class="navbar-header" style=" background-image: url('../../../app-assets/images/logo/logo.svg'); background-size: cover; align-content: center; width: 300px; height: 80px; margin-left: 8px; margin-top: 8px;">
+        </div>
+        <div class="shadow-bottom"></div>
+        <div class="main-menu-content">
+            <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+                <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="pie-chart"></i><span class="menu-title text-truncate" data-i18n="Dashboard">Dashboard</span></a>
+                </li>
+                <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="users"></i><span class="menu-title text-truncate" data-i18n="Management">Management</span><span class="badge badge-light-danger rounded-pill ms-auto me-1">2</span></a>
+                    <ul class="menu-content">
+                        <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Warehouse">Warehouse</span></a>
+                        </li>
+                        <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Clients">Clients</span></a>
+                        </li>
+                        <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Aministrators">Administrators</span></a>
+                        </li>
+                    </ul>
+                </li>
+                <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="eye"></i><span class="menu-title text-truncate" data-i18n="Monitoring">Monitoring</span></a>
+                    <ul class="menu-content">
+                        <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Item Failed">Item Failed</span></a>
+                        </li>
+                    </ul>
+                </li>
+                <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="settings"></i><span class="menu-title text-truncate" data-i18n="Settings">Settings</span></a>
+                    <ul class="menu-content">
+                        <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Aplication Configuratiod">Aplication Configuration</span></a></li>
+                        <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Role Management">Role Management</span></a></li>
+                        <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Wemalo Instances">Wemalo Instances</span></a></li>
+                        <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Bookmark Infod">Bookmark Info</span></a></li>
+                        <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Email Template">Email Template</span></a></li>
+                        <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Planio Instances">Planio Instances</span></a></li>
+                        <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Translation Configurator">Translation Configurator</span></a></li>
+                        <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Groups">Groups</span></a></li>
+                        <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Import Templates">Import Templates</span></a></li>
+                        <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Bill Position">Bill Position</span></a></li>
+                    </ul>
+                </li>
+                <li class=" active nav-item"><a class="d-flex align-items-center has-sub" href="#"><i data-feather="shopping-bag"></i><span class="menu-title text-truncate" data-i18n="Settings">Fulfillment</span></a>
+                    <ul class="menu-content">
+                        <li class="active"><a class="d-flex align-items-cente" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Orders">Orders</span></a>
+                            <ul class="menu-content">
+                                <li class="active">
+                                    <a class="d-flex align-items-center" href="../../../starter-kit/ltr/vertical-menu-template-semi-dark/ordersAdmin.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Orders">Orders</span></a>
+                                </li>
+                                <li>
+                                    <a class="d-flex align-items-center" href="../../../starter-kit/ltr/vertical-menu-template-semi-dark/ordersAdmin.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Parcels">Parcels</span></a>
+                                </li>
+                                <li>
+                                    <a class="d-flex align-items-center" href="../../../starter-kit/ltr/vertical-menu-template-semi-dark/ordersAdmin.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Goods Orders Import">Goods Orders Import</span></a>
+                                </li>
+                            </ul>   
+                        </li>
+                        <li><a class="d-flex align-items-cente" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Products">Products</span></a>
+                            <ul class="menu-content">
+                                <li>
+                                    <a class="d-flex align-items-center" href="../../../starter-kit/ltr/vertical-menu-template-semi-dark/products/products-list-Admin.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Product List">Product List</span></a>
+                                </li>
+                                <li>
+                                    <a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Inventory List">Inventory list</span></a>
+                                </li>
+                                <li>
+                                    <a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="GeoData Import">GeoData Import</span></a>
+                                </li>
+                                <li>
+                                    <a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Product Import">Product Import</span></a>
+                                </li>
+                                <li>
+                                    <a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Product Bundle Import">Product Bundle Import</span></a>
+                                </li>
+                                <li>
+                                    <a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Product Attributes">Product Attributes</span></a>
+                                </li>
+                            </ul>   
+                        </li>
+                        <li><a class="d-flex align-items-cente" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Goods Receipt">Goods Receipt</span></a>
+                            <ul class="menu-content">
+                                <li>
+                                    <a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Goods Receipt List">Goods Receipt List</span></a>
+                                </li>
+                                <li>
+                                    <a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Goods Receipt Import">Goods Receipt Import</span></a>
+                                </li>
+                            </ul>   
+                        </li>
+                        <li><a class="d-flex align-items-cente" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Return Orders">Return Orders</span></a>
+                            <ul class="menu-content">
+                                <li>
+                                    <a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Return Order List">Return Order List</span></a>
+                                </li>
+                            </ul>   
+                        </li>
+                        <li>
+                            <a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Document Management">Document Management</span></a>
+                        </li>
+                    </ul>
+                </li>
+                <li class=" nav-item"><a class="d-flex align-items-center has-sub" href="#"><i data-feather="dollar-sign"></i><span class="menu-title text-truncate" data-i18n="Accounting">Accounting</span></a>
+                    <ul class="menu-content">
+                                <li>
+                                    <a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Cost Overview">Cost Overview</span></a>
+                                </li>
+                                <li>
+                                    <a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Invoices">Invoices</span></a>
+                                    <ul class="menu-content">
+                                        <li>
+                                            <a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Invoice Preview">Invoice Preview</span></a>
+                                        </li>
+                                        <li>
+                                            <a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Custom Invoice">Custom Invoice</span></a>
+                                        </li>
+                                        <li>
+                                            <a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Upload Invoice">Upload Invoice</span></a>
+                                        </li>
+                                        <li>
+                                            <a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Custom Credit">Custom Credit</span></a>
+                                        </li>
+                                        <li>
+                                            <a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Invoice List">Invoice List</span></a>
+                                        </li>
+                                        <li>
+                                            <a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Credit List">Credit List</span></a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Templates">Templates</span></a>
+                                    <ul class="menu-content">
+                                        <li>
+                                            <a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Invoice Templates">Invoice Templates</span></a>
+                                        </li>
+                                        <li>
+                                            <a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Packaging Materials">Packaging Materials</span></a>
+                                        </li>
+                                        <li>
+                                            <a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Shipping Dispatchers">Shipping Dispatchers</span></a>
+                                        </li>
+                                        <li>
+                                            <a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Shipping Dispatcher Import Prices">Shipping Dispatcher Import Prices</span></a>
+                                        </li>
+                                        <li>
+                                            <a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Import Shipping Dispatcher Prices">Import Shipping Dispatcher Prices</span></a>
+                                        </li>
+                                        <li>
+                                            <a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Performed Services">Performed Services</span></a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Receipts">Receipts</span></a>
+                                </li>
+                                <li>
+                                    <a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Aditional Customs Services">Aditional Customs Services</span></a>
+                                </li>
+                    </ul> 
+                </li>
+                <li class=" nav-item"><a class="d-flex align-items-center has-sub" href="#"><i data-feather="truck"></i><span class="menu-title text-truncate" data-i18n="Batch Management">Batch Management</span></a>
+                    <ul class="menu-content">
+                        <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Batch Inventory">Batch Inventory</span></a>
+                        </li>
+                        <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List Batch & BBD Report">List Batch & BBD Report</span></a>
+                        </li>
+                        <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="New Batch & BBD Reportt">New Batch & BBD Report</span></a>
+                        </li>
+                    </ul>
+                </li>
+                <li class=" nav-item"><a class="d-flex align-items-center has-sub" href="#"><i data-feather="file-text"></i><span class="menu-title text-truncate" data-i18n="Blog">Blog</span></a>
+                    <ul class="menu-content">
+                        <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Blog Posts">Blog Posts</span></a>
+                            <ul class="menu-content">
+                                <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Blog">Blog</span></a>
+                                </li>
+                                <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="FAQ">FAQ</span></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="New Blog Post">New Blog Post</span></a>
+                        </li>
+                    </ul>
+                </li>
+                <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="mail"></i><span class="menu-title text-truncate" data-i18n="Send Documents">Send Documents</span></a>
+                </li>
+                <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="share-2"></i><span class="menu-title text-truncate" data-i18n="Shops">Shops</span></a>
+                    <ul class="menu-content">
+                        <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="JTL Connector">JTL Connector</span></a>
+                        </li>
+                        <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Shops Configurations">Shops Configurations</span></a>
+                        </li>
+                    </ul>
+                </li>
+                <li class=" nav-item"><a class="d-flex align-items-center has-sub" href="#"><i data-feather="inbox"></i><span class="menu-title text-truncate" data-i18n="Email Marketing">Email Marketing</span></a>
+                    <ul class="menu-content">
+                        <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Send Email">Send Email</span></a>
+                        </li>
+                        <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Email Group">Email Group</span></a>
+                        </li>
+                    </ul>
+                </li>
+                <li class=" nav-item"><a class="d-flex align-items-center has-sub" href="#"><i data-feather="shuffle"></i><span class="menu-title text-truncate" data-i18n="Product Stocks Transfer">Product Stocks Transfer</span></a>
+                    <ul class="menu-content">
+                        <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="From another WEMALO">From another WEMALO</span></a>
+                        </li>
+                        <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="From CVS data">From CVS data</span></a>
+                        </li>
+                    </ul>
+                </li>
+                <li class=" nav-item"><a class="d-flex align-items-center has-sub" href="#"><i data-feather="file-text"></i><span class="menu-title text-truncate" data-i18n="Reporting Area">Reporting Area</span></a>
+                </li>
+                <li class=" nav-item"><a class="d-flex align-items-center has-sub" href="#"><i data-feather="life-buoy"></i><span class="menu-title text-truncate" data-i18n="Support">Support</span></a>
+                    <ul class="menu-content">
+                        <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Ticket List">Ticket List </span></a>
+                        </li>
+                        <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Ticket Request">Ticket Request</span></a>
+                        </li>
+                    </ul>
+                </li>
+                <li class=" nav-item"><a class="d-flex align-items-center has-sub" href="#"><i data-feather="help-circle"></i><span class="menu-title text-truncate" data-i18n="FAQ">FAQ</span></a>
+                </li>
+                <li class=" nav-item"><a class="d-flex align-items-center has-sub" href="#"><i data-feather="file-text"></i><span class="menu-title text-truncate" data-i18n="Guideline">Guideline</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- END: Main Menu-->
+
+    <!-- BEGIN: Content-->
+    <div class="app-content content ">
+        <div class="content-overlay"></div>
+        <div class="header-navbar-shadow"></div>
+        <div class="content-wrapper">
+            <div class="content-header row">
+                <div class="content-header-left col-md-9 col-12 mb-2">
+                    <div class="row breadcrumbs-top">
+                        <div class="col-12">
+                            <h2 class="content-header-title float-start mb-0">Orders Out</h2>
+                            <div class="breadcrumb-wrapper">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="#">Fulfillment</a>
+                                    </li>
+                                    <li class="breadcrumb-item"><a href="ordersAdmin.html">Orders Out List</a> 
+                                    </li>
+                                    <li class="breadcrumb-item active">Order Details</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content-body">
+                
+                <!--  orders detail contain -->
+                <div id="orderDetailsContainer">
+
+                    <!-- Charge Indicator (shown at the beginning) -->
+                    <div id="loadingIndicator" class="text-center p-5">
+                        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <h5 class="mt-2">Loading Order Details...</h5>
+                    </div>
+                
+                    <!--Error Container (initially hidden) -->
+                    <div id="errorContainer" class="d-none">
+                        <div class="alert alert-danger text-center">
+                            <h4><i data-feather="alert-triangle"></i> Oops! Something went wrong.</h4>
+                            <p id="errorMessage"></p>
+                            <a href="ordersAdmin.html" class="btn btn-primary">Back to Orders List</a>
+                        </div>
+                    </div>
+                
+                    <!--  Main Content Container (initially hidden) -->
+                    <div id="contentContainer" class="d-none">
+                        <div class="container py-4">
+                            <div class="row">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <a type="button" href="ordersAdmin.html" class="btn btn-sm btn-primary"><i data-feather="arrow-left" class="me-25"></i> to orders list</a>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <!-- left column-->
+                                <div class="col-lg-9">
+                                    <!-- Header Card -->
+                                    <div id="orderHeader" class="order-header-card">
+                                        <!-- JavaScript fill this -->
+                                    </div>
+                                    <div class="row" id="itemsParcelsRow">
+                                        <!-- ITEMS -->
+                                        <div id="itemsCol" class="col-lg-12">
+                                            <div class="card border-primary h-100">
+                                                <div class="card-header d-flex align-items-center justify-content-between border-bottom mb-50">
+                                                    <h4 class="fw-bold mb-1">Ordered articles</h4>
+                                                    <button class="btn btn-primary btn-icon round" id="editItemsButton">
+                                                        <i data-feather="edit"></i>
+                                                    </button>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="d-flex align-items-center justify-content-between mb-1">
+                                                        <span class="fw-bold">Article</span>
+                                                        <div class="text-end">
+                                                            <span class="fw-bold me-3">Qty</span>
+                                                            <span class="fw-bold">Unit Price</span>
+                                                        </div>
+                                                    </div>
+                                                    <div id="itemsEmptyState" style="display: none;">No items found.</div>
+                                                    <div id="itemsListContainer"></div>
+                                                    <div class="d-flex justify-content-end mt-1">
+                                                        <nav id="itemsPaginationNav" class="d-flex justify-content-end my-2">
+                                                            <ul class="pagination pagination-sm mb-0"></ul>
+                                                        </nav>
+                                                    </div>
+                                                    <div class="d-flex justify-content-between border-top pt-2">
+                                                        <div><strong>Total Items:</strong> <span id="itemsCount">0</span></div>
+                                                        <div><strong>Total Price:</strong> <span id="itemsTotalPrice">0.00</span> €</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+        
+                                        <!-- PARCELS -->
+                                        <div id="parcelsCol" class="col-lg-4 d-none">
+                                            <div class="card border-primary h-100">
+                                                <div class="card-header border-bottom">
+                                                    <h4 class="fw-bold mb-1">Parcels</h4>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div id="parcelsSummaryBadge" class="badge badge-light-primary border-primary mb-2">0 Parcels / 0 Items</div>
+                                                    <div id="parcelsListContainer"></div>
+                                                    <p id="parcelsEmptyState" class="text-center text-muted" style="display: none;">No parcels have been created for this order.</p>
+                                                    <nav id="parcelsPaginationNav" class="d-flex justify-content-end mt-1">
+                                                        <ul class="pagination pagination-sm mb-0"></ul>
+                                                    </nav>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col-md-6">
+                                            <div id="shopifyFulfillment" class="card h-100"></div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div id="documents" class="card h-100"></div>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div id="knownIssuesCardContainer" class="col-12"></div>
+                                    </div>
+                                </div>
+        
+                                <!-- right column -->
+                                <div class="col-lg-3">
+                                    <div id="recipientInfo" class="card mb-1"></div>
+                                    <div id="timeline" class="card mb-1"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Shopify Fulfillment Edit Modal -->
+                <div class="modal fade" id="shopifyFulfillmentModal" tabindex="-1" aria-labelledby="shopifyFulfillmentModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="shopifyFulfillmentModalLabel">Edit Shopify Fulfillment</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="shopifyFulfillmentForm">
+                        <div class="mb-1">
+                            <label for="fulfillmentOrderId" class="form-label">Fulfillment Order ID</label>
+                            <input type="text" class="form-control" id="fulfillmentOrderId" placeholder="e.g., 156">
+                        </div>
+                        <div class="mb-1">
+                            <label for="trackingNumber" class="form-label">Tracking Number</label>
+                            <input type="text" class="form-control" id="trackingNumber" placeholder="e.g., 00340433330101006947512">
+                        </div>
+                        <div class="mb-1">
+                            <label for="trackingLink" class="form-label">Tracking Link</label>
+                            <input type="url" class="form-control" id="trackingLink" placeholder="https://www.dhl.de/...">
+                        </div>
+                        <div class="mb-1">
+                            <label for="carrier" class="form-label">Carrier</label>
+                            <input type="text" class="form-control" id="carrier" placeholder="e.g., DHL">
+                        </div>
+                        <div class="form-check form-switch mt-2">
+                            <input class="form-check-input" type="checkbox" id="notifyCustomerSwitch">
+                            <label class="form-check-label" for="notifyCustomerSwitch">Notify Customer</label>
+                        </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary" id="submitFulfillmentButton">Submit Fulfillment</button>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                <!--END Shopify Fulfillment Edit Modal -->
+                <!-- Delete Document Confirmation Modal -->
+                    <div class="modal fade" id="deleteDocConfirmModal" tabindex="-1" aria-labelledby="deleteDocConfirmModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="deleteDocConfirmModalLabel">Confirm Deletion</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Are you sure you want to delete this document? This action cannot be undone.
+                                <p class="text-danger fw-bold mt-1" id="docNameToDelete"></p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                <button type="button" class="btn btn-danger" id="confirmDeleteButton">Yes, Delete</button>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                <!--End Delete Document Confirmation Modal-->
+                <!-- Modal Edit recipient data-->
+                <div class="modal fade" id="editRecipientModal" tabindex="-1" aria-labelledby="editRecipientModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-lg">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editRecipientModalLabel">Edit Recipient Address</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="recipientAddressForm">
+                        <div class="row">
+                            <div class="col-md-6 mb-1">
+                            <label for="recipientName1" class="form-label">Name1</label>
+                            <input type="text" class="form-control" id="recipientName1" placeholder="Moritz">
+                            </div>
+                            <div class="col-md-6 mb-1">
+                            <label for="recipientName2" class="form-label">Name2</label>
+                            <input type="text" class="form-control" id="recipientName2" placeholder="Hunger">
+                            </div>
+                            <div class="col-12 mb-1">
+                            <label for="recipientName3" class="form-label">Name3</label>
+                            <input type="text" class="form-control" id="recipientName3">
+                            </div>
+                            <div class="col-md-8 mb-1">
+                            <label for="recipientStreet" class="form-label">Street</label>
+                            <input type="text" class="form-control" id="recipientStreet" placeholder="Högerdamm">
+                            </div>
+                            <div class="col-md-4 mb-1">
+                            <label for="recipientHouseNumber" class="form-label">House Number</label>
+                            <input type="text" class="form-control" id="recipientHouseNumber" placeholder="41">
+                            </div>
+                            <div class="col-md-4 mb-1">
+                            <label for="recipientPostalCode" class="form-label">Postal Code</label>
+                            <input type="text" class="form-control" id="recipientPostalCode" placeholder="20097">
+                            </div>
+                            <div class="col-md-4 mb-1">
+                            <label for="recipientCity" class="form-label">City</label>
+                            <input type="text" class="form-control" id="recipientCity" placeholder="Hamburg">
+                            </div>
+                            <div class="col-md-4 mb-1">
+                            <label for="recipientCountry" class="form-label">Country</label>
+                            <input type="text" class="form-control" id="recipientCountry" placeholder="Germany">
+                            </div>
+                            <div class="col-md-6 mb-1">
+                            <label for="recipientEmail" class="form-label">Email Address</label>
+                            <input type="email" class="form-control" id="recipientEmail" placeholder="email@example.com">
+                            </div>
+                            <div class="col-md-6 mb-1">
+                            <label for="recipientPhone" class="form-label">Phone Number</label>
+                            <input type="tel" class="form-control" id="recipientPhone">
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary" id="saveRecipientButton">Save Changes</button>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                <!--END edit recipient data -->
+
+                <!-- Modal Edit no allowed -->
+                <div class="modal fade" id="editNotAllowedModal" tabindex="-1" aria-labelledby="editNotAllowedModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                        <div class="modal-body text-center p-4">
+                            <h2 class="mb-2">We are sorry!</h2>
+                            <p class="lead">You are not able to edit this address any more. Please contact our support team.</p>
+                            <button type="button" class="btn btn-primary mt-2" data-bs-dismiss="modal">OK</button>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <!--END edit not allowed -->
+
+                <!-- Add, Edit or Remove positions Modal -->
+                <div class="modal fade" id="editItemsModal" tabindex="-1" aria-labelledby="editItemsModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-xl">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="editItemsModalLabel">Add, Edit or Remove positions</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <!-- Alertas Informativas -->
+                                <div class="alert alert-primary p-1" role="alert">
+                                    <i data-feather="info" class="me-1"></i>
+                                    Here you can add, edit or remove positions of your order.
+                                </div>
+                                <div class="alert alert-warning p-1" role="alert">
+                                    <i data-feather="alert-triangle" class="me-1"></i>
+                                    You need to make sure to select the correct identifier if you are adding, or editing an existing position.
+                                </div>
+
+                                <!-- Section for Adding a New Product-->
+                                <div class="add-item-section border rounded p-2 mb-3">
+                                    <div class="row g-1 align-items-center">
+                                        <div class="col-md-5">
+                                            <label for="productSearchInput" class="form-label">Search for a product *</label>
+                                            <div class="position-relative">
+                                                <input type="text" id="productSearchInput" class="form-control" placeholder="Please enter 3 or more characters">
+                                                <div id="productSuggestions" class="list-group position-absolute w-100" style="z-index: 1056;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label for="productPriceInput" class="form-label">Price per article</label>
+                                            <input type="number" id="productPriceInput" class="form-control" placeholder="0.00">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label for="productQuantityInput" class="form-label">Number of articles</label>
+                                            <input type="number" id="productQuantityInput" class="form-control" value="1">
+                                        </div>
+                                        <div class="col-md-3 d-flex align-items-end">
+                                            <button type="button" id="addNewItemBtn" class="btn btn-primary w-100">Add</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Table of Items in the Order -->
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Product</th>
+                                                <th style="width: 100px;">Quantity</th>
+                                                <th style="width: 120px;">Unit Price</th>
+                                                <th style="width: 120px;">Position Price</th>
+                                                <th style="width: 150px;">Serial Number</th>
+                                                <th style="width: 50px;"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="editableItemsTbody">
+                                            <!-- The rows of items will be inserted here dynamically. -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                                
+                                <hr>
+
+                                <!--Totals Section  -->
+                                <div class="row justify-content-end text-end">
+                                    <div class="col-md-5">
+                                        <div class="d-flex justify-content-between mb-1">
+                                            <span class="fw-bold">Total Positions Price:</span>
+                                            <span id="totalPositionsPrice">0.00 €</span>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center mb-1">
+                                            <span class="fw-bold">Additional Fee (Shipping Fee, Discount):</span>
+                                            <div class="input-group" style="width: 120px;">
+                                                <input type="number" id="additionalFeeInput" class="form-control form-control-sm" value="0.00">
+                                                <span class="input-group-text">€</span>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="d-flex justify-content-between fw-bold fs-5">
+                                            <span>Total Invoice:</span>
+                                            <span id="totalInvoicePrice">0.00 €</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary" id="saveItemsButton">Save changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--END Add, Edit or Remove positions Modal -->
+
+                <!-- Modal "Edit Items order not allowed" -->
+                <div class="modal fade" id="editItemsNotAllowedModal" tabindex="-1" aria-labelledby="editItemsNotAllowedModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                        <div class="modal-body text-center p-4">
+                            <h2 class="mb-2">Editing Not Allowed</h2>
+                            <p class="lead">The items in this order can no longer be modified because it is already being processed.</p>
+                            <button type="button" class="btn btn-primary mt-2" data-bs-dismiss="modal">OK</button>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <!--END Modal "Edit Items order not allowed" -->
+                        <!-- =================================================================
+                            CONFIRMATION NEW DESIGN MODAL-
+                            ================================================================= -->
+                        <div class="modal fade" id="newDesignConfirmModal" tabindex="-1" aria-labelledby="newDesignConfirmModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="newDesignConfirmModalLabel">Switch to the New Design</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>The view will be switched to the new version. You can switch back to the current view at any time.</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+                                <button type="button" class="btn btn-primary" id="confirm-new-design-btn">Switch to New Design</button>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                    <!-- ED CONFIRMATION NEW DESIGN MODAL-->
+            </div>
+        </div>
+    </div>
+    <!-- END: Content-->
+
+    <div class="sidenav-overlay"></div>
+    <div class="drag-target"></div>
+
+    <!-- BEGIN: Footer-->
+    <button class="btn btn-primary btn-icon scroll-top" type="button"><i data-feather="arrow-up"></i></button>
+    <!-- END: Footer-->
+
+    <!-- BEGIN: Vendor JS-->
+    <script src="../../../app-assets/vendors/js/vendors.min.js"></script>
+    <!-- BEGIN Vendor JS-->
+
+    <!-- BEGIN: Page Vendor JS-->
+    <!-- END: Page Vendor JS-->
+
+    <!-- BEGIN: Theme JS-->
+    <script src="../../../app-assets/js/core/app-menu.min.js"></script>
+    <script src="../../../app-assets/js/core/app.min.js"></script>
+    <script src="../../../app-assets/js/scripts/customizer.min.js"></script>
+    <!-- END: Theme JS-->
+
+    <!-- BEGIN: Page JS-->
+    <script src="../../../app-assets/js/scripts/tables/orders-details.js"></script>
+        <script src="../../../app-assets/js/scripts/products/feedback-fab.js"></script>
+
+    <!-- END: Page JS-->
+
+    <script>
+        $(window).on('load', function() {
+            if (feather) {
+                feather.replace({
+                    width: 14,
+                    height: 14
+                });
+            }
+        })
+    </script>
+</body>
+<!-- END: Body-->
+
+</html> 

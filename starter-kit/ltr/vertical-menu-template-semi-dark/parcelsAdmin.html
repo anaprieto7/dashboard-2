@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html class="loading semi-dark-layout" lang="en" data-layout="semi-dark-layout" data-textdirection="ltr">
+<!-- BEGIN: Head--> 
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,minimal-ui">
+    <title>Parcels -  Wemalo Action Board</title>
+    <link rel="apple-touch-icon" href="../../../app-assets/images/ico/apple-icon-120.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../app-assets/images/ico/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet">
+
+    <!-- BEGIN: Vendor CSS-->
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/vendors.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/vendors.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/tables/datatable/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/tables/datatable/responsive.bootstrap5.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/tables/datatable/buttons.bootstrap5.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/tables/datatable/rowGroup.bootstrap5.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/pickers/flatpickr/flatpickr.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/forms/select/select2.min.css">
+    <!-- END: Vendor CSS-->
+
+    <!-- BEGIN: Theme CSS-->
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/bootstrap-extended.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/colors.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/components.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/themes/semi-dark-layout.css">
+
+    <!-- BEGIN: Page CSS-->
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/core/menu/menu-types/vertical-menu.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/themes/semi-dark-layout.css">
+    <!-- END: Page CSS-->
+
+    <!-- BEGIN: Custom CSS-->
+    <link rel="stylesheet" type="text/css" href="../../../../assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    
+
+    <!-- END: Custom CSS-->
+
+</head>
+<!-- END: Head-->
+
+<!-- BEGIN: Body-->
+
+<body class="vertical-layout vertical-menu-modern  navbar-floating footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col="">
+
+    <!-- BEGIN: Header-->
+    <nav class="header-navbar navbar navbar-expand-lg align-items-center floating-nav navbar-light navbar-shadow">
+        <div class="navbar-container d-flex content">
+            <div class="bookmark-wrapper d-flex align-items-center">
+                <ul class="nav navbar-nav d-xl-none">
+                    <li class="nav-item"><a class="nav-link menu-toggle" href="#"><i class="ficon" data-feather="menu"></i></a></li>
+                </ul>
+            </div>
+                       <!-- ▼▼▼ NEW DESIGN TOGGLE ▼▼▼ -->
+            <div class="bookmark-wrapper d-flex align-items-center">
+                <ul class="nav navbar-nav align-items-center">
+                    <li class="nav-item d-flex align-items-center">
+                        <div class="d-flex align-items-end me-2">
+                            <span class="badge bg-info me-1">BETA</span>
+                            <span class="toggle-label user-name">Activate New Design</span>
+                        </div>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="new-design-switch-nav">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+                
+                <!-- ▲▲▲ END NEW DESIGN TOGGLE▲▲ -->
+            <ul class="nav navbar-nav align-items-center ms-auto">
+                <li class="nav-item dropdown dropdown-user"><a class="nav-link dropdown-toggle dropdown-user-link" id="dropdown-user" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <div class="user-nav d-sm-flex d-none"><span class="user-name fw-bolder">John Doe</span><span class="user-status">Admin</span></div><span class="avatar"><img class="round" src="../../../app-assets/images/portrait/small/avatar-s-11.jpg" alt="avatar" height="40" width="40"><span class="avatar-status-online"></span></span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-user"><a class="dropdown-item" href="#"><i class="me-50" data-feather="user"></i> Profile</a><a class="dropdown-item" href="#"><i class="me-50" data-feather="help-circle"></i> FAQ</a><a class="dropdown-item" href="#"><i class="me-50" data-feather="power"></i> Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- END: Header-->
+
+
+    <!-- BEGIN: Main Menu-->
+    <div class="main-menu menu-fixed menu-dark menu-accordion menu-shadow" data-scroll-to-active="true">
+        <div class="navbar-header" style=" background-image: url('../../../../app-assets/images/logo/logo.svg'); background-size: cover; align-content: center; width: 300px; height: 80px; margin-left: 8px; margin-top: 8px;">
+        </div>
+        <div class="shadow-bottom"></div>
+        <div class="main-menu-content">
+            <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+                <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="pie-chart"></i><span class="menu-title text-truncate" data-i18n="Dashboard">Dashboard</span></a>
+                </li>
+                <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="users"></i><span class="menu-title text-truncate" data-i18n="Management">Management</span><span class="badge badge-light-danger rounded-pill ms-auto me-1">2</span></a>
+                    <ul class="menu-content">
+                        <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Warehouse">Warehouse</span></a>
+                        </li>
+                        <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Clients">Clients</span></a>
+                        </li>
+                        <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Aministrators">Administrators</span></a>
+                        </li>
+                    </ul>
+                </li>
+                <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="eye"></i><span class="menu-title text-truncate" data-i18n="Monitoring">Monitoring</span></a>
+                    <ul class="menu-content">
+                        <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Item Failed">Item Failed</span></a>
+                        </li>
+                    </ul>
+                </li>
+                <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="settings"></i><span class="menu-title text-truncate" data-i18n="Settings">Settings</span></a>
+                    <ul class="menu-content">
+                        <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Aplication Configuratiod">Aplication Configuration</span></a></li>
+                        <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Role Management">Role Management</span></a></li>
+                        <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Wemalo Instances">Wemalo Instances</span></a></li>
+                        <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Bookmark Infod">Bookmark Info</span></a></li>
+                        <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Email Template">Email Template</span></a></li>
+                        <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Planio Instances">Planio Instances</span></a></li>
+                        <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Translation Configurator">Translation Configurator</span></a></li>
+                        <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Groups">Groups</span></a></li>
+                        <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Import Templates">Import Templates</span></a></li>
+                        <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Bill Position">Bill Position</span></a></li>
+                    </ul>
+                </li>
+                <li class=" active nav-item"><a class="d-flex align-items-center has-sub" href="#"><i data-feather="shopping-bag"></i><span class="menu-title text-truncate" data-i18n="Settings">Fulfillment</span></a>
+                    <ul class="menu-content">
+                        <li class="active"><a class="d-flex align-items-cente" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Orders">Orders</span></a>
+                            <ul class="menu-content">
+                                <li >
+                                    <a class="d-flex align-items-center" href="../../../starter-kit/ltr/vertical-menu-template-semi-dark/ordersAdmin.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Orders">Orders</span></a>
+                                </li>
+                                <li class="active">
+                                    <a class="d-flex align-items-center" href="../../../starter-kit/ltr/vertical-menu-template-semi-dark/ordersAdmin.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Parcels">Parcels</span></a>
+                                </li>
+                                <li>
+                                    <a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Goods Orders Import">Goods Orders Import</span></a>
+                                </li>
+                            </ul>   
+                        </li>
+                        <li><a class="d-flex align-items-cente" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Products">Products</span></a>
+                            <ul class="menu-content">
+                                <li>
+                                    <a class="d-flex align-items-center" href="../../../starter-kit/ltr/vertical-menu-template-semi-dark/products/products-list-Admin.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Product List">Product List</span></a>
+                                </li>
+                                <li>
+                                    <a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Inventory List">Inventory list</span></a>
+                                </li>
+                                <li>
+                                    <a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="GeoData Import">GeoData Import</span></a>
+                                </li>
+                                <li>
+                                    <a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Product Import">Product Import</span></a>
+                                </li>
+                                <li>
+                                    <a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Product Bundle Import">Product Bundle Import</span></a>
+                                </li>
+                                <li>
+                                    <a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Product Attributes">Product Attributes</span></a>
+                                </li>
+                            </ul>   
+                        </li>
+                        <li><a class="d-flex align-items-cente" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Goods Receipt">Goods Receipt</span></a>
+                            <ul class="menu-content">
+                                <li>
+                                    <a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Goods Receipt List">Goods Receipt List</span></a>
+                                </li>
+                                <li>
+                                    <a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Goods Receipt Import">Goods Receipt Import</span></a>
+                                </li>
+                            </ul>   
+                        </li>
+                        <li><a class="d-flex align-items-cente" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Return Orders">Return Orders</span></a>
+                            <ul class="menu-content">
+                                <li>
+                                    <a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Return Order List">Return Order List</span></a>
+                                </li>
+                            </ul>   
+                        </li>
+                        <li>
+                            <a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Document Management">Document Management</span></a>
+                        </li>
+                    </ul>
+                </li>
+                <li class=" nav-item"><a class="d-flex align-items-center has-sub" href="#"><i data-feather="dollar-sign"></i><span class="menu-title text-truncate" data-i18n="Accounting">Accounting</span></a>
+                    <ul class="menu-content">
+                                <li>
+                                    <a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Cost Overview">Cost Overview</span></a>
+                                </li>
+                                <li>
+                                    <a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Invoices">Invoices</span></a>
+                                    <ul class="menu-content">
+                                        <li>
+                                            <a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Invoice Preview">Invoice Preview</span></a>
+                                        </li>
+                                        <li>
+                                            <a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Custom Invoice">Custom Invoice</span></a>
+                                        </li>
+                                        <li>
+                                            <a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Upload Invoice">Upload Invoice</span></a>
+                                        </li>
+                                        <li>
+                                            <a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Custom Credit">Custom Credit</span></a>
+                                        </li>
+                                        <li>
+                                            <a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Invoice List">Invoice List</span></a>
+                                        </li>
+                                        <li>
+                                            <a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Credit List">Credit List</span></a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Templates">Templates</span></a>
+                                    <ul class="menu-content">
+                                        <li>
+                                            <a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Invoice Templates">Invoice Templates</span></a>
+                                        </li>
+                                        <li>
+                                            <a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Packaging Materials">Packaging Materials</span></a>
+                                        </li>
+                                        <li>
+                                            <a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Shipping Dispatchers">Shipping Dispatchers</span></a>
+                                        </li>
+                                        <li>
+                                            <a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Shipping Dispatcher Import Prices">Shipping Dispatcher Import Prices</span></a>
+                                        </li>
+                                        <li>
+                                            <a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Import Shipping Dispatcher Prices">Import Shipping Dispatcher Prices</span></a>
+                                        </li>
+                                        <li>
+                                            <a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Performed Services">Performed Services</span></a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Receipts">Receipts</span></a>
+                                </li>
+                                <li>
+                                    <a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Aditional Customs Services">Aditional Customs Services</span></a>
+                                </li>
+                    </ul> 
+                </li>
+                <li class=" nav-item"><a class="d-flex align-items-center has-sub" href="#"><i data-feather="truck"></i><span class="menu-title text-truncate" data-i18n="Batch Management">Batch Management</span></a>
+                    <ul class="menu-content">
+                        <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Batch Inventory">Batch Inventory</span></a>
+                        </li>
+                        <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List Batch & BBD Report">List Batch & BBD Report</span></a>
+                        </li>
+                        <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="New Batch & BBD Reportt">New Batch & BBD Report</span></a>
+                        </li>
+                    </ul>
+                </li>
+                <li class=" nav-item"><a class="d-flex align-items-center has-sub" href="#"><i data-feather="file-text"></i><span class="menu-title text-truncate" data-i18n="Blog">Blog</span></a>
+                    <ul class="menu-content">
+                        <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Blog Posts">Blog Posts</span></a>
+                            <ul class="menu-content">
+                                <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Blog">Blog</span></a>
+                                </li>
+                                <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="FAQ">FAQ</span></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="New Blog Post">New Blog Post</span></a>
+                        </li>
+                    </ul>
+                </li>
+                <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="mail"></i><span class="menu-title text-truncate" data-i18n="Send Documents">Send Documents</span></a>
+                </li>
+                <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="share-2"></i><span class="menu-title text-truncate" data-i18n="Shops">Shops</span></a>
+                    <ul class="menu-content">
+                        <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="JTL Connector">JTL Connector</span></a>
+                        </li>
+                        <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Shops Configurations">Shops Configurations</span></a>
+                        </li>
+                    </ul>
+                </li>
+                <li class=" nav-item"><a class="d-flex align-items-center has-sub" href="#"><i data-feather="inbox"></i><span class="menu-title text-truncate" data-i18n="Email Marketing">Email Marketing</span></a>
+                    <ul class="menu-content">
+                        <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Send Email">Send Email</span></a>
+                        </li>
+                        <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Email Group">Email Group</span></a>
+                        </li>
+                    </ul>
+                </li>
+                <li class=" nav-item"><a class="d-flex align-items-center has-sub" href="#"><i data-feather="shuffle"></i><span class="menu-title text-truncate" data-i18n="Product Stocks Transfer">Product Stocks Transfer</span></a>
+                    <ul class="menu-content">
+                        <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="From another WEMALO">From another WEMALO</span></a>
+                        </li>
+                        <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="From CVS data">From CVS data</span></a>
+                        </li>
+                    </ul>
+                </li>
+                <li class=" nav-item"><a class="d-flex align-items-center has-sub" href="#"><i data-feather="file-text"></i><span class="menu-title text-truncate" data-i18n="Reporting Area">Reporting Area</span></a>
+                </li>
+                <li class=" nav-item"><a class="d-flex align-items-center has-sub" href="#"><i data-feather="life-buoy"></i><span class="menu-title text-truncate" data-i18n="Support">Support</span></a>
+                    <ul class="menu-content">
+                        <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Ticket List">Ticket List </span></a>
+                        </li>
+                        <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Ticket Request">Ticket Request</span></a>
+                        </li>
+                    </ul>
+                </li>
+                <li class=" nav-item"><a class="d-flex align-items-center has-sub" href="#"><i data-feather="help-circle"></i><span class="menu-title text-truncate" data-i18n="FAQ">FAQ</span></a>
+                </li>
+                <li class=" nav-item"><a class="d-flex align-items-center has-sub" href="#"><i data-feather="file-text"></i><span class="menu-title text-truncate" data-i18n="Guideline">Guideline</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- END: Main Menu-->
+
+    <!-- BEGIN: Content-->
+    <div class="app-content content ">
+        <div class="content-overlay"></div>
+        <div class="header-navbar-shadow"></div>
+        <div class="content-wrapper">
+            <div class="content-header row">
+                <div class="content-header-left col-md-9 col-12 mb-2">
+                    <div class="row breadcrumbs-top">
+                        <div class="col-12">
+                            <h2 class="content-header-title float-start mb-0">Parcels</h2>
+                            <div class="breadcrumb-wrapper">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="#">Fulfillment</a>
+                                    </li>
+                                    <li class="breadcrumb-item active">Parcel List
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content-body">
+                <!-- filters-->
+                <div class="row">  
+                    <div class="col-12 mb-50">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Parcels</h4>
+                                <p class="card-text">This page allows you to manage Parcels You can view, filter, and search for parcels. Additionally, you can perform actions such as editing or cancelling orders.</p>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label for="search-order">Search Order</label>
+                                            <input type="text" id="search-input" class="form-control" placeholder="Search by Order Number or Customer Name" />
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label for="date-range">Date Range</label>
+                                            <input type="text" id="date-range" class="form-control" placeholder="Select date range" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="dt-date">
+                                            <label for="filter-status">Filter by Status</label>
+                                            <select id="status-filter" class="form-select select2" multiple ></select>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label for="customer-filter">Customer</label>
+                                            <select id="customer-filter" multiple class="form-select select2"></select>
+                                        </div>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="form-group">
+                                            <label for="storage-filter">Warehouse</label>
+                                            <select id="storage-filter" multiple class="form-select select2"></select>
+                                        </div>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="form-group">
+                                            <label for="dispatcher-filter">Dispatchers</label>
+                                            <select id="dispatcher-filter" multiple class="form-select select2"></select>
+                                        </div>
+                                    </div>    
+                                </div>
+                            </div>  
+                        </div>
+                    </div>
+                </div>
+                <!-- end filters-->
+                <!-- filters badges-->
+                 <div class="row">
+                    <div class="col-12 mb-50">
+                        <div id="active-filters" class="d-flex flex-wrap"></div> 
+                    </div>
+                    <div class="d-flex align-items-center gap-2 flex-wrap">
+                        <div id="active-filters" class="d-flex flex-wrap gap-1"></div>
+                    </div>
+                </div>
+                <!-- end filters badges-->
+                <div class="row">
+                    <!-- Basic table --> 
+                    <div class="col-12">
+                        <div class="card">
+                            <table class="datatables-basic table" id="parcels-table">
+                            <thead>
+                                <tr>
+                                </tr>
+                            </thead>
+                            </table>
+                        </div>
+                        </div>
+                    <!--/ Basic table -->
+                </div>
+                <!-- Parcel Details Modal -->
+                <div class="modal fade" id="parcelDetailModal" tabindex="-1" aria-labelledby="parcelDetailModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg">
+                        <div class="modal-content">
+                        <div class="modal-header bg-light">
+                            <h5 class="modal-title" id="parcelDetailModalLabel">
+                            <i data-feather="package" class="me-1"></i>
+                            <span>Parcel Details</span>
+                            </h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            
+                            <!-- Main Information Section -->
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <div class="d-flex mb-1">
+                                        <i data-feather="hash" class="me-25 text-primary"></i>
+                                        <span class="fw-bold">Order Number:</span>
+                                        <p class="ms-25" id="modalParcelOrderNumber">—</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="d-flex mb-1">
+                                    <i data-feather="user" class="me-25 text-primary"></i>
+                                    <span class="fw-bold">Customer:</span>
+                                    <p class="ms-25" id="modalParcelCustomer">—</p>
+                                    </div>                                
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="d-flex mb-1">
+                                    <i data-feather="box" class="me-25 text-primary"></i>
+                                    <span class="fw-bold">Package Type:</span>
+                                    <p class="ms-25"><span class="badge bg-secondary" id="modalParcelPackage">—</span></p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="d-flex mb-1">
+                                        <i data-feather="truck" class="me-25 text-primary"></i>
+                                        <span class="fw-bold">Tracking Number:</span>
+                                        <div class="ms-25" id="modalParcelTrackingNumberContainer">
+                                        <!--The tracking number link will be inserted here.-->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="d-flex mb-1">
+                                        <i data-feather="download" class="me-25 text-primary"></i>
+                                        <span class="fw-bold">Total Weight:</span>
+                                        <p class="ms-25" id="modalParcelWeight">— Kg</p>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <hr>
+                            <!-- Items Section -->
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <h6 class="mb-0">Items in this Parcel</h6>
+                                <span class="badge bg-primary rounded-pill" id="modalParcelItemCount">0</span>
+                            </div>
+                            
+                            <div id="modalParcelItemsList" class="list-group list-group-flush">
+                            <!-- The items will be inserted here dynamically. -->
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                <!--end Modal modal details -->
+                        <!-- =================================================================
+            CONFIRMATION NEW DESIGN MODAL-
+            ================================================================= -->
+        <div class="modal fade" id="newDesignConfirmModal" tabindex="-1" aria-labelledby="newDesignConfirmModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="newDesignConfirmModalLabel">Switch to the New Design</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>The view will be switched to the new version. You can switch back to the current view at any time.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" id="confirm-new-design-btn">Switch to New Design</button>
+            </div>
+            </div>
+        </div>
+        </div>
+    <!-- ED CONFIRMATION NEW DESIGN MODAL-->
+                </div>
+            </div>
+        </div>
+    <!-- END: Content-->
+
+    <div class="sidenav-overlay"></div>
+    <div class="drag-target"></div>
+
+    <!-- BEGIN: Footer-->
+    <button class="btn btn-primary btn-icon scroll-top" type="button"><i data-feather="arrow-up"></i></button>
+    <!-- END: Footer-->
+
+    <!-- BEGIN: Vendor JS-->
+    <script src="../../../app-assets/vendors/js/vendors.min.js"></script>
+    <!-- BEGIN Vendor JS-->
+
+    <!-- BEGIN: Page Vendor JS-->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <script src="../../../app-assets/vendors/js/tables/datatable/jquery.dataTables.min.js"></script>
+    <script src="../../../app-assets/vendors/js/tables/datatable/dataTables.bootstrap5.min.js"></script>
+    <script src="../../../app-assets/vendors/js/tables/datatable/dataTables.responsive.min.js"></script>
+    <script src="../../../app-assets/vendors/js/tables/datatable/responsive.bootstrap5.min.js"></script>
+    <script src="../../../app-assets/vendors/js/tables/datatable/datatables.checkboxes.min.js"></script>
+    <script src="../../../app-assets/vendors/js/tables/datatable/datatables.buttons.min.js"></script>
+    <script src="../../../app-assets/vendors/js/tables/datatable/jszip.min.js"></script>
+    <script src="../../../app-assets/vendors/js/tables/datatable/pdfmake.min.js"></script>
+    <script src="../../../app-assets/vendors/js/tables/datatable/vfs_fonts.js"></script>
+    <script src="../../../app-assets/vendors/js/tables/datatable/buttons.html5.min.js"></script>
+    <script src="../../../app-assets/vendors/js/tables/datatable/buttons.print.min.js"></script>
+    <script src="../../../app-assets/vendors/js/tables/datatable/dataTables.rowGroup.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="../../../app-assets/vendors/js/forms/select/select2.full.min.js"></script>
+     <script src="../../../app-assets/js/scripts/filters/reusable-filters.js"></script>
+    
+    <!-- END: Page Vendor JS-->
+
+    <!-- BEGIN: Theme JS-->
+    <script src="../../../app-assets/js/core/app-menu.min.js"></script>
+    <script src="../../../app-assets/js/core/app.min.js"></script>
+    <script src="../../../app-assets/js/scripts/customizer.min.js"></script>
+    <!-- END: Theme JS-->
+
+    <!-- BEGIN: Page JS-->
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <script src="../../../app-assets/js/scripts/tables/parcels.js"></script>
+        <script src="../../../app-assets/js/scripts/products/feedback-fab.js"></script>
+    <script src="../../../app-assets/js/scripts/includes/feedback-fab.js"></script>
+    
+    <script src="../../../app-assets/js/scripts/forms/form-select2.js"></script>
+    <!-- END: Page JS-->
+
+    <script>
+        $(window).on('load', function() {
+            if (feather) {
+                feather.replace({
+                    width: 14,
+                    height: 14
+                });
+            }
+        })
+    </script>
+</body>
+<!-- END: Body-->
+
+</html> 

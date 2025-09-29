@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Logistics App · Developer Documentation (Consolidated)</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Inter font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+
+  <!-- Feather Icons -->
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+
+  <style>
+    body { font-family: 'Inter', system-ui, -apple-system, Segoe UI, Inter, 'Helvetica Neue', Arial, sans-serif; }
+    .sidebar-link.active { color: #2563eb; background-color: #eff6ff; font-weight: 600; }
+    .sidebar-link.active svg { stroke: #2563eb; }
+    code { background-color: #e5e7eb; padding: .125rem .25rem; border-radius: .25rem; }
+    pre { background-color: #f3f4f6; border: 1px solid #e5e7eb; border-radius: .5rem; padding: 1rem; overflow-x: auto; font-size: .875rem; }
+    .tab-active { border-color: rgb(59 130 246); color: rgb(37 99 235); background-color: rgb(239 246 255); }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <div class="flex">
+    <!-- Sidebar -->
+    <aside class="sticky top-0 h-screen w-80 bg-white border-r border-gray-200 p-6 hidden lg:block">
+      <h2 class="text-lg font-bold text-blue-600 mb-6 flex items-center gap-2">
+        <i data-feather="book-open" class="w-5 h-5"></i>
+        Documentation
+      </h2>
+      <nav id="sidebar-nav" class="flex flex-col gap-1">
+        <a href="#overview" class="sidebar-link flex items-center gap-3 px-3 py-2 rounded-md font-medium text-gray-700 hover:bg-gray-100 transition-colors duration-200">
+          <i data-feather="compass" class="w-4 h-4 text-gray-500"></i> Overview
+        </a>
+        <a href="#modules" class="sidebar-link flex items-center gap-3 px-3 py-2 rounded-md font-medium text-gray-700 hover:bg-gray-100 transition-colors duration-200">
+          <i data-feather="grid" class="w-4 h-4 text-gray-500"></i> -> Especifications
+        </a>
+        <ul class="ml-4 flex flex-col gap-1 border-l-2 border-gray-200 pl-4">
+          <li><a href="#admin-order-list" class="sidebar-link block py-1 text-sm text-gray-600 hover:text-blue-600">Admin · Order List</a></li>
+          <li><a href="#admin-order-detail" class="sidebar-link block py-1 text-sm text-gray-600 hover:text-blue-600">Admin · Order Detail</a></li>
+          <li><a href="#admin-parcel-list" class="sidebar-link block py-1 text-sm text-gray-600 hover:text-blue-600">Admin · Parcel List</a></li>
+          <li><a href="#client-order-list" class="sidebar-link block py-1 text-sm text-gray-600 hover:text-blue-600">Client · Order List</a></li>
+          <li><a href="#client-order-detail" class="sidebar-link block py-1 text-sm text-gray-600 hover:text-blue-600">Client · Order Detail</a></li>
+          <li><a href="#client-parcel-list" class="sidebar-link block py-1 text-sm text-gray-600 hover:text-blue-600">Client · Parcel List</a></li>
+        </ul>
+      </nav>
+      <div class="mt-10">
+        <a href="../../../index.html" class="flex items-center gap-2 text-sm font-semibold text-gray-600 hover:text-blue-600">
+          <i data-feather="arrow-left" class="w-4 h-4"></i>
+          Back to Index
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="w-full p-6 md:p-10 lg:p-12">
+      <div class="max-w-6xl mx-auto">
+        <!-- Header -->
+        <header class="mb-14 text-center">
+          <div class="inline-flex items-center justify-center bg-blue-100 text-blue-600 p-4 rounded-full mb-4">
+            <i data-feather="layers" class="w-10 h-10"></i>
+          </div>
+          <h1 class="text-4xl md:text-2xl font-bold text-gray-900">Dashboard New Design · Developer Documentation</h1>
+          <p class="text-base md:text-lg text-gray-600 mt-3">Functions Especifications. <br /> The feature are the sames the only thing added are, filters, modals for details, cards with status and filters and actions button by status, </p>
+          <p class="text-xs text-gray-500 mt-2">Last Updated: August 20, 2025</p>
+        </header>
+
+        <!-- 0. Overview -->
+        <section id="overview" class="mb-12 scroll-mt-24">
+          <h2 class="text-2xl md:text-3xl font-bold mb-4 border-l-4 border-blue-500 pl-4">Overview</h2>
+          <div class="bg-white border border-gray-200 rounded-lg p-6">
+            <p>The functional logic of the application remains unchanged across Admin and Client modules. All core capabilities — order management, parcels, filters, detail modals, exports, and status-driven workflows — are preserved exactly as before.<br /> <br />
+            The only difference is the introduction of a new, more intuitive UI/UX layer that enhances the user experience without altering the underlying functionality. <br /> <br /></p>
+
+             <p> All the information displayed remains the same as before, sourced directly from WEMALO. No new data has been introduced; only its presentation has been refined.</p>
+             <ul>
+              <li>What has evolved is the <b>presentation layer (UI/UX)</b>, in order to provide a clearer and more intuitive experience:
+                <ul class="list-disc pl-6 space-y-1 space-x-1 text-gray-700 text-sm">
+                  <li><b>Action buttons:</b> Previously all buttons were always visible and disabled when not applicable. Now, only the actions relevant to the current status are displayed, reducing visual noise and guiding user attention.</li>
+                  <li><b>Filter controls:</b> Filters are now presented as cards with dynamic badges for active selections, instead of dispersed inputs. This makes filtering more transparent and manageable..</li>
+                  <li><b>Pagination:</b>Mini-pagination has been added for tables and sections with many records (items, parcels) to improve navigation without altering underlying data logic.</li>
+                  <li><b>Quick view modals:</b> New modals allow a fast preview of orders directly from the list view, without requiring full navigation. This keeps context while providing faster access to key details.</li>
+                  <li><b></b>Visual consistency:</b>Improved layouts, clearer status badges, and better grouping of actions preserve functionality while enhancing usability.</li>
+                </ul>
+              </li>
+             </ul>
+             <p><b>In summary:</b>functional specifications remain stable and data remains unchanged from WEMALO, while the user interface has been refined to make those same functions easier to discover, understand, and use.</p>
+          </div>
+        </section>
+
+        <!-- 3. Functional Modules -->
+        <section id="modules" class="mb-12 scroll-mt-24">
+          <h2 class="text-2xl md:text-3xl font-bold mb-6 border-l-4 border-blue-500 pl-4"> Functional Especifications</h2>
+
+          <!-- ========== Admin: Order List ========== -->
+          <div id="admin-order-list" class="bg-white p-6 rounded-lg border-l-4 border-blue-500 shadow-sm mb-8">
+            <h3 class="text-2xl font-semibold mb-3 flex items-center gap-2"><i data-feather="shield" class="w-6 h-6 text-blue-500"></i>Admin · Order List</h3>
+            <!-- Spec -->
+            <div class="mb-4">
+              <h4 class="text-lg font-semibold mb-2">Functional Spec</h4>
+              <ul class="list-disc pl-6 space-y-1 text-gray-700">
+                <li>Row = one order. Dashboard cards summarize statuses (Requires Action / In Progress / Completed-Cancelled).</li>
+                <li>Quick view: Clicking a row opens an Order Details modal (read-only snapshot) with items/parcels preview and status‑based action buttons inside the modal.</li>
+                <li>Filters: Search, Date Range, Status (multi), Customer (multi), Warehouse (multi).</li>
+                <li>Marketplace Alerts card appears when (Channel/Category ∈ {Amazon,Zalando,OTTO,Ebay}) ∧ (Status ∈ Alerts).</li>
+              </ul>
+            </div>
+            <div class="mt-3">
+              <h4 class="font-semibold mb-1">Files</h4>
+              <ul class="list-disc pl-6 space-y-1 text-gray-700">
+                <li>HTML: ordersAdmin.html.</li>
+                <li>JS: orders-list.js</li>
+              </ul>
+            </div>
+            <div class="mb-4">
+              <h4 class="text-lg font-semibold mb-2">Key Interactions</h4>
+              <h5 class="text-md-center font-semibold mb-1">Filtering & Search </h5>
+              <ul class="list-disc pl-6 space-y-1 text-gray-700">
+                <li>Free‑text Search: filters by any column; updates table instantly.</li>
+                <li>Date Range: Flatpickr in range mode; custom DataTables search narrows by opened_at.</li>
+                <li>Multi‑select filters via Select2: <br />
+                    <ul class="list-disc pl-6 text-gray-700 text-sm">
+                      <li>status: (multi-select, all statuses available).</li>
+                      <li>customer: (multi-select, all customers available)</li>
+                      <li>warehouse: (multi-select, all warehouses available)</li>
+                    </ul>
+                </li>
+                <li>Active filters badges<br />
+                    <ul class="list-disc pl-6 text-gray-700 text-sm">
+                      <li>Update badges on each filter change.</li>
+                      <li>Show Search, Date, Status, Customer, Warehouse, Dispatcher.</li>
+                      <li>Each badge is removable; removing updates filters and redraws</li>
+                      <li>“Clear All” button appears when any filter is active. when clic remove all filters applied</li>
+                    </ul>
+                </li>
+              </ul>
+              <h5 class="text-md-center font-semibold mb-1 mt-3">Summary Cards & Drill‑down </h5>
+              <ul class="list-disc pl-6 space-y-1 text-gray-700">
+                <li>Marketplace Alerts: cards per marketplace show the count of orders where: <br />
+                    <ul class="list-disc pl-6 text-gray-700 text-sm">
+                      <li>Channel/category ∈ {Amazon, Zalando, OTTO, eBay or any Marketplace}</li>
+                      <li>AND Status is any of the “Alerts” group ( Faulty, Incorrect Address, Not in Stock, On Hold, Blocked Packet, Missing Invoice, Delivery date not reached, Incorrect Country).</li>
+                      <li>Clicking a marketplace card toggles a filter for that marketplace + alerts.</li>
+                    </ul>
+                </li>
+                <li>Orders Summary:<br />
+                    <ul class="list-disc pl-6 text-gray-700 text-sm">
+                      <li>Groups: Requires Action(alert group status), In Progress (status: Open, In Progress, In Picking, Ready for Packing, Packet), Completed/Cancelled (status: Shipped, Cancelled).</li>
+                      <li>Clicking a group toggles filter by that group and reveals a drill‑down bar that breaks the group into individual statuses (each with a count).</li>
+                      <li>Clicking a status card inside the drill‑down filters table by that specific status.</li>
+                    </ul>
+                </li>
+              </ul>
+              <h5 class="text-md-center font-semibold mb-1 mt-3">Table UX </h5>
+              <ul class="list-disc pl-6 space-y-1 text-gray-700">
+                <li>The exporting and selecting row mantain the same functionalities</li>
+                <li>The responsive child row mantain the same function</li>
+                <li>Error/empty language:
+                    <ul class="list-disc pl-6 text-gray-700 text-sm">
+                        <li>Empty: “No orders found matching your criteria.”</li>
+                        <li>Friendly spinner on processing</li>
+                    </ul>
+                </li>
+              </ul>
+              <h5 class="text-md-center font-semibold mb-1 mt-3">Quick View Modal (row click) </h5>
+              <ul class="list-disc pl-6 space-y-1 text-gray-700">
+                <li>Opens a sidebar modal with: <br />
+                    <ul class="list-disc pl-6 text-gray-700 text-sm">
+                      <li>Header: Order #, Status badge (styled from statusMap in order-list.js), customer and meta.</li>
+                      <li>Dynamic action buttons based on order status (e.g., Cancel, Synchronize, WEMALO, dropdown “More Actions” like Upload Document, Generate Bill, Change Dispatcher). the same logic that ordersdetails</li>
+                      <li>Items: paginated (10 per page), total items and total price. more that 10 items create a second page for more items with mini-paginations</li>
+                      <li>Parcels: if present, shows “X Parcels / Y Items”, parcel list (10 per page same logic mini-paginations), weight and (if correspond) tracking info. If no parcels, the items section expands full width. </li>
+                      <li>Prev/Next in the modal to navigate within the currently filtered/sorted table result set.</li>
+                    </ul>
+                </li>
+                <li>Orders Summary:<br />
+                    <ul class="list-disc pl-6 text-gray-700 text-sm">
+                      <li>Groups: Requires Action, In Progress, Completed/Cancelled.</li>
+                      <li>Clicking a group toggles filter by that group and reveals a drill‑down bar that breaks the group into individual statuses (each with a count).</li>
+                      <li>Clicking a status card inside the drill‑down filters table by that specific status.</li>
+                    </ul>
+                </li>
+              </ul>
+              <h5 class="text-md-center font-semibold mb-1 mt-3">Performance Notes </h5>
+              <ul class="list-disc pl-6 space-y-1 text-gray-700">
+                <li>All sorting/filtering/searching is client‑side post‑load to keep UX snappy.</li>
+                <li>DOM updates for cards and badges are incremental; feather.replace() is called after dynamic renders.</li>
+                <li>Initial load fetches all orders; subsequent actions (filter, search) manipulate the existing DOM without re-fetching data.</li>
+              </ul>
+              <h5 class="text-md-center font-semibold mb-1 mt-3"> QA Checklist</h5>
+              <ul class="list-disc pl-6 space-y-1 text-gray-700">
+                <li>All cards render correctly with accurate counts.</li>
+                <li>Marketplace Alerts card appears only when conditions are met.</li>
+                <li>Filters work as expected, updating the table and cards dynamically.</li>
+                <li>Quick View modal opens on row click with correct data and actions.</li>
+                <li>Pagination works for items and parcels in the Quick View modal.</li>
+            </div>
+        </div>
+
+          <!-- ========== Admin: Order Detail ========== -->
+          <div id="admin-order-detail" class="bg-white p-6 rounded-lg border-l-4 border-blue-500 shadow-sm mb-8">
+            <h3 class="text-2xl font-semibold mb-3 flex items-center gap-2"><i data-feather="file-text" class="w-6 h-6 text-blue-500"></i>Admin · Order Detail</h3>
+            <!-- Spec -->
+            <div class="mb-4">
+              <h4 class="text-lg font-semibold mb-2">Functional Spec</h4>
+              <ul class="list-disc pl-6 space-y-1 text-gray-700">
+                <li>Header with status badge, meta (external id, warehouse, fee, tracking, priority, dispatcher, invoice, timestamps) + actions.</li>
+                <li>Items with pagination (10/pg), qty/price totals; edit modal (status ∈ [1–9]).</li>
+                <li>Parcels (if any) with pagination, “X Parcels / Y Items”, ID, weight, tracking; layout 8/4 vs 12/0 cols.</li>
+                <li>Recipient edit (status ∈ [1–9]); Timeline; Shopify Fulfillment modal; Documents (upload/delete with confirm); Known Issues.</li>
+              </ul>
+              <div class="mt-3">
+                <h5 class="font-semibold mb-1">Actions by Status (summary)</h5>
+                <ul class="list-disc pl-6 text-gray-700 text-sm">
+                  <li>Main: Cancel (0–9), Synchronize (0–16), WEMALO (0–16)</li>
+                  <li>Dropdown: Upload Doc (0–14), Split (0–9), Generate Bill (7,9,10,12), Delivery Note (7,9,10), Prioritize (2,3,7,9), Change Dispatcher (3,7,9,10,11), Request Return Label (12,15)</li>
+                </ul>
+              </div>
+              <div class="mt-3">
+                <h5 class="font-semibold mb-1">Editing Rules</h5>
+                <ul class="list-disc pl-6 text-gray-700 text-sm">
+                  <li>the same already in functions.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="mt-3">
+              <h4 class="font-semibold mb-1">Files</h4>
+              <ul class="list-disc pl-6 space-y-1 text-gray-700">
+                <li>HTML: orderDetailClient.html (layout containers for header, items, parcels, documents, recipient, timeline, Shopify; includes loading/error/content sections and the items/parcels pagination, blocks).</li>
+                <li>JS: orders-details-client.js (page bootstrapping, status → actions mapping, renderers, pagination logic, and section initializers).</li>
+              </ul>
+            </div>
+            <div class="mt-3">
+                <h5 class="text-md-center font-semibold mb-1 mt-3">What the page does</h5>
+                <ul class="list-disc pl-6 space-y-1 text-gray-700">
+                    <li>Loads the order by ?order_number= from the unified JSON dataset and renders a read‑focused detail view: header, items, parcels (if any), recipient, timeline, documents, and Shopify panel. UI state handling includes loading, error, and content.</li>
+                    <li>Status-driven actions are shown in the header via a predefined client actionConfig (different from Admin). Some actions are direct buttons; others live under a “More actions” dropdown.</li>
+                    <li>Items and Parcels are paginated 10 per page with compact, top‑right mini‑pagination (‹, page numbers, ›). Totals are shown for items; parcels show a “X Parcels / Y Items” badge.</li>
+                </ul>
+            </div>
+            <div class="mt-3">
+                <h5 class="text-md-center font-semibold mb-1 mt-3">Data & Layout specifics</h5>
+                <ul class="list-disc pl-6 space-y-1 text-gray-700">
+                    <li>Header
+                      <ul class="list-disc pl-6 text-gray-700 text-sm">
+                        <li>Header with status badge, meta (external id, warehouse, fee, tracking, priority, dispatcher, invoice, timestamps) + actions.</li>
+                        <li>Items with pagination (10/pg), qty/price totals; edit modal (status ∈ [1–9]).</li>
+                        <li>Parcels (if any) with pagination, “X Parcels / Y Items”, ID, weight, tracking; layout 8/4 vs 12/0 cols.</li>
+                        <li>Recipient edit (status ∈ [1–9]); Timeline; Shopify Fulfillment modal; Documents (upload/delete with confirm); Known Issues.</li>
+                      </ul>
+                    </li>
+                    <li>Items
+                      <ul class="list-disc pl-6 text-gray-700 text-sm">
+                        <li>List of line items with: name + SKU, serial, qty, unit price, totals (count and total €). Pagination: ITEMS_PER_PAGE = 10, builds a mini‑pagination when pages > 1.</li>
+                        <li>Totals: total items and total price (sum of all items).</li>
+                        <li>Action: Edit Item opens a modal to change status (1–9) and update item details.</li>
+                      </ul>
+                    </li>
+                    <li>Parcels:
+                      <ul class="list-disc pl-6 text-gray-700 text-sm">
+                        <li>List of parcels (if any) with: ID, weight, tracking (if present), and a “X Parcels / Y Items” badge.</li>
+                        <li>Pagination: PARCELS_PER_PAGE = 10, builds a mini‑pagination when pages > 1.</li>
+                      </ul>
+                    </li>
+                    <li>Recipient:
+                      <ul class="list-disc pl-6 text-gray-700 text-sm">
+                        <li>Editable recipient details (name, address, phone, email) with a Save button.</li>
+                        <li>Status ∈ [1–9] for editing; changes are saved via the API.</li>
+                      </ul>
+                    </li>
+                    <li>Timeline:
+                      <ul class="list-disc pl-6 text-gray-700 text-sm">
+                        <li>List of events with timestamps, status changes, and actions taken.</li>
+                        <li>Events are fetched from the API and displayed in chronological order. (as already works)</li>  
+                      </ul>
+                    </li>
+                    <li>Documents:
+                      <ul class="list-disc pl-6 text-gray-700 text-sm">
+                        <li>List of documents related to the order (e.g., invoices, delivery notes).</li>
+                        <li>Upload and delete functionality with confirmation dialogs. (as already works)</li> 
+                      </ul>
+                    </li>
+                    <li>Shopify Fulfillment:
+                      <ul class="list-disc pl-6 text-gray-700 text-sm">
+                        <li>Integration with Shopify for fulfillment management.</li>
+                        <li>Allows syncing order status with Shopify.  (as already works)</li>
+                      </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="mt-3">
+              <h5 class="text-md-center font-semibold mb-1 mt-3">QA Checklist</h5>
+              <ul class="list-disc pl-6 space-y-1 text-gray-700">
+                <li>Header: status badge, meta info, and actions render correctly.</li>
+                <li>Items: pagination works, totals are accurate, edit modal opens with correct data.</li>
+                <li>Parcels: pagination works, “X Parcels / Y Items” badge displays correctly.</li>
+                <li>Recipient: editable fields save changes via the API.</li>
+                <li>Timeline: events display in chronological order; new events appear dynamically.</li>
+                <li>Documents: upload/delete functionality works with confirmation dialogs.</li>
+                <li>Shopify Fulfillment: syncs order status with Shopify correctly.</li>
+              </ul>
+            </div>
+            <div class="mt-3">
+              <h3 class="text-lg font-semibold mb-4">Main & Dropdown Actions by Status</h3>
+              <div class="overflow-x-auto rounded-lg border border-gray-200">
+                <table class="min-w-full text-sm">
+                  <thead class="bg-gray-50 text-gray-600">
+                    <tr>
+                      <th class="text-left font-semibold px-4 py-3 w-64">Status</th>
+                      <th class="text-left font-semibold px-4 py-3">Main Actions</th>
+                      <th class="text-left font-semibold px-4 py-3">Dropdown Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-gray-200">
+                    <tr><td class="px-4 py-3 font-medium">0 Draft</td><td class="px-4 py-3">Cancel, Sync, Wemalo</td><td class="px-4 py-3">Upload Document, Split Order</td></tr>
+                    <tr><td class="px-4 py-3 font-medium">1 Faulty</td><td class="px-4 py-3">Cancel, Sync, Wemalo</td><td class="px-4 py-3">Upload Document, Split Order</td></tr>
+                    <tr><td class="px-4 py-3 font-medium">2 Incorrect Address</td><td class="px-4 py-3">Cancel, Sync, Wemalo</td><td class="px-4 py-3">Upload Document, Split Order, Prioritize</td></tr>
+                    <tr><td class="px-4 py-3 font-medium">3 Not in Stock</td><td class="px-4 py-3">Cancel, Sync, Wemalo</td><td class="px-4 py-3">Upload Document, Split Order, Prioritize, Change Dispatcher</td></tr>
+                    <tr><td class="px-4 py-3 font-medium">4 On Hold</td><td class="px-4 py-3">Cancel, Sync, Wemalo</td><td class="px-4 py-3">Upload Document</td></tr>
+                    <tr><td class="px-4 py-3 font-medium">5 Missing Invoice</td><td class="px-4 py-3">Cancel, Sync, Wemalo</td><td class="px-4 py-3">Upload Document</td></tr>
+                    <tr><td class="px-4 py-3 font-medium">6 Delivery date not reached</td><td class="px-4 py-3">Cancel, Sync, Wemalo</td><td class="px-4 py-3">Upload Document</td></tr>
+                    <tr><td class="px-4 py-3 font-medium">7 Incorrect Country</td><td class="px-4 py-3">Cancel, Sync, Wemalo</td><td class="px-4 py-3">Upload Document, Generate Bill, Generate Delivery Note, Prioritize, Change Dispatcher</td></tr>
+                    <tr><td class="px-4 py-3 font-medium">8 Known Issue</td><td class="px-4 py-3">Cancel, Sync, Wemalo</td><td class="px-4 py-3">Upload Document</td></tr>
+                    <tr><td class="px-4 py-3 font-medium">9 Open</td><td class="px-4 py-3">Cancel, Sync, Wemalo</td><td class="px-4 py-3">Upload Document, Generate Bill, Generate Delivery Note, Prioritize, Change Dispatcher, Split Order</td></tr>
+                    <tr><td class="px-4 py-3 font-medium">10 In Progress</td><td class="px-4 py-3">Sync, Wemalo</td><td class="px-4 py-3">Generate Bill, Generate Delivery Note, Change Dispatcher</td></tr>
+                    <tr><td class="px-4 py-3 font-medium">11 In Picking</td><td class="px-4 py-3">Sync, Wemalo</td><td class="px-4 py-3">Change Dispatcher</td></tr>
+                    <tr><td class="px-4 py-3 font-medium">12 Ready for Packing</td><td class="px-4 py-3">Sync, Wemalo</td><td class="px-4 py-3">Generate Bill, Request Return Label</td></tr>
+                    <tr><td class="px-4 py-3 font-medium">13 Blocked Packet</td><td class="px-4 py-3">Sync, Wemalo</td><td class="px-4 py-3">Upload Document</td></tr>
+                    <tr><td class="px-4 py-3 font-medium">14 Packet</td><td class="px-4 py-3">Sync, Wemalo</td><td class="px-4 py-3">Upload Document</td></tr>
+                    <tr><td class="px-4 py-3 font-medium">15 Shipped</td><td class="px-4 py-3">Sync, Wemalo</td><td class="px-4 py-3">Request Return Label</td></tr>
+                    <tr><td class="px-4 py-3 font-medium">16 Cancelled</td><td class="px-4 py-3">Sync, Wemalo</td><td class="px-4 py-3">–</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- ========== Admin: Parcel List ========== -->
+          <div id="admin-parcel-list" class="bg-white p-6 rounded-lg border-l-4 border-blue-500 shadow-sm mb-8">
+            <h3 class="text-2xl font-semibold mb-3 flex items-center gap-2"><i data-feather="package" class="w-6 h-6 text-blue-500"></i>Admin · Parcel List</h3>
+            <div class="mb-4">
+              <h4 class="text-lg font-semibold mb-2">Functional Spec</h4>
+              <ul class="list-disc pl-6 space-y-1 text-gray-700">
+                <li>Row = one physical package. Focus on tracking, weight, product count, related order ref.</li>
+                <li>Client-side filters (status, warehouse, date range) and quick navigation to order detail.</li>
+              </ul>
+              <div>
+                <h5 class="font-semibold mb-1">Files</h5>
+                <ul class="list-disc pl-6 space-y-1 text-gray-700">
+                  <li>HTML: parcelsAdmin.html.</li>
+                  <li>JS: parcels.js</li>
+                </ul>
+              </div>
+              <div class="mt-3">
+                <h5 class="font-semibold mb-1">Key Interactions</h5>
+                <ul class="list-disc pl-6 text-gray-700">
+                  <li>Free‑text Search: textbox labeled Search Order (applies to order number/customer).</li>
+                  <li>Date Range: Flatpickr (range mode). Compares handover_date (priority) or last_update when handover is missing.</li>
+                  <li>Multi-select filters (Select2):
+                        <ul class="list-disc pl-6 text-gray-700 text-sm">
+                            <li>Status → values limited to 14 Packet and 15 Shipped.</li>
+                            <li>Customer</li>
+                            <li>Warehouse (Storage)</li>
+                            <li>Dispatcher (Dispatcher Profile, derived from parcels).</li>
+                        </ul> 
+                    </li>
+                    <li>Active filters badges:
+                        <ul class="list-disc pl-6 text-gray-700 text-sm">
+                            <li>Update badges on each filter change.</li>
+                            <li>Show Search, Date, Status, Customer, Warehouse, Dispatcher.</li>
+                            <li>Each badge is removable; removing updates filters and redraws</li>
+                            <li>“Clear All” button appears when any filter is active. when clic remove all filter applied</li>
+                        </ul>
+                    </li>
+                </ul>
+              </div>
+              <div class="mt-3">
+                <h5 class="text-md-center font-semibold mb-1 mt-3">Table UX </h5>
+                <ul class="list-disc pl-6 space-y-1 text-gray-700">
+                  <li>The exporting and selecting row mantain the same functionalities</li>
+                  <li>The responsive child row mantain the same function</li>
+                  <li>Error/empty language:
+                      <ul class="list-disc pl-6 text-gray-700 text-sm">
+                          <li>Empty: “No orders found matching your criteria.”</li>
+                          <li>Friendly spinner on processing</li>
+                      </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="mt-3">
+                <h5 class="text-md-center font-semibold mb-1 mt-3">Parcel Details Modal </h5>
+                <ul class="list-disc pl-6 space-y-1 text-gray-700">
+                  <li>Header: “Details for Parcel in Order #XXXX”.</li>
+                  <li>Top info:<br />
+                      <ul class="list-disc pl-6 text-gray-700 text-sm">
+                        <li>Order Number, Customer.</li>
+                        <li>Package Type (badge).</li>
+                        <li>Tracking Number (if present → clickable; opens a web search for the code)</li>
+                        <li>Total Weight (Kg).</li>
+                      </ul>
+                  </li>
+                  <li>Items in Parcel:
+                    <ul class="list-disc pl-6 text-gray-700 text-sm">
+                      <li>Count badge (e.g., “3”).</li>
+                      <li>List of items (name + SKU). If none: “No item details available…”</li>
+                    </ul>
+                  </li>
+                  <li>Icons: Feather refreshed after dynamic content render.</li>
+                </ul>
+              </div>
+              <div class="mt-3">
+                <h5 class="text-md-center font-semibold mb-1 mt-3">QA Checklist </h5>
+                <ul class="list-disc pl-6 space-y-1 text-gray-700">
+                  <li>Transform:<br />
+                      <ul class="list-disc pl-6 text-gray-700 text-sm">
+                        <li>Only orders with statuses 14/15 are flattened.</li>
+                        <li>Each parcel becomes exactly one table row.</li>
+                      </ul>
+                  </li>
+                  <li>Modal:
+                    <ul class="list-disc pl-6 text-gray-700 text-sm">
+                          <li>Opens from any row’s Details action.</li>
+                          <li>Header shows the correct order number.</li>
+                          <li>Tracking shown as a link only when present.</li>
+                          <li>Items list renders from parcel.items; shows empty state if none.</li>
+                          <li>Feather icons appear correctly after content injection.</li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+              </div>
+          </div>
+
+          <!-- ========== Client: Order List ========== -->
+          <div id="client-order-list" class="bg-white p-6 rounded-lg border-l-4 border-green-500 shadow-sm mb-8">
+            <h3 class="text-2xl font-semibold mb-3 flex items-center gap-2"><i data-feather="user" class="w-6 h-6 text-green-500"></i>Client · Order List</h3>
+            <!-- Spec -->
+            <div class="mb-4">
+              <h4 class="text-lg font-semibold mb-2">Functional Spec</h4>
+              <ul class="list-disc pl-6 space-y-1 text-gray-700">
+                <li>Row = one order. Dashboard cards summarize statuses (Requires Action / In Progress / Completed-Cancelled).</li>
+                <li>Quick view: Clicking a row opens an Order Details modal (read-only snapshot) with items/parcels preview and status‑based action buttons inside the modal.</li>
+                <li>Filters: Search, Date Range, Status (multi).</li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="font-semibold mb-1">Files</h4>
+              <ul class="list-disc pl-6 space-y-1 text-gray-700">
+                <li>HTML: ordersClient.html.</li>
+                <li>JS: orders-list-client.js</li>
+              </ul>
+            </div>
+            <div class="mb-4">
+              <h4 class="text-lg font-semibold mb-2">Key Interactions</h4>
+              <h5 class="text-md-center font-semibold mb-1">Filtering & Search </h5>
+              <ul class="list-disc pl-6 space-y-1 text-gray-700">
+                <li>Free‑text Search: filters by any column; updates table instantly.</li>
+                <li>Date Range: Flatpickr in range mode; custom DataTables search narrows by opened_at.</li>
+                <li>Multi‑select filters via Select2: <br />
+                    <ul class="list-disc pl-6 text-gray-700 text-sm">
+                      <li>status: (multi-select, all statuses available).</li>
+                    </ul>
+                </li>
+                <li>Active filters badges<br />
+                    <ul class="list-disc pl-6 text-gray-700 text-sm">
+                      <li>Update badges on each filter change.</li>
+                      <li>Show Search, Date, Status, Customer, Warehouse, Dispatcher.</li>
+                      <li>Each badge is removable; removing updates filters and redraws</li>
+                      <li>“Clear All” button appears when any filter is active. when clic remove all filters applied</li>
+                    </ul>
+                </li>
+              </ul>
+              <h5 class="text-md-center font-semibold mb-1 mt-3">Summary Cards & Drill‑down </h5>
+              <ul class="list-disc pl-6 space-y-1 text-gray-700">
+                <li>Orders Summary:<br />
+                    <ul class="list-disc pl-6 text-gray-700 text-sm">
+                      <li>Groups: Requires Action(alert group status), In Progress (status: Open, In Progress, In Picking, Ready for Packing, Packet), Completed/Cancelled (status: Shipped, Cancelled).</li>
+                      <li>Clicking a group toggles filter by that group and reveals a drill‑down bar that breaks the group into individual statuses (each with a count).</li>
+                      <li>Clicking a status card inside the drill‑down filters table by that specific status.</li>
+                    </ul>
+                </li>
+              </ul>
+              <h5 class="text-md-center font-semibold mb-1 mt-3">Table UX </h5>
+              <ul class="list-disc pl-6 space-y-1 text-gray-700">
+                <li>The exporting and selecting row mantain the same functionalities</li>
+                <li>The responsive child row mantain the same function</li>
+                <li>Error/empty language:
+                    <ul class="list-disc pl-6 text-gray-700 text-sm">
+                        <li>Empty: “No orders found matching your criteria.”</li>
+                        <li>Friendly spinner on processing</li>
+                    </ul>
+                </li>
+              </ul>
+              <h5 class="text-md-center font-semibold mb-1 mt-3">Quick View Modal (row click) </h5>
+              <ul class="list-disc pl-6 space-y-1 text-gray-700">
+                <li>Opens a sidebar modal with: <br />
+                    <ul class="list-disc pl-6 text-gray-700 text-sm">
+                      <li>Header: Order #, Status badge (styled from statusMap in order-list.js), customer and meta.</li>
+                      <li>Dynamic action buttons based on order status (e.g., Cancel, Synchronize, WEMALO, dropdown “More Actions” like Upload Document, Generate Bill, Change Dispatcher). the same logic that ordersdetails</li>
+                      <li>Items: paginated (10 per page), total items and total price. more that 10 items create a second page for more items with mini-paginations</li>
+                      <li>Parcels: if present, shows “X Parcels / Y Items”, parcel list (10 per page same logic mini-paginations), weight and (if correspond) tracking info. If no parcels, the items section expands full width. </li>
+                      <li>Prev/Next in the modal to navigate within the currently filtered/sorted table result set.</li>
+                    </ul>
+                </li>
+                <li>Orders Summary:<br />
+                    <ul class="list-disc pl-6 text-gray-700 text-sm">
+                      <li>Groups: Requires Action, In Progress, Completed/Cancelled.</li>
+                      <li>Clicking a group toggles filter by that group and reveals a drill‑down bar that breaks the group into individual statuses (each with a count).</li>
+                      <li>Clicking a status card inside the drill‑down filters table by that specific status.</li>
+                    </ul>
+                </li>
+              </ul>
+              <h5 class="text-md-center font-semibold mb-1 mt-3">Performance Notes </h5>
+              <ul class="list-disc pl-6 space-y-1 text-gray-700">
+                <li>All sorting/filtering/searching is client‑side post‑load to keep UX snappy.</li>
+                <li>DOM updates for cards and badges are incremental; feather.replace() is called after dynamic renders.</li>
+                <li>Initial load fetches all orders; subsequent actions (filter, search) manipulate the existing DOM without re-fetching data.</li>
+              </ul>
+              <h5 class="text-md-center font-semibold mb-1 mt-3">QA Checklist </h5>
+              <ul class="list-disc pl-6 space-y-1 text-gray-700">
+                <li>Filters: combinations of Search + Date Range + Status work and update badges.</li>
+                <li>Summary Cards: counts match table results; toggling cards applies/removes filters; drill‑down shows correct per‑status counts.</li>
+                <li>Modal: 
+                    <ul class="list-disc pl-6 text-gray-700 text-sm">
+                      <li>Opens on row click; displays correct order details.</li>
+                      <li>Action buttons match the order status; clicking them triggers expected actions.</li>
+                      <li>Items and parcels sections paginate correctly; totals are accurate.</li>
+                      <li>Prev/Next navigation works within the modal for the current filtered set.</li>
+
+                    </ul>
+                </li>
+              </ul>
+            </div>
+        </div>
+
+          <!-- ========== Client: Order Detail ========== -->
+          <div id="client-order-detail" class="bg-white p-6 rounded-lg border-l-4 border-green-500 shadow-sm mb-8">
+            <h3 class="text-2xl font-semibold mb-3 flex items-center gap-2"><i data-feather="file-text" class="w-6 h-6 text-green-500"></i>Client · Order Detail</h3>
+            <!-- Spec -->
+            <div class="mb-4">
+              <h4 class="text-lg font-semibold mb-2">Functional Spec</h4>
+              <ul class="list-disc pl-6 space-y-1 text-gray-700">
+                <li>Header with status badge, meta (external id, warehouse, fee, tracking, priority, dispatcher, invoice, timestamps) + actions.</li>
+                <li>Items with pagination (10/pg), qty/price totals; edit modal (status ∈ [1–9]).</li>
+                <li>Parcels (if any) with pagination, “X Parcels / Y Items”, ID, weight, tracking; layout 8/4 vs 12/0 cols.</li>
+                <li>Recipient edit (status ∈ [1–9]); Timeline; Shopify Fulfillment modal; Documents (upload/delete with confirm); Known Issues.</li>
+              </ul>
+              <div class="mt-3">
+                <h5 class="font-semibold mb-1">Actions by Status (summary)</h5>
+                <ul class="list-disc pl-6 text-gray-700 text-sm">
+                  <li>Main: Cancel (0–9), Synchronize (0–16), WEMALO (0–16)</li>
+                  <li>Dropdown: Upload Doc (0–14), Split (0–9), Generate Bill (7,9,10,12), Delivery Note (7,9,10), Prioritize (2,3,7,9), Change Dispatcher (3,7,9,10,11), Request Return Label (12,15)</li>
+                </ul>
+              </div>
+              <div class="mt-3">
+                <h5 class="font-semibold mb-1">Editing Rules</h5>
+                <ul class="list-disc pl-6 text-gray-700 text-sm">
+                  <li>the same already in functions.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="mt-3">
+              <h4 class="font-semibold mb-1">Files</h4>
+              <ul class="list-disc pl-6 space-y-1 text-gray-700">
+                <li>HTML: orderDetailClient.html (layout containers for header, items, parcels, documents, recipient, timeline, Shopify; includes loading/error/content sections and the items/parcels pagination, blocks).</li>
+                <li>JS: orders-details-client.js (page bootstrapping, status → actions mapping, renderers, pagination logic, and section initializers).</li>
+              </ul>
+            </div>
+            <div class="mt-3">
+                <h5 class="text-md-center font-semibold mb-1 mt-3">What the page does</h5>
+                <ul class="list-disc pl-6 space-y-1 text-gray-700">
+                    <li>Loads the order by ?order_number= from the unified JSON dataset and renders a read‑focused detail view: header, items, parcels (if any), recipient, timeline, documents, and Shopify panel. UI state handling includes loading, error, and content.</li>
+                    <li>Status-driven actions are shown in the header via a predefined client actionConfig (different from Admin). Some actions are direct buttons; others live under a “More actions” dropdown.</li>
+                    <li>Items and Parcels are paginated 10 per page with compact, top‑right mini‑pagination (‹, page numbers, ›). Totals are shown for items; parcels show a “X Parcels / Y Items” badge.</li>
+                </ul>
+            </div>
+            <div class="mt-3">
+                <h5 class="text-md-center font-semibold mb-1 mt-3">Data & Layout specifics</h5>
+                <ul class="list-disc pl-6 space-y-1 text-gray-700">
+                    <li>Header
+                      <ul class="list-disc pl-6 text-gray-700 text-sm">
+                        <li>Header with status badge, meta (external id, warehouse, fee, tracking, priority, dispatcher, invoice, timestamps) + actions.</li>
+                        <li>Items with pagination (10/pg), qty/price totals; edit modal (status ∈ [1–9]).</li>
+                        <li>Parcels (if any) with pagination, “X Parcels / Y Items”, ID, weight, tracking; layout 8/4 vs 12/0 cols.</li>
+                        <li>Recipient edit (status ∈ [1–9]); Timeline; Shopify Fulfillment modal; Documents (upload/delete with confirm); Known Issues.</li>
+                      </ul>
+                    </li>
+                    <li>Items
+                      <ul class="list-disc pl-6 text-gray-700 text-sm">
+                        <li>List of line items with: name + SKU, serial, qty, unit price, totals (count and total €). Pagination: ITEMS_PER_PAGE = 10, builds a mini‑pagination when pages > 1.</li>
+                        <li>Totals: total items and total price (sum of all items).</li>
+                        <li>Action: Edit Item opens a modal to change status (1–9) and update item details.</li>
+                      </ul>
+                    </li>
+                    <li>Parcels:
+                      <ul class="list-disc pl-6 text-gray-700 text-sm">
+                        <li>List of parcels (if any) with: ID, weight, tracking (if present), and a “X Parcels / Y Items” badge.</li>
+                        <li>Pagination: PARCELS_PER_PAGE = 10, builds a mini‑pagination when pages > 1.</li>
+                      </ul>
+                    </li>
+                    <li>Recipient:
+                      <ul class="list-disc pl-6 text-gray-700 text-sm">
+                        <li>Editable recipient details (name, address, phone, email) with a Save button.</li>
+                        <li>Status ∈ [1–9] for editing; changes are saved via the API.</li>
+                      </ul>
+                    </li>
+                    <li>Timeline:
+                      <ul class="list-disc pl-6 text-gray-700 text-sm">
+                        <li>List of events with timestamps, status changes, and actions taken.</li>
+                        <li>Events are fetched from the API and displayed in chronological order. (as already works)</li>  
+                      </ul>
+                    </li>
+                    <li>Documents:
+                      <ul class="list-disc pl-6 text-gray-700 text-sm">
+                        <li>List of documents related to the order (e.g., invoices, delivery notes).</li>
+                        <li>Upload and delete functionality with confirmation dialogs. (as already works)</li> 
+                      </ul>
+                    </li>
+                    <li>Shopify Fulfillment:
+                      <ul class="list-disc pl-6 text-gray-700 text-sm">
+                        <li>Integration with Shopify for fulfillment management.</li>
+                        <li>Allows syncing order status with Shopify.  (as already works)</li>
+                      </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="mt-3">
+              <h5 class="text-md-center font-semibold mb-1 mt-3">QA Checklist</h5>
+              <ul class="list-disc pl-6 space-y-1 text-gray-700">
+                <li>Header: status badge, meta info, and actions render correctly.</li>
+                <li>Items: pagination works, totals are accurate, edit modal opens with correct data.</li>
+                <li>Parcels: pagination works, “X Parcels / Y Items” badge displays correctly.</li>
+                <li>Recipient: editable fields save changes via the API.</li>
+                <li>Timeline: events display in chronological order; new events appear dynamically.</li>
+                <li>Documents: upload/delete functionality works with confirmation dialogs.</li>
+                <li>Shopify Fulfillment: syncs order status with Shopify correctly.</li>
+              </ul>
+            </div>
+            <div class="mt-3">
+              <h3 class="text-lg font-semibold mb-4">Actions buttons by Status (Client)</h3>
+              <div class="overflow-x-auto rounded-lg border border-gray-200">
+                <table class="min-w-full text-sm">
+                  <thead class="bg-gray-50 text-gray-600">
+                    <tr>
+                      <th class="text-left font-semibold px-4 py-3 w-64">Status</th>
+                      <th class="text-left font-semibold px-4 py-3">Primary Buttons</th>
+                      <th class="text-left font-semibold px-4 py-3">Dropdown Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-gray-200">
+                    <tr><td class="px-4 py-3 font-medium">0 Draft</td><td class="px-4 py-3">Cancel Order</td><td class="px-4 py-3">Upload Document · Prioritize Order</td></tr>
+                    <tr><td class="px-4 py-3 font-medium">1 Faulty</td><td class="px-4 py-3">Cancel Order</td><td class="px-4 py-3">Upload Document · Prioritize Order · Change Shipping Dispatcher</td></tr>
+                    <tr><td class="px-4 py-3 font-medium">2 Incorrect Address</td><td class="px-4 py-3">Cancel Order</td><td class="px-4 py-3">Upload Document · Prioritize Order</td></tr>
+                    <tr><td class="px-4 py-3 font-medium">3 Not in Stock</td><td class="px-4 py-3">Cancel Order</td><td class="px-4 py-3">Upload Document · Change Shipping Dispatcher</td></tr>
+                    <tr><td class="px-4 py-3 font-medium">4 On Hold</td><td class="px-4 py-3">Cancel Order · Synchronize</td><td class="px-4 py-3">Upload Document · Split Order · Prioritize Order · Change Shipping Dispatcher</td></tr>
+                    <tr><td class="px-4 py-3 font-medium">5 Missing Invoice</td><td class="px-4 py-3">Cancel Order · Synchronize</td><td class="px-4 py-3">Upload Document · Split Order</td></tr>
+                    <tr><td class="px-4 py-3 font-medium">6 Delivery date not reached</td><td class="px-4 py-3">Cancel Order · Synchronize</td><td class="px-4 py-3">Upload Document · Split Order</td></tr>
+                    <tr><td class="px-4 py-3 font-medium">7 Incorrect Country</td><td class="px-4 py-3">Cancel Order · Synchronize</td><td class="px-4 py-3">Upload Document · Split Order · Prioritize Order · Change Shipping Dispatcher</td></tr>
+                    <tr><td class="px-4 py-3 font-medium">8 Known Issue</td><td class="px-4 py-3">Cancel Order · Synchronize</td><td class="px-4 py-3">Upload Document · Split Order</td></tr>
+                    <tr><td class="px-4 py-3 font-medium">9 Open</td><td class="px-4 py-3">Cancel Order · Synchronize</td><td class="px-4 py-3">Upload Document · Split Order · Prioritize Order · Change Shipping Dispatcher</td></tr>
+                    <tr><td class="px-4 py-3 font-medium">10 In Progress</td><td class="px-4 py-3">Synchronize</td><td class="px-4 py-3">Upload Document · Change Shipping Dispatcher</td></tr>
+                    <tr><td class="px-4 py-3 font-medium">11 In Picking</td><td class="px-4 py-3">Synchronize</td><td class="px-4 py-3">Upload Document · Change Shipping Dispatcher</td></tr>
+                    <tr><td class="px-4 py-3 font-medium">12 Ready for Packing</td><td class="px-4 py-3">Synchronize</td><td class="px-4 py-3">Upload Document · Change Shipping Dispatcher</td></tr>
+                    <tr><td class="px-4 py-3 font-medium">13 Blocked Packet</td><td class="px-4 py-3">Synchronize</td><td class="px-4 py-3">Upload Document · Change Shipping Dispatcher</td></tr>
+                    <tr><td class="px-4 py-3 font-medium">14 Packet</td><td class="px-4 py-3">Synchronize</td><td class="px-4 py-3">Upload Document</td></tr>
+                    <tr><td class="px-4 py-3 font-medium">15 Shipped</td><td class="px-4 py-3">Synchronize · Request Investigation</td><td class="px-4 py-3">Request Return (Register Return)</td></tr>
+                    <tr><td class="px-4 py-3 font-medium">16 Cancelled</td><td class="px-4 py-3">Synchronize</td><td class="px-4 py-3">—</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <!-- ========== Client: Parcel List ========== -->
+          <div id="client-parcel-list" class="bg-white p-6 rounded-lg border-l-4 border-green-500 shadow-sm mb-8">
+            <h3 class="text-2xl font-semibold mb-3 flex items-center gap-2"><i data-feather="package" class="w-6 h-6 text-green-500"></i>Admin · Parcel List</h3>
+            <div class="mb-4">
+              <h4 class="text-lg font-semibold mb-2">Functional Spec</h4>
+              <ul class="list-disc pl-6 space-y-1 text-gray-700">
+                <li>Row = one physical package. Focus on tracking, weight, product count, related order ref.</li>
+                <li>Client-side filters (status, warehouse, date range) and quick navigation to order detail.</li>
+              </ul>
+              <div>
+                <h5 class="font-semibold mb-1">Files</h5>
+                <ul class="list-disc pl-6 space-y-1 text-gray-700">
+                  <li>HTML: parcelsAdmin.html.</li>
+                  <li>JS: parcels.js</li>
+                </ul>
+              </div>
+              <div class="mt-3">
+                <h5 class="font-semibold mb-1">Key Interactions</h5>
+                <ul class="list-disc pl-6 text-gray-700">
+                  <li>Free‑text Search: textbox labeled Search Order (applies to order number/customer).</li>
+                  <li>Date Range: Flatpickr (range mode). Compares handover_date (priority) or last_update when handover is missing.</li>
+                  <li>Multi-select filters (Select2):
+                        <ul class="list-disc pl-6 text-gray-700 text-sm">
+                            <li>Status → values limited to 14 Packet and 15 Shipped.</li>
+                            <li>Customer</li>
+                            <li>Warehouse (Storage)</li>
+                            <li>Dispatcher (Dispatcher Profile, derived from parcels).</li>
+                        </ul> 
+                    </li>
+                    <li>Active filters badges:
+                        <ul class="list-disc pl-6 text-gray-700 text-sm">
+                            <li>Update badges on each filter change.</li>
+                            <li>Show Search, Date, Status, Customer, Warehouse, Dispatcher.</li>
+                            <li>Each badge is removable; removing updates filters and redraws</li>
+                            <li>“Clear All” button appears when any filter is active. when clic remove all filter applied</li>
+                        </ul>
+                    </li>
+                </ul>
+              </div>
+              <div class="mt-3">
+                <h5 class="text-md-center font-semibold mb-1 mt-3">Table UX </h5>
+                <ul class="list-disc pl-6 space-y-1 text-gray-700">
+                  <li>The exporting and selecting row mantain the same functionalities</li>
+                  <li>The responsive child row mantain the same function</li>
+                  <li>Error/empty language:
+                      <ul class="list-disc pl-6 text-gray-700 text-sm">
+                          <li>Empty: “No orders found matching your criteria.”</li>
+                          <li>Friendly spinner on processing</li>
+                      </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="mt-3">
+                <h5 class="text-md-center font-semibold mb-1 mt-3">Parcel Details Modal </h5>
+                <ul class="list-disc pl-6 space-y-1 text-gray-700">
+                  <li>Header: “Details for Parcel in Order #XXXX”.</li>
+                  <li>Top info:<br />
+                      <ul class="list-disc pl-6 text-gray-700 text-sm">
+                        <li>Order Number, Customer.</li>
+                        <li>Package Type (badge).</li>
+                        <li>Tracking Number (if present → clickable; opens a web search for the code)</li>
+                        <li>Total Weight (Kg).</li>
+                      </ul>
+                  </li>
+                  <li>Items in Parcel:
+                    <ul class="list-disc pl-6 text-gray-700 text-sm">
+                      <li>Count badge (e.g., “3”).</li>
+                      <li>List of items (name + SKU). If none: “No item details available…”</li>
+                    </ul>
+                  </li>
+                  <li>Icons: Feather refreshed after dynamic content render.</li>
+                </ul>
+              </div>
+              <div class="mt-3">
+                <h5 class="text-md-center font-semibold mb-1 mt-3">QA Checklist </h5>
+                <ul class="list-disc pl-6 space-y-1 text-gray-700">
+                  <li>Transform:<br />
+                      <ul class="list-disc pl-6 text-gray-700 text-sm">
+                        <li>Only orders with statuses 14/15 are flattened.</li>
+                        <li>Each parcel becomes exactly one table row.</li>
+                      </ul>
+                  </li>
+                  <li>Modal:
+                    <ul class="list-disc pl-6 text-gray-700 text-sm">
+                          <li>Opens from any row’s Details action.</li>
+                          <li>Header shows the correct order number.</li>
+                          <li>Tracking shown as a link only when present.</li>
+                          <li>Items list renders from parcel.items; shows empty state if none.</li>
+                          <li>Feather icons appear correctly after content injection.</li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+              </div>
+          </div>
+        </section>
+
+        <footer class="text-xs text-gray-500 mt-10 text-center">
+          <span class="inline-flex items-center gap-2 bg-gray-100 border border-gray-200 px-3 py-1 rounded-full">
+            <i data-feather="info" class="w-3.5 h-3.5"></i>
+            Consolidated Docs · EN
+          </span>
+        </footer>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    // Feather icons
+    feather.replace();
+
+    // Simple tabs
+    function activateTab(btn) {
+      const container = btn.closest('div');
+      const targetSel = btn.dataset.tab;
+      // toggle buttons
+      container.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('tab-active'));
+      btn.classList.add('tab-active');
+      // toggle panels
+      const parent = container.parentElement;
+      parent.querySelectorAll('.tab-panel').forEach(p => p.classList.add('hidden'));
+      const target = parent.querySelector(targetSel);
+      if (target) target.classList.remove('hidden');
+    }
+    document.addEventListener('click', (e) => {
+      if (e.target.closest('.tab-btn')) {
+        activateTab(e.target.closest('.tab-btn'));
+      }
+    });
+    // Initialize first tab for each group
+    document.querySelectorAll('.tab-btn:first-child').forEach(btn => {
+      activateTab(btn);
+    });
+
+    // Active link highlight on scroll
+    document.addEventListener('DOMContentLoaded', () => {
+      const sections = document.querySelectorAll('main section[id], #modules > div[id]');
+      const navLinks = document.querySelectorAll('#sidebar-nav a.sidebar-link');
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+            navLinks.forEach(link => {
+              link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+            });
+          }
+        });
+      }, { rootMargin: "-40% 0px -60% 0px" });
+
+      sections.forEach(section => observer.observe(section));
+    });
+  </script>
+</body>
+</html>

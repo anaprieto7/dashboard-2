@@ -1,0 +1,277 @@
+/*================================================================================
+	Item Name: Vuexy - Vuejs, HTML & Laravel Admin Dashboard Template
+	Version: 2.0
+	Author: PIXINVENT
+	Author URL: http://www.themeforest.net/user/pixinvent
+================================================================================
+
+NOTE:
+------
+PLACE HERE YOUR OWN SCSS CODES AND IF NEEDED, OVERRIDE THE STYLES FROM THE OTHER STYLESHEETS.
+WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BETTER LIKE THIS.  */
+
+/* Oculta el contenedor de botones por defecto de DataTables */
+.dt-buttons {
+    display: none;
+}
+
+
+
+.status-cards-container {
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  padding-bottom: 0.5rem;
+  margin-top: 0px;
+}
+
+.status-card {
+  min-width: 220px;
+  flex: 0 0 auto;
+
+  
+}
+
+.status-cards-container::-webkit-scrollbar {
+  height: 10px;
+}
+
+.status-cards-container::-webkit-scrollbar-thumb {
+  background-color: #dee8fa;
+  border-radius: 3px;
+}
+
+.icon-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.status-cards-container {
+  cursor: grab;
+  user-select: none;
+}
+
+.status-cards-container.dragging {
+  cursor: grabbing;
+}
+
+.priority-animate {
+  animation: pulse-glow 2.5s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(255, 193, 7, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 193, 7, 0);
+  }
+}
+
+.status-card.selected {
+  outline: 1px solid #007bff;
+  border-radius: 6px;
+}
+
+/*
+ * CORRECCIÓN FORZADA para la flecha de Select2
+ */
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 100% !important;
+    position: absolute !important;
+    top: 50% !important;
+    right: 8px !important;
+    transform: translateY(-50%) !important;
+    width: 20px !important;
+}
+
+/* Opcional: Asegura que el contenedor interno de la flecha esté centrado */
+.select2-container--default .select2-selection--single .select2-selection__arrow b {
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+}
+
+#feedback-fab {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 1050; /* Debe estar por encima de otros elementos */
+    transition: transform 0.2s ease-in-out;
+}
+
+#feedback-fab:hover {
+    transform: scale(1.1);
+}
+
+
+/* =================================================================
+   ESTILOS DEFINITIVOS PARA EL DATE RANGE PICKER
+   ================================================================= */
+
+
+
+body .daterangepicker {
+    font-family: 'Inter', sans-serif !important;
+    min-width: 560px; /* <-- ¡NUEVO! Asegura que el contenedor sea lo suficientemente ancho */
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1) !important; /* <-- ¡NUEVO! Añade una sombra moderna */
+    border: none !important;
+    border-radius: 0.5rem !important;
+}
+
+
+/* Contenedor de las pills */
+body .daterangepicker .ranges {
+    width: 100% !important;
+    padding: 1rem !important;
+    border-bottom: 1pxy  solid #ebe9f1 !important;
+    margin: 0 !important;
+    float: none !important;
+     list-style: none;        /* quita los bullets */
+  margin: 0;
+  padding: 0;
+  display: flex;           /* distribuye horizontalmente */
+  gap: 1rem;               /* espacio entre items */
+}
+
+/* ¡LA CLAVE ESTÁ AQUÍ! Forzamos el <ul> a ser un contenedor flex horizontal */
+body .daterangepicker .ranges ul {
+  width: 100% !important;
+  list-style: none;        /* quita los bullets */
+  margin: 0;
+  padding: 0;
+  display: flex;           /* distribuye horizontalmente */
+  gap: 0.5rem; 
+}
+
+/* Estilo de cada pill <li> */
+body .daterangepicker .ranges li {
+  display: inline-block !important;
+    margin: 0 !important;
+    padding: 0.5rem 1rem !important;
+    border-radius: 0.357rem !important;
+    cursor: pointer;
+    background-color: #f3f2f7 !important;
+    border: 1px solid transparent !important;
+    font-weight: 500 !important;
+    width: auto !important;
+    color: #6e6b7b !important;
+}
+
+body .daterangepicker .ranges li:hover {
+    border-color: #1d4fd7 !important;
+    color: #1d4fd7!important;
+}
+
+body .daterangepicker .ranges li.active {
+    background-color: #1d4fd7 !important;
+    color: white !important;
+    border-color: #1d4fd7!important;
+}
+
+/* ¡CLAVE 2! Ocultamos el botón "Custom Range" que inyecta la librería */
+body .daterangepicker .ranges li[data-range-key="Custom Range"] {
+    display: none !important;
+}
+
+/* --- 2. SECCIÓN DE CALENDARIOS Y BOTONES --- */
+
+/* Contenedor principal del desplegable */
+body .daterangepicker .drp-picker {
+    width: 100% !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+}
+
+/* Contenedor de los dos calendarios */
+body .daterangepicker .drp-calendars {
+    width: 100% !important;
+    display: flex !important;
+    padding: 0.5rem !important;
+}
+
+body .daterangepicker .drp-calendar {
+    max-width: 100% !important;
+    padding: 0.5rem !important;
+}
+
+/* Contenedor de los botones Apply/Clear */
+body .daterangepicker .drp-buttons {
+    width: 100%;
+    padding: 0 1rem 1rem 1rem !important;
+    text-align: right;
+    border-top: 1px solid #ebe9f1 !important;
+    margin-top: 0.4 rem !important;
+}
+
+/* Contenedor de los botones Apply/Clear */
+body .daterangepicker .drp-buttons {
+    width: 100%;
+    padding: 1rem 1rem 1rem 1rem !important;
+    text-align: right;
+    border-top: 1px solid #ebe9f1 !important;
+}
+
+/* --- ¡NUEVOS ESTILOS PARA LOS BOTONES! --- */
+/* Estilo para el botón "Clear" (secundario, de contorno) */
+body .daterangepicker .drp-buttons .cancelBtn {
+    background-color: transparent !important;
+    border: 1px solid #d8d6de !important;
+    color: #5e5873 !important;
+    border-radius: 0.357rem;
+    font-weight: 500;
+    margin-right: 8px;
+    padding: 0.8rem 1rem 0.8rem 1rem !important;
+}
+body .daterangepicker .drp-buttons .cancelBtn:hover {
+    background-color: #f3f2f7 !important;
+}
+
+/* Estilo para el botón "Apply" (primario) */
+body .daterangepicker .drp-buttons .applyBtn {
+    border-radius: 0.357rem;
+    font-weight: 500;
+    background-color: #1d4fd7 !important;
+    padding: 0.8rem 1rem 0.8rem 1rem !important;
+}
+body .drp-calendar :right {
+    direction: rtl !important;
+    width: 50% !important;
+}
+body .drp-calendar :left {
+    direction:ltr !important;
+    width: 50% !important;
+}
+.daterangepicker.show-ranges.ltr .drp-calendar.left
+ {
+    border-left: 1px solid #ddd;
+    width: 50% !important;
+}
+.daterangepicker.show-ranges.ltr .drp-calendar.right
+{
+    border-left: 1px solid #ddd;
+    width: 50% !important;
+}
+
+body .daterangepicker .drp-calendar table {
+    font-size: 0.875rem !important;
+}
+body .daterangepicker td.active, .daterangepicker td.active:hover {
+    background-color: #1d4fd7 !important;
+    border-color: transparent;
+    color: #fff;
+}
