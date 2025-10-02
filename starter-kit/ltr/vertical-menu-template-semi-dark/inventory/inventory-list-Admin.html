@@ -9,7 +9,7 @@
     <meta name="description" content="Vuexy admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
     <meta name="keywords" content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="PIXINVENT">
-    <title>Dashboard - Products list</title>
+    <title>Dashboard - Inventory list</title>
     <link rel="apple-touch-icon" href="../../../../app-assets/images/ico/apple-icon-120.png">
     <link rel="shortcut icon" type="image/x-icon" href="../../../../app-assets/images/ico/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet">
@@ -144,11 +144,11 @@
                         </li>
                         <li class="active"><a class="d-flex align-items-cente" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Products">Products</span></a>
                             <ul class="menu-content">
-                                <li class="active">
-                                    <a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Product List">Product List</span></a>
-                                </li>
                                 <li>
-                                    <a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Inventory List">Inventory list</span></a>
+                                    <a class="d-flex align-items-center" href="../products/products-list-Admin.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Product List">Product List</span></a>
+                                </li>
+                                <li class="active">
+                                    <a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Inventory List">Inventory List</span></a>
                                 </li>
                                 <li>
                                     <a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="GeoData Import">GeoData Import</span></a>
@@ -323,12 +323,12 @@
                 <div class="content-header-left col-md-9 col-12 mb-2">
                     <div class="row breadcrumbs-top">
                         <div class="col-12">
-                            <h2 class="content-header-title float-start mb-0">Products List</h2>
+                            <h2 class="content-header-title float-start mb-0">Inventory List</h2>
                             <div class="breadcrumb-wrapper">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item">Fullfilment
                                     </li>
-                                    <li class="breadcrumb-item active"><a href="#">Products List</a>
+                                    <li class="breadcrumb-item active"><a href="#">Inventory List</a>
                                     </li>
                                 </ol>
                             </div>
@@ -343,7 +343,7 @@
                     </div>
                     <div class="card-body">
                         <div class="row g-1 align-items-end">
-                            <div class="col-md-4">
+                            <div class="col-md-6">
                                 <label for="main-search" class="form-label">Search Product</label>
                                 <input type="text" id="main-search" class="form-control" placeholder="Search by Name, SKU, EAN...">
                             </div>
@@ -364,10 +364,6 @@
                                 </select>
                             </div>
                             <div class="col-md-2">
-                                <label for="min-stock-filter" class="form-label">Minimum Stock</label>
-                                <input type="number" id="min-stock-filter" class="form-control" placeholder="e.g., 50">
-                            </div>
-                            <div class="col-md-2">
                                 <!-- BOTÓN "Advanced" ACTUALIZADO -->
                                 <button class="btn btn-primary w-100" type="button" data-bs-toggle="collapse" data-bs-target="#advancedFiltersCollapse" aria-expanded="false" aria-controls="advancedFiltersCollapse">
                                     <i data-feather="sliders" class="me-50"></i> Advanced
@@ -379,89 +375,46 @@
                 <div class="collapse" id="advancedFiltersCollapse">
                     <div class="card card-body border-top">
                         <div class="d-flex justify-content-between align-items-center mb-2">
-                            <h5 class="mb-0">Advanced Filters</h5>
+                            <h5 class="mb-0">Advanced Inventory Filters</h5>
                             <button type="button" class="btn-close" data-bs-toggle="collapse" data-bs-target="#advancedFiltersCollapse" aria-label="Close"></button>
                         </div>
                         <div class="row g-2">
-                            <!-- Columna 1: Specific Identifiers -->
-                            <div class="col-lg-3 col-md-6">
-                                <h6><i data-feather="hash" class="me-50"></i>Specific Identifiers</h6>
-                                <div class="mb-1">
-                                    <label class="form-label small">SKU contains</label>
-                                    <input type="text" id="sku-filter" class="form-control advanced-filter-input" placeholder="e.g., JEA-">
-                                </div>
-                                <div>
-                                    <label class="form-label small">EAN / Barcode is</label>
-                                    <input type="text" id="ean-barcode-filter" class="form-control advanced-filter-input" placeholder="Exact match search">
+                            <div class="col-md-4">
+                                <h6><i data-feather="hash" class="me-50"></i>Total SKU's Range</h6>
+                                <div class="input-group">
+                                    <span class="input-group-text">Min</span>
+                                    <input type="number" id="min-sku-filter" class="form-control" placeholder="10">
+                                    <span class="input-group-text">Max</span>
+                                    <input type="number" id="max-sku-filter" class="form-control" placeholder="50">
                                 </div>
                             </div>
 
-                            <!-- Columna 2: Inventory Details -->
-                            <div class="col-lg-3 col-md-6">
-                                <h6><i data-feather="archive" class="me-50"></i>Inventory Details</h6>
-                                <div class="mb-1">
-                                    <label class="form-label small">Quantity</label>
-                                    <div class="input-group">
-                                        <span class="input-group-text">Min</span>
-                                        <input type="number" id="min-qty" class="form-control advanced-filter-input" placeholder="0">
-                                        <span class="input-group-text">Max</span>
-                                        <input type="number" id="max-qty" class="form-control advanced-filter-input" placeholder="100">
-                                    </div>
-                                </div>
-                                <div>
-                                    <label class="form-label small">Reservable Qty</label>
-                                    <div class="input-group">
-                                        <span class="input-group-text">Min</span>
-                                        <input type="number" id="min-reservable" class="form-control advanced-filter-input" placeholder="0">
-                                        <span class="input-group-text">Max</span>
-                                        <input type="number" id="max-reservable" class="form-control advanced-filter-input" placeholder="50">
-                                    </div>
+                            <div class="col-md-4">
+                                <h6><i data-feather="archive" class="me-50"></i>Available Qty Range</h6>
+                                <div class="input-group">
+                                    <span class="input-group-text">Min</span>
+                                    <input type="number" id="min-available-filter" class="form-control" placeholder="1000">
+                                    <span class="input-group-text">Max</span>
+                                    <input type="number" id="max-available-filter" class="form-control" placeholder="50000">
                                 </div>
                             </div>
 
-                            <!-- Columna 3: Measurements -->
-                            <div class="col-lg-3 col-md-6">
-                                <h6><i data-feather="compass" class="me-50"></i>Measurements</h6>
-                                <div class="mb-1">
-                                    <label class="form-label small">Weight (g)</label>
-                                    <div class="input-group">
-                                        <span class="input-group-text">Min</span>
-                                        <input type="number" id="min-weight" class="form-control advanced-filter-input" placeholder="100">
-                                        <span class="input-group-text">Max</span>
-                                        <input type="number" id="max-weight" class="form-control advanced-filter-input" placeholder="5000">
-                                    </div>
-                                </div>
-                                <div>
-                                    <label class="form-label small">Volume (cm³)</label>
-                                    <div class="input-group">
-                                        <span class="input-group-text">Min</span>
-                                        <input type="number" id="min-volume" class="form-control advanced-filter-input" placeholder="1000">
-                                        <span class="input-group-text">Max</span>
-                                        <input type="number" id="max-volume" class="form-control advanced-filter-input" placeholder="50000">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Columna 4: Timestamps -->
-                            <div class="col-lg-3 col-md-6">
-                                <h6><i data-feather="calendar" class="me-50"></i>Timestamps</h6>
-                                <div class="mb-1">
-                                    <label class="form-label small">Created At</label>
-                                    <input type="text" id="created-at-range" class="form-control advanced-filter-input date-range-picker" placeholder="Select date range">
-                                </div>
-                                <div>
-                                    <label class="form-label small">Updated At</label>
-                                    <input type="text" id="updated-at-range" class="form-control advanced-filter-input date-range-picker" placeholder="Select date range">
+                            <div class="col-md-4">
+                                <h6><i data-feather="compass" class="me-50"></i>Volume Range (m³)</h6>
+                                <div class="input-group">
+                                    <span class="input-group-text">Min</span>
+                                    <input type="number" id="min-volume-filter" step="0.1" class="form-control" placeholder="0.5">
+                                    <span class="input-group-text">Max</span>
+                                    <input type="number" id="max-volume-filter" step="0.1" class="form-control" placeholder="10.0">
                                 </div>
                             </div>
                             
-                            <!-- Botones de Acción en una Fila Propia -->
                             <div class="col-12 d-flex justify-content-end gap-2 pt-1 mt-1 border-top">
-                                <button class="btn btn-outline-secondary" id="reset-offcanvas-filters-btn">
+                                <button class="btn btn-outline-secondary" id="reset-advanced-inventory-filters-btn">
                                     <i data-feather="refresh-cw" class="me-50"></i>
                                     Reset
                                 </button>
-                                <button class="btn btn-primary" id="apply-offcanvas-filters-btn">
+                                <button class="btn btn-primary" id="apply-advanced-inventory-filters-btn">
                                     <i data-feather="check-circle" class="me-50"></i>
                                     Apply Filters
                                 </button>
@@ -483,14 +436,17 @@
                         </div>
                     </div>
                 </div>
-                                <div id="active-filters-section" class="d-flex justify-content-between align-items-center mt-1 mb-1 d-none">
-                    <div id="pills-container" class="d-flex flex-wrap gap-1"></div>
-                    <button class="btn btn-sm btn-outline-primary" id="clear-filters-btn"><i data-feather="x-circle" class="me-25"></i> Clear All</button>
+                <div id="active-filters-section" class="d-flex justify-content-between align-items-center mt-1 mb-1 d-none">
+                    <div id="pills-container" class="d-flex flex-wrap gap-1">
+                    </div>
+                    <button class="btn btn-sm btn-outline-primary" id="clear-all-filters-btn">
+                        <i data-feather="x-circle" class="me-25"></i> Clear All
+                    </button>
                 </div>
                 <div class="card">
                     <div class="card-header border-bottom">
-                        <h4 class="card-title">All Products</h4>
-                        <div class="d-flex align-items-center gap-1">
+                        <h4 class="card-title">Inventory Summary by Client</h4>
+                        <div class="d-flex align-items-center gap-2">
                             <div id="mini-pagination-container" class="d-flex align-items-center">
                             </div>
                             <div id="bulk-action-container" class="d-none">
@@ -548,25 +504,17 @@
                             </button>
                         </div>
                     </div>
-                    
                     <div class="card-datatable table-responsive pt-0">
-                        <table class="datatables-basic table" id="product-table">
+                        <table class="datatables-basic table" id="inventory-all-table">
                             <thead>
                                 <tr>
-                                    <th><input type="checkbox" class="form-check-input" id="select-all-checkbox"></th>
                                     <th>Customer</th>
-                                    <th>Name</th>
-                                    <th>SKU</th>
-                                    <th>EAN</th>
-                                    <th>Barcode</th>                 
-                                    <th>Quantity</th>
-                                    <th>Reservable Qty</th>        
-                                    <th>Virtual Qty</th>           
-                                    <th>Announced Qty</th>         
-                                    <th>Unit Volume</th>            
-                                     <th>Unit Weight</th>
-                                    <th>Created At</th>              
-                                    <th>Updated At</th>
+                                    <th>Total SKU's</th>                
+                                    <th>Total Units</th>
+                                    <th>Available Qty</th>
+                                    <th>Reservable Qty</th> 
+                                    <th>Virtual Qty</th> 
+                                    <th>Volume</th>      
                                     <th>Status</th>
                                     <th id="table-actions">Actions</th>
                                 </tr>
@@ -591,160 +539,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="modal fade" id="productDetailsModal" tabindex="-1" aria-labelledby="productDetailsModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-lg modal-dialog-scrollable">
-                        <div class="modal-content">
-                        <div class="modal-header">
-                            <div>
-                            <h5 class="modal-title" id="modalProductName">Product Name Here</h5>
-                            <small class="text-muted" id="modalProductSKU">SKU: XXXXX</small>
-                            </div>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <h6><i class="bx bx-info-circle me-1"></i>General Information</h6>
-                            <hr class="mt-2">
-                            <dl class="row">
-                            <dt class="col-sm-3">EAN</dt>
-                            <dd class="col-sm-9" id="modalProductEAN"></dd>
-                            <dt class="col-sm-3">Product Group</dt>
-                            <dd class="col-sm-9" id="modalProductGroup"></dd>
-                            </dl>
-                            <h6 class="mt-4"><i class="bx bx-package me-1"></i>Inventory</h6>
-                            <hr class="mt-2">
-                            <div class="row text-center">
-                                <div class="col-6 col-md-3 mb-3">
-                                    <div class="fw-bold">Total</div>
-                                    <span class="badge bg-label-primary text-primary fs-6" id="modalQtyTotal"></span>
-                                </div>
-                                <div class="col-6 col-md-3 mb-3">
-                                    <div class="fw-bold">Available</div>
-                                    <span class="badge bg-label-success text-success fs-6" id="modalQtyAvailable"></span>
-                                </div>
-                                <div class="col-6 col-md-3 mb-3">
-                                    <div class="fw-bold">Reserved</div>
-                                    <span class="badge bg-label-warning text-warning fs-6" id="modalQtyReserved"></span>
-                                </div>
-                                <div class="col-6 col-md-3 mb-3">
-                                    <div class="fw-bold">Virtual</div>
-                                    <span class="badge bg-label-secondary text-secondary fs-6" id="modalQtyVirtual"></span>
-                                </div>
-                            </div>
-                            <h6 class="mt-4"><i class="bx bx-ruler me-1"></i>Physical Attributes</h6>
-                            <hr class="mt-2">
-                            <dl class="row">
-                            <dt class="col-sm-3">Dimensions</dt>
-                            <dd class="col-sm-9" id="modalProductDimensions"></dd>
-
-                            <dt class="col-sm-3">Unit Volume</dt>
-                            <dd class="col-sm-9" id="modalProductVolume"></dd>
-
-                            <dt class="col-sm-3">Unit Weight</dt>
-                            <dd class="col-sm-9" id="modalProductWeight"></dd>
-                            </dl>
-
-                            <div class="text-center mt-4">
-                                <img id="modalProductBarcodeImg" src="" alt="barcode" class="img-fluid">
-                                <p class="text-muted small" id="modalProductBarcodeText"></p>
-                            </div>
-
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" id="editProductBtn">Edit Product</button>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-            
-            <!-- Product Edit modal-->
-            <div class="modal fade" id="productEditModal" tabindex="-1" aria-labelledby="productEditModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg modal-dialog-scrollable">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="productEditModalLabel">Edit Product</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <!-- El formulario envuelve todo el contenido editable -->
-                            <form id="product-edit-form">
-                                <!-- Campo oculto para guardar el ID de la fila -->
-                                <input type="hidden" id="edit-product-id">
-
-                                <h6><i class="bx bx-info-circle me-1"></i>General Information</h6>
-                                <hr class="mt-2">
-                                <div class="row">
-                                    <div class="col-md-6 mb-1">
-                                        <label for="edit-product-name" class="form-label">Product Name</label>
-                                        <input type="text" id="edit-product-name" class="form-control" required>
-                                    </div>
-                                    <div class="col-md-6 mb-1">
-                                        <label for="edit-product-sku" class="form-label">SKU</label>
-                                        <input type="text" id="edit-product-sku" class="form-control" readonly>
-                                    </div>
-                                    <div class="col-md-6 mb-1">
-                                        <label for="edit-product-ean" class="form-label">EAN</label>
-                                        <input type="text" id="edit-product-ean" class="form-control">
-                                    </div>
-                                    <div class="col-md-6 mb-1">
-                                        <label for="edit-product-group" class="form-label">Product Group</label>
-                                        <select id="edit-product-group" class="form-select">
-                                            <option value="Default">Default</option>
-                                            <option value="Electronics">Electronics</option>
-                                            <option value="Apparel">Apparel</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <h6 class="mt-4"><i class="bx bx-package me-1"></i>Inventory</h6>
-                                <hr class="mt-2">
-                                <div class="row text-center">
-                                    <div class="col-6 col-md-3 mb-3">
-                                        <label for="edit-qty-total" class="form-label fw-bold">Total</label>
-                                        <input type="number" id="edit-qty-total" class="form-control text-center">
-                                    </div>
-                                    <div class="col-6 col-md-3 mb-3">
-                                        <label for="edit-qty-available" class="form-label fw-bold">Available</label>
-                                        <input type="number" id="edit-qty-available" class="form-control text-center">
-                                    </div>
-                                    <div class="col-6 col-md-3 mb-3">
-                                        <label for="edit-qty-reserved" class="form-label fw-bold">Reserved</label>
-                                        <input type="number" id="edit-qty-reserved" class="form-control text-center">
-                                    </div>
-                                    <div class="col-6 col-md-3 mb-3">
-                                        <label for="edit-qty-virtual" class="form-label fw-bold">Virtual</label>
-                                        <input type="number" id="edit-qty-virtual" class="form-control text-center">
-                                    </div>
-                                </div>
-
-                                <h6 class="mt-4"><i class="bx bx-ruler me-1"></i>Physical Attributes</h6>
-                                <hr class="mt-2">
-                                <div class="row">
-                                    <div class="col-md-4 mb-1">
-                                        <label for="edit-product-weight" class="form-label">Unit Weight (g)</label>
-                                        <input type="number" id="edit-product-weight" class="form-control">
-                                    </div>
-                                    <div class="col-md-4 mb-1">
-                                        <label for="edit-product-volume" class="form-label">Unit Volume (cm³)</label>
-                                        <input type="number" id="edit-product-volume" class="form-control">
-                                    </div>
-                                    <div class="col-md-4 mb-1">
-                                        <label for="edit-product-barcode" class="form-label">Barcode</label>
-                                        <input type="text" id="edit-product-barcode" class="form-control">
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
-                            <button type="submit" class="btn btn-primary" id="save-product-changes-btn" form="product-edit-form">Save Changes</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <!--END: Product Edit modal-->
             
             <!--Saved View Modal-->
             <div class="modal fade" id="saveViewModal" tabindex="-1" aria-labelledby="saveViewModalLabel" aria-hidden="true">
@@ -826,6 +620,7 @@
     <!-- BEGIN: Page JS-->
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
 
     <script src="../../../../app-assets/vendors/js/tables/datatable/jquery.dataTables.min.js"></script>
     <script src="../../../../app-assets/vendors/js/tables/datatable/dataTables.bootstrap5.min.js"></script>
@@ -846,29 +641,27 @@
         <script src="../../../../app-assets/vendors/js/pickers/flatpickr/flatpickr.min.js"></script>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
     
-    <script src="../../../../app-assets/js/scripts/products/data-products-list.js"></script>
-    <script src="../../../../app-assets/js/scripts/products/data-table-init.js"></script>
+       <script src="../../../../app-assets/js/scripts/inventory/data-inventory-list.js"></script>
+    
+    <script src="../../../../app-assets/js/scripts/inventory/api-service.js"></script>
+    
+    <script src="../../../../app-assets/js/scripts/inventory/data-table-init.js"></script>
+    
+
     <script src="../../../../app-assets/js/scripts/products/search.js"></script>
-    <script src="../../../../app-assets/js/scripts/products/advanced-filters.js"></script>
+    <script src="../../../../app-assets/js/scripts/inventory/inventory-advanced-filters.js"></script>
     <script src="../../../../app-assets/js/scripts/products/filter-min-stock.js"></script>
-    <script src="../../../../app-assets/js/scripts/products/clear-filters.js"></script>
-    <script src="../../../../app-assets/js/scripts/products/active-filters-manager.js"></script>
-    <script src="../../../../app-assets/js/scripts/products/bulk-actions.js"></script>
     <script src="../../../../app-assets/js/scripts/products/export-actions.js"></script>
     <script src="../../../../app-assets/js/scripts/products/mini-pagination.js"></script>
-    <script src="../../../../app-assets/js/scripts/products/column-visibility.js"></script>
-    <script src="../../../../app-assets/js/scripts/products/product-modal.js"></script>
-    <script src="../../../../app-assets/js/scripts/products/feedback-fab.js"></script>
-    <script src="../../../../app-assets/js/scripts/includes/feedback-fab.js"></script>
     <script src="../../../../app-assets/js/scripts/filters/reusable-filters.js"></script>
     <script src="../../../../app-assets/js/scripts/products/filter-customer.js"></script>
     <script src="../../../../app-assets/js/scripts/products/filter-status.js"></script>
     <script src="../../../../app-assets/js/scripts/products/saved-filters.js"></script>
-    <script src="../../../../app-assets/js/scripts/products/product-list-onboarding.js"></script>
-     <script src="/app-assets/js/scripts/products/product-edit-modal.js"></script>
+     <script src="../../../../app-assets/js/scripts/inventory/inventory-active-filters.js"></script>
+     <script src="../../../../app-assets/js/scripts/inventory/inventory-clear-filters.js"></script>
+    <script src="../../../../app-assets/js/scripts/inventory/app.js"></script>
 
-    <script src="../../../../app-assets/js/scripts/products/app.js"></script>
-    
+
 
     <!-- END: Page JS-->
 

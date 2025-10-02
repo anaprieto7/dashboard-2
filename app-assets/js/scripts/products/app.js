@@ -77,11 +77,23 @@ function applyAllFilters(datatable) {
 // ===================================================================================
 $(function () {
     // Inicializa componentes de terceros
-    $('.select2').select2();
+    $('#customer-filter').select2({ placeholder: 'Select Customers' });
 
     const productDatatable = initializeProductDataTable();
     
     if (productDatatable) {
+
+        const productSavedViewsConfig = {
+            datatable: productDatatable,
+            filterFunction: applyAllFilters, // La función de filtro de esta página
+            storageKey: 'productFilterViews_user1', // La clave de almacenamiento original
+            filterInputIds: [ // La lista de filtros ORIGINAL de la página de productos
+                'main-search', 'customer-filter', 'status-filter', 'min-stock-filter',
+                'sku-filter', 'ean-barcode-filter', 'min-qty', 'max-qty',
+                'min-reservable', 'max-reservable', 'min-weight', 'max-weight',
+                'min-volume', 'max-volume', 'created-at-range', 'updated-at-range'
+            ]
+        };
         // --- Inicializa los MÓDULOS DE FILTRO REUTILIZABLES ---
         // Estos módulos gestionan sus propios eventos y filtros de columna.
         initializeCustomerFilter(productDatatable, {
@@ -101,7 +113,7 @@ $(function () {
         initializeBulkActions(productDatatable);
         initializeExportActions(productDatatable);
         initializePillRemoval(productDatatable);
-        initializeSavedFilters(productDatatable);
+        initializeSavedFilters(productSavedViewsConfig); 
         initializeMiniPagination(productDatatable);
         initializeColumnVisibility(productDatatable);
         initializeProductEditModal(productDatatable);
