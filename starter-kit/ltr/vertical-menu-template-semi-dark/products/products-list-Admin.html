@@ -319,24 +319,89 @@
         <div class="content-overlay"></div>
         <div class="header-navbar-shadow"></div>
         <div class="content-wrapper">
+            <!-- Mejorar el header de la página -->
             <div class="content-header row">
                 <div class="content-header-left col-md-9 col-12 mb-2">
                     <div class="row breadcrumbs-top">
                         <div class="col-12">
-                            <h2 class="content-header-title float-start mb-0">Products List</h2>
+                            <h2 class="content-header-title float-start mb-0">Product Management</h2>
                             <div class="breadcrumb-wrapper">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item">Fullfilment
-                                    </li>
-                                    <li class="breadcrumb-item active"><a href="#">Products List</a>
-                                    </li>
+                                    <li class="breadcrumb-item">Fulfillment</li>
+                                    <li class="breadcrumb-item active">Products List</li>
                                 </ol>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="content-header-right col-md-3 col-12 text-end">
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProductModal">
+                        <i data-feather="plus" class="me-50"></i>
+                        Add Product
+                    </button>
+                </div>
             </div>
             <div class="content-body">
+                <!--  cards products -->
+                <div class="row match-height">
+                    <!-- Total Products Card -->
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div class="card card-statistic inventory-card" data-filter="all">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <h6 class="fw-bolder mb-0">Total Products</h6>
+                                        <h2 class="text-primary" id="total-products-count">0</h2>
+                                    </div>
+                                    <div class="avatar bg-light-primary p-50">
+                                        <span class="avatar-content">
+                                            <i data-feather="package" class="font-medium-5"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <small class="text-muted">Across all warehouses</small>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Low Stock Card -->
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div class="card card-statistic inventory-card" data-filter="low_stock">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <h6 class="fw-bolder mb-0">Low Stock</h6>
+                                        <h2 class="text-warning" id="low-stock-count">0</h2>
+                                    </div>
+                                    <div class="avatar bg-light-warning p-50">
+                                        <span class="avatar-content">
+                                            <i data-feather="alert-triangle" class="font-medium-5"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <small class="text-muted">Need replenishment</small>
+                            </div>
+                        </div>
+                    </div>          
+                    <!-- Out of Stock Card -->
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div class="card card-statistic inventory-card" data-filter="out_of_stock">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <h6 class="fw-bolder mb-0">Out of Stock</h6>
+                                        <h2 class="text-danger" id="out-of-stock-count">0</h2>
+                                    </div>
+                                    <div class="avatar bg-light-danger p-50">
+                                        <span class="avatar-content">
+                                            <i data-feather="x-circle" class="font-medium-5"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <small class="text-muted">Urgent attention needed</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="card">
                     <div class="card-header">
                         <h4 class="card-title">Search & Filter</h4>
@@ -858,14 +923,13 @@
     <script src="../../../../app-assets/js/scripts/products/mini-pagination.js"></script>
     <script src="../../../../app-assets/js/scripts/products/column-visibility.js"></script>
     <script src="../../../../app-assets/js/scripts/products/product-modal.js"></script>
-    <script src="../../../../app-assets/js/scripts/products/feedback-fab.js"></script>
-    <script src="../../../../app-assets/js/scripts/includes/feedback-fab.js"></script>
     <script src="../../../../app-assets/js/scripts/filters/reusable-filters.js"></script>
     <script src="../../../../app-assets/js/scripts/products/filter-customer.js"></script>
     <script src="../../../../app-assets/js/scripts/products/filter-status.js"></script>
     <script src="../../../../app-assets/js/scripts/products/saved-filters.js"></script>
     <script src="../../../../app-assets/js/scripts/products/product-list-onboarding.js"></script>
-     <script src="/app-assets/js/scripts/products/product-edit-modal.js"></script>
+    <script src="/app-assets/js/scripts/products/product-edit-modal.js"></script>
+    <script src="../../../../app-assets/js/scripts/products/inventory-cards.js"></script>
 
     <script src="../../../../app-assets/js/scripts/products/app.js"></script>
     

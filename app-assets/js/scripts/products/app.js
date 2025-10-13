@@ -114,6 +114,7 @@ $(function () {
         initializeExportActions(productDatatable);
         initializePillRemoval(productDatatable);
         initializeSavedFilters(productSavedViewsConfig); 
+        initializeCardFiltering(productDatatable);
         initializeMiniPagination(productDatatable);
         initializeColumnVisibility(productDatatable);
         initializeProductEditModal(productDatatable);

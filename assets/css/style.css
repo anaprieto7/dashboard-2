@@ -275,3 +275,46 @@ body .daterangepicker td.active, .daterangepicker td.active:hover {
     border-color: transparent;
     color: #fff;
 }
+
+/* Estilos para las tarjetas de inventario interactivas */
+.inventory-card {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.inventory-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.inventory-card.card-active {
+    border-color: #6780f0 !important;
+    box-shadow: 0 4px 12px rgba(115, 103, 240, 0.2);
+}
+
+/* status cards */
+.card-statistic .avatar {
+    transition: all 0.3s ease;
+}
+
+.inventory-card:hover .avatar {
+    transform: scale(1.1);
+}
+
+/* Visual indicator acative */
+.filter-indicator {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #535357;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.card-active .filter-indicator {
+    opacity: 1;
+}

@@ -55,6 +55,15 @@ function initializeProductDataTable() {
         'excel',
         'pdf',
         'print'
-    ]
+    ],
+    
+    // ▼▼▼ BLOQUE DE CÓDIGO ACTUALIZADO ▼▼▼
+    initComplete: function() {
+        // 'this.api()' devuelve la instancia de la DataTable.
+        // Llamamos a la función de conteo en el momento exacto en que la tabla está lista.
+        updateCardCounts(this.api());
+    }
+    // ▲▲▲ FIN DEL BLOQUE ACTUALIZADO ▲▲▲
   });
+  
 }
