@@ -318,3 +318,13 @@ body .daterangepicker td.active, .daterangepicker td.active:hover {
 .card-active .filter-indicator {
     opacity: 1;
 }
+
+/* Galería de Imágenes */
+.main-image-container { border: 1px solid #EBE9F1; aspect-ratio: 1 / 1; }
+.thumbnail-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(70px, 1fr)); gap: 0.5rem; }
+.thumbnail-container img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 0.357rem; border: 2px solid transparent; cursor: pointer; transition: border-color 0.2s; }
+.thumbnail-container img.active { border-color: #7367F0; }
+.thumbnail-container img:hover { border-color: #D6DCE1; }
+.stock-warning { font-weight: 500; display: flex; align-items: center; gap: 0.5rem; }
+.stock-warning.low-stock { color: #FF9F43; }
+.stock-warning.out-of-stock { color: #EA5455; }

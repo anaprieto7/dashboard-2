@@ -16,7 +16,10 @@ function initializeProductDataTable() {
     columns: [
       { data: 'id' }, 
       { data: 'customer' },
-      { data: 'name' }, 
+      {  data: 'name',
+        render: function (data, type, full, meta) {
+        // 'data' automatically contains the product name for this column.
+        return '<a href="product-detail-Admin.html?id=' + full.id + '" class="text-primary">' + data + '</a>';}}, 
       { data: 'sku' }, 
       { data: 'ean' },
       { data: 'barcode' },             // NUEVA

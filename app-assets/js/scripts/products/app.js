@@ -70,6 +70,45 @@ function applyAllFilters(datatable) {
     updateActiveFiltersUI();
 }
 
+// ===================================================================================
+// NUEVA FUNCIÓN PARA GESTIONAR LAS TABS
+// ===================================================================================
+function initializeTabFilters(datatable) {
+    const tabs = {
+        '#all-products-tab': '',
+        '#active-products-tab': 'Active',
+        '#inactive-products-tab': 'Inactive'
+    };
+
+    // Manejar clics en las pestañas
+    for (const tabId in tabs) {
+        $(tabId).on('click', function(e) {
+            e.preventDefault();
+            
+            // Cambiar la clase active visualmente
+            $('.nav-tabs .nav-link').removeClass('active');
+            $(this).addClass('active');
+
+            // Actualizar el dropdown de status y disparar el filtro
+            $('#status-filter').val(tabs[tabId]).trigger('change');
+        });
+    }
+
+    // Sincronizar las pestañas si el dropdown se cambia manualmente
+    $('#status-filter').on('change', function() {
+        const status = $(this).val();
+        $('.nav-tabs .nav-link').removeClass('active');
+        
+        if (status === 'Active') {
+            $('#active-products-tab').addClass('active');
+        } else if (status === 'Inactive') {
+            $('#inactive-products-tab').addClass('active');
+        } else {
+            $('#all-products-tab').addClass('active');
+        }
+    });
+}
+
 
 // ===================================================================================
 // PARTE 2: EL BLOQUE DE INICIALIZACIÓN ("EL DIRECTOR DE ORQUESTA")
@@ -101,6 +140,7 @@ $(function () {
         });
         initializeStatusFilter(productDatatable);
          initializeOnboardingTour();
+         initializeTabFilters(productDatatable);
         
         // --- Asigna listeners para los filtros gestionados por app.js ---
         // Estos filtros son "instantáneos" y llaman a la función maestra.

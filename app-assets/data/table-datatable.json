@@ -18,88 +18,89 @@
       "status": 2,
       "items": [
         {
-          "item_id": 101,
-          "item_name": "Widget A",
-          "sku": "837336933",
+          "item_id": 1,
+          "item_name": "Premium T-Shirt",
+          "sku": "T-S-PREM-M",
           "quantity": 10,
           "unit_price": 15.00,
           "serial_number": "SN1234567890"
         },
         {
-          "item_id": 102,
-          "item_name": "Widget B",
-          "sku": "837933",
+          "item_id": 2,
+          "item_name": "Classic Jeans",
+          "sku": "JEA-CLAS-L",
           "quantity": 5,
           "unit_price": 20.00,
           "serial_number": "SN0987654321"
         },
         {
-          "item_id": 103,
-          "item_name": "Widget C",
-          "sku": "837336933",
+          "item_id": 3,
+          "item_name": "Urban Hoodie",
+          "sku": "HOO-URBA-XL",
           "quantity": 2,
           "unit_price": 50.00,
           "serial_number": "SN1122334455"
         },
         {
-          "item_id": 104,
-          "item_name": "Widget D",
-          "sku": "8373",
+          "item_id": 4,
+          "item_name": "Modern Sneakers",
+          "sku": "SNE-MODE-42",
           "quantity": 1,
           "unit_price": 100.00,
           "serial_number": "SN5566778899"
         },
         {
-          "item_id": 105,
-          "item_name": "Widget E",
-          "sku": "83",
+          "item_id": 5,
+          "item_name": "Slim Fit Jacket",
+          "sku": "JAC-SLIM-S",
           "quantity": 3,
           "unit_price": 30.00,
           "serial_number": "SN9988776655"
         },
         {
-          "item_id": 106,
-          "item_name": "Widget F",
-          "sku": "83dd44",
+          "item_id": 6,
+          "item_name": "Basic Sweater",
+          "sku": "SWE-BASI-M",
           "quantity": 4,
           "unit_price": 25.00,
           "serial_number": "SN2233445566"
         },
         {
-          "item_id": 107,
-          "item_name": "Widget G",
-          "sku": "893774hss",
+          "item_id": 7,
+          "item_name": "Performance Polo",
+          "sku": "POL-PERF-L",
           "quantity": 6,
           "unit_price": 18.00,
           "serial_number": "SN6677889900"
         },
         {
-          "item_id": 108,
-          "item_name": "Widget H",
-          "sku": "83793733",
+          "item_id": 8,
+          "item_name": "Vintage Beanie",
+          "sku": "BEA-VINT-OS",
           "quantity": 8,
           "unit_price": 12.00,
           "serial_number": "SN3344556677"
         },
         {
-          "item_id": 109,
-          "item_name": "Widget I",
-          "sku": "837336933",
+          "item_id": 9,
+          "item_name": "Tech Backpack",
+          "sku": "BAC-TECH-OS",
           "quantity": 9,
           "unit_price": 22.00,
           "serial_number": "SN7788990011"
         },
         {
-          "item_id": 110,
-          "item_name": "Widget J",
+          "item_id": 10,
+          "item_name": "Cotton Cap",
+          "sku": "CAP-COTT-OS",
           "quantity": 7,
           "unit_price": 28.00,
           "serial_number": "SN1122339988"
         },
         {
-          "item_id": 111,
-          "item_name": "Widget K",
-          "sku": "8373338636",
+          "item_id": 19,
+          "item_name": "Camping Tent",
+          "sku": "TEN-CAMP-4P",
           "quantity": 4,
           "unit_price": 40.00,
           "serial_number": "SN1234567891"
@@ -131,14 +132,14 @@
         "name": "Khaled",
         "surname": "Algurush",
         "house_number": "45",
-        "addition": "",  
+        "addition": "",
         "street": "Högerdamm",
-        "postal_code": "20097",  
+        "postal_code": "20097",
         "city": "Hamburg",
-        "country": "Germany",  
+        "country": "Germany",
         "email": "email@hotmail.com",
         "phone": "0213456"
-      } 
+      }
     },
     {
       "responsive_id": "",
@@ -158,94 +159,95 @@
       "status": 1,
       "items": [
         {
-          "item_id": 101,
-          "item_name": "Widget A",
-          "sku": "837336933",
+          "item_id": 20,
+          "item_name": "Travel Mug",
+          "sku": "MUG-TRAV-OS",
           "quantity": 10,
           "unit_price": 15.00,
           "serial_number": "SN1234567890"
         },
         {
-          "item_id": 102,
-          "item_name": "Widget B",
-          "sku": "837933",
+          "item_id": 21,
+          "item_name": "Laptop Sleeve",
+          "sku": "SLE-LAPT-15",
           "quantity": 5,
           "unit_price": 20.00,
           "serial_number": "SN0987654321"
         },
         {
-          "item_id": 103,
-          "item_name": "Widget C",
-          "sku": "837336933",
+          "item_id": 22,
+          "item_name": "Desk Organizer",
+          "sku": "ORG-DESK-OS",
           "quantity": 2,
           "unit_price": 50.00,
           "serial_number": "SN1122334455"
         },
         {
-          "item_id": 104,
-          "item_name": "Widget D",
-          "sku": "8373",
+          "item_id": 23,
+          "item_name": "Bluetooth Speaker",
+          "sku": "SPE-BLUE-OS",
           "quantity": 1,
           "unit_price": 100.00,
           "serial_number": "SN5566778899"
         },
         {
-          "item_id": 105,
-          "item_name": "Widget E",
-          "sku": "83",
+          "item_id": 24,
+          "item_name": "Smart Light Bulb",
+          "sku": "LIG-SMART-OS",
           "quantity": 3,
           "unit_price": 30.00,
           "serial_number": "SN9988776655"
         },
         {
-          "item_id": 106,
-          "item_name": "Widget F",
-          "sku": "83dd44",
+          "item_id": 25,
+          "item_name": "Electric Kettle",
+          "sku": "KET-ELEC-OS",
           "quantity": 4,
           "unit_price": 25.00,
           "serial_number": "SN2233445566"
         },
         {
-          "item_id": 107,
-          "item_name": "Widget G",
-          "sku": "893774hss",
+          "item_id": 26,
+          "item_name": "Air Purifier",
+          "sku": "PUR-AIR-OS",
           "quantity": 6,
           "unit_price": 18.00,
           "serial_number": "SN6677889900"
         },
         {
-          "item_id": 108,
-          "item_name": "Widget H",
-          "sku": "83793733",
+          "item_id": 27,
+          "item_name": "Fitness Ball",
+          "sku": "BAL-FIT-65",
           "quantity": 8,
           "unit_price": 12.00,
           "serial_number": "SN3344556677"
         },
         {
-          "item_id": 109,
-          "item_name": "Widget I",
-          "sku": "837336933",
+          "item_id": 28,
+          "item_name": "Digital Camera",
+          "sku": "CAM-DIGI-OS",
           "quantity": 9,
           "unit_price": 22.00,
           "serial_number": "SN7788990011"
         },
         {
-          "item_id": 110,
-          "item_name": "Widget J",
+          "item_id": 29,
+          "item_name": "Action Figure",
+          "sku": "FIG-ACTN-OS",
           "quantity": 7,
           "unit_price": 28.00,
           "serial_number": "SN1122339988"
         },
         {
-          "item_id": 111,
-          "item_name": "Widget K",
-          "sku": "8373338636",
+          "item_id": 30,
+          "item_name": "VR Headset",
+          "sku": "VR-HEAD-OS",
           "quantity": 4,
           "unit_price": 40.00,
           "serial_number": "SN1234567891"
         }
       ],
-       "shopify": {
+      "shopify": {
         "order_id": "Khaled",
         "tracking_number": "Korrigiert",
         "tracking_link": "Högerdamm",
@@ -265,14 +267,14 @@
         "name": "Khaled",
         "surname": "Algurush",
         "house_number": "45",
-        "addition": "",  
+        "addition": "",
         "street": "Högerdamm",
-        "postal_code": "20097",  
+        "postal_code": "20097",
         "city": "Hamburg",
-        "country": "Germany",  
+        "country": "Germany",
         "email": "email@hotmail.com",
         "phone": "0213456"
-      } 
+      }
     },
     {
       "responsive_id": "",
@@ -292,88 +294,89 @@
       "status": 5,
       "items": [
         {
-          "item_id": 101,
-          "item_name": "Widget A",
-          "sku": "837336933",
+          "item_id": 31,
+          "item_name": "Electric Scooter",
+          "sku": "SCO-ELEC-OS",
           "quantity": 10,
           "unit_price": 15.00,
           "serial_number": "SN1234567890"
         },
         {
-          "item_id": 102,
-          "item_name": "Widget B",
-          "sku": "837933",
+          "item_id": 32,
+          "item_name": "Smart Thermostat",
+          "sku": "THE-SMART-OS",
           "quantity": 5,
           "unit_price": 20.00,
           "serial_number": "SN0987654321"
         },
         {
-          "item_id": 103,
-          "item_name": "Widget C",
-          "sku": "837336933",
+          "item_id": 33,
+          "item_name": "Noise Cancelling Headphones",
+          "sku": "HED-NOIS-OS",
           "quantity": 2,
           "unit_price": 50.00,
           "serial_number": "SN1122334455"
         },
         {
-          "item_id": 104,
-          "item_name": "Widget D",
-          "sku": "8373",
+          "item_id": 34,
+          "item_name": "Smartphone Gimbal",
+          "sku": "GIM-SMART-OS",
           "quantity": 1,
           "unit_price": 100.00,
           "serial_number": "SN5566778899"
         },
         {
-          "item_id": 105,
-          "item_name": "Widget E",
-          "sku": "83",
+          "item_id": 35,
+          "item_name": "Portable Charger",
+          "sku": "CHA-PORT-OS",
           "quantity": 3,
           "unit_price": 30.00,
           "serial_number": "SN9988776655"
         },
         {
-          "item_id": 106,
-          "item_name": "Widget F",
-          "sku": "83dd44",
+          "item_id": 36,
+          "item_name": "Smart Glasses",
+          "sku": "GLA-SMART-OS",
           "quantity": 4,
           "unit_price": 25.00,
           "serial_number": "SN2233445566"
         },
         {
-          "item_id": 107,
-          "item_name": "Widget G",
-          "sku": "893774hss",
+          "item_id": 37,
+          "item_name": "3D Printer",
+          "sku": "PRI-3D-OS",
           "quantity": 6,
           "unit_price": 18.00,
           "serial_number": "SN6677889900"
         },
         {
-          "item_id": 108,
-          "item_name": "Widget H",
-          "sku": "83793733",
+          "item_id": 38,
+          "item_name": "Smart Door Lock",
+          "sku": "LOC-SMART-OS",
           "quantity": 8,
           "unit_price": 12.00,
           "serial_number": "SN3344556677"
         },
         {
-          "item_id": 109,
-          "item_name": "Widget I",
-          "sku": "837336933",
+          "item_id": 39,
+          "item_name": "Electric Toothbrush",
+          "sku": "TOO-ELEC-OS",
           "quantity": 9,
           "unit_price": 22.00,
           "serial_number": "SN7788990011"
         },
         {
-          "item_id": 110,
-          "item_name": "Widget J",
+          "item_id": 40,
+          "item_name": "Smart Scale",
+          "sku": "SCA-SMART-OS",
           "quantity": 7,
           "unit_price": 28.00,
           "serial_number": "SN1122339988"
         },
         {
-          "item_id": 111,
-          "item_name": "Widget K",
-          "sku": "8373338636",
+          "item_id": 41,
+          "item_name": "Electric Grill",
+          "sku": "GRI-ELEC-OS",
           "quantity": 4,
           "unit_price": 40.00,
           "serial_number": "SN1234567891"
@@ -408,14 +411,14 @@
         "name": "Khaled",
         "surname": "Algurush",
         "house_number": "45",
-        "addition": "",  
+        "addition": "",
         "street": "Högerdamm",
-        "postal_code": "20097",  
+        "postal_code": "20097",
         "city": "Hamburg",
-        "country": "Germany",  
+        "country": "Germany",
         "email": "email@hotmail.com",
         "phone": "0213456"
-      } 
+      }
     },
     {
       "responsive_id": "",
@@ -435,94 +438,95 @@
       "status": 2,
       "items": [
         {
-          "item_id": 101,
-          "item_name": "Widget A",
-          "sku": "837336933",
+          "item_id": 42,
+          "item_name": "Smart Water Bottle",
+          "sku": "BOT-SMART-OS",
           "quantity": 10,
           "unit_price": 15.00,
           "serial_number": "SN1234567890"
         },
         {
-          "item_id": 102,
-          "item_name": "Widget B",
-          "sku": "837933",
+          "item_id": 43,
+          "item_name": "Electric Fireplace",
+          "sku": "FIR-ELEC-OS",
           "quantity": 5,
           "unit_price": 20.00,
           "serial_number": "SN0987654321"
         },
         {
-          "item_id": 103,
-          "item_name": "Widget C",
-          "sku": "837336933",
+          "item_id": 44,
+          "item_name": "Smart Mirror",
+          "sku": "MIR-SMART-OS",
           "quantity": 2,
           "unit_price": 50.00,
           "serial_number": "SN1122334455"
         },
         {
-          "item_id": 104,
-          "item_name": "Widget D",
-          "sku": "8373",
+          "item_id": 45,
+          "item_name": "Electric Skateboard",
+          "sku": "SKA-ELEC-OS",
           "quantity": 1,
           "unit_price": 100.00,
           "serial_number": "SN5566778899"
         },
         {
-          "item_id": 105,
-          "item_name": "Widget E",
-          "sku": "83",
+          "item_id": 46,
+          "item_name": "Smart Coffee Maker",
+          "sku": "COF-SMART-OS",
           "quantity": 3,
           "unit_price": 30.00,
           "serial_number": "SN9988776655"
         },
         {
-          "item_id": 106,
-          "item_name": "Widget F",
-          "sku": "83dd44",
+          "item_id": 47,
+          "item_name": "Electric Bike",
+          "sku": "BIK-ELEC-OS",
           "quantity": 4,
           "unit_price": 25.00,
           "serial_number": "SN2233445566"
         },
         {
-          "item_id": 107,
-          "item_name": "Widget G",
-          "sku": "893774hss",
+          "item_id": 48,
+          "item_name": "Smart Home Hub",
+          "sku": "HUB-SMART-OS",
           "quantity": 6,
           "unit_price": 18.00,
           "serial_number": "SN6677889900"
         },
         {
-          "item_id": 108,
-          "item_name": "Widget H",
-          "sku": "83793733",
+          "item_id": 49,
+          "item_name": "Electric Lawn Mower",
+          "sku": "MOW-ELEC-OS",
           "quantity": 8,
           "unit_price": 12.00,
           "serial_number": "SN3344556677"
         },
         {
-          "item_id": 109,
-          "item_name": "Widget I",
-          "sku": "837336933",
+          "item_id": 50,
+          "item_name": "Smart Security Camera",
+          "sku": "CAM-SECUR-OS",
           "quantity": 9,
           "unit_price": 22.00,
           "serial_number": "SN7788990011"
         },
         {
-          "item_id": 110,
-          "item_name": "Widget J",
+          "item_id": 51,
+          "item_name": "Electric Pressure Cooker",
+          "sku": "COO-ELEC-OS",
           "quantity": 7,
           "unit_price": 28.00,
           "serial_number": "SN1122339988"
         },
         {
-          "item_id": 111,
-          "item_name": "Widget K",
-          "sku": "8373338636",
+          "item_id": 52,
+          "item_name": "Smart Air Conditioner",
+          "sku": "AIR-SMART-OS",
           "quantity": 4,
           "unit_price": 40.00,
           "serial_number": "SN1234567891"
         }
       ],
-       "shopify": {
+      "shopify": {
         "order_id": "Khaled",
         "tracking_number": "Korrigiert",
         "tracking_link": "Högerdamm",
@@ -548,14 +552,14 @@
         "name": "Khaled",
         "surname": "Algurush",
         "house_number": "45",
-        "addition": "",  
+        "addition": "",
         "street": "Högerdamm",
-        "postal_code": "20097",  
+        "postal_code": "20097",
         "city": "Hamburg",
-        "country": "Germany",  
+        "country": "Germany",
         "email": "email@hotmail.com",
         "phone": "0213456"
-      } 
+      }
     },
     {
       "responsive_id": "",
@@ -575,88 +579,89 @@
       "status": 1,
       "items": [
         {
-          "item_id": 101,
-          "item_name": "Widget A",
-          "sku": "837336933",
+          "item_id": 53,
+          "item_name": "Electric Fireplace Heater",
+          "sku": "HEA-ELEC-OS",
           "quantity": 10,
           "unit_price": 15.00,
           "serial_number": "SN1234567890"
         },
         {
-          "item_id": 102,
-          "item_name": "Widget B",
-          "sku": "837933",
+          "item_id": 54,
+          "item_name": "Smart Robot Vacuum",
+          "sku": "VAC-SMART-OS",
           "quantity": 5,
           "unit_price": 20.00,
           "serial_number": "SN0987654321"
         },
         {
-          "item_id": 103,
-          "item_name": "Widget C",
-          "sku": "837336933",
+          "item_id": 55,
+          "item_name": "Electric Wine Opener",
+          "sku": "WOP-ELEC-OS",
           "quantity": 2,
           "unit_price": 50.00,
           "serial_number": "SN1122334455"
         },
         {
-          "item_id": 104,
-          "item_name": "Widget D",
-          "sku": "8373",
+          "item_id": 56,
+          "item_name": "Smart Light Switch",
+          "sku": "SWI-SMART-OS",
           "quantity": 1,
           "unit_price": 100.00,
           "serial_number": "SN5566778899"
         },
         {
-          "item_id": 105,
-          "item_name": "Widget E",
-          "sku": "83",
+          "item_id": 57,
+          "item_name": "Electric Hand Warmer",
+          "sku": "HAN-ELEC-OS",
           "quantity": 3,
           "unit_price": 30.00,
           "serial_number": "SN9988776655"
         },
         {
-          "item_id": 106,
-          "item_name": "Widget F",
-          "sku": "83dd44",
+          "item_id": 58,
+          "item_name": "Smart Sleep Tracker",
+          "sku": "SLE-SMART-OS",
           "quantity": 4,
           "unit_price": 25.00,
           "serial_number": "SN2233445566"
         },
         {
-          "item_id": 107,
-          "item_name": "Widget G",
-          "sku": "893774hss",
+          "item_id": 59,
+          "item_name": "Electric Foot Massager",
+          "sku": "MAS-ELEC-OS",
           "quantity": 6,
           "unit_price": 18.00,
           "serial_number": "SN6677889900"
         },
         {
-          "item_id": 108,
-          "item_name": "Widget H",
-          "sku": "83793733",
+          "item_id": 60,
+          "item_name": "Smart Plant Sensor",
+          "sku": "SEN-SMART-OS",
           "quantity": 8,
           "unit_price": 12.00,
           "serial_number": "SN3344556677"
         },
         {
-          "item_id": 109,
-          "item_name": "Widget I",
-          "sku": "837336933",
+          "item_id": 61,
+          "item_name": "Electric Heated Blanket",
+          "sku": "BLA-ELEC-OS",
           "quantity": 9,
           "unit_price": 22.00,
           "serial_number": "SN7788990011"
         },
         {
-          "item_id": 110,
-          "item_name": "Widget J",
+          "item_id": 62,
+          "item_name": "Smart Garage Door Opener",
+          "sku": "GAR-SMART-OS",
           "quantity": 7,
           "unit_price": 28.00,
           "serial_number": "SN1122339988"
         },
         {
-          "item_id": 111,
-          "item_name": "Widget K",
-          "sku": "8373338636",
+          "item_id": 63,
+          "item_name": "Electric Air Fryer",
+          "sku": "FRY-ELEC-OS",
           "quantity": 4,
           "unit_price": 40.00,
           "serial_number": "SN1234567891"
@@ -687,14 +692,14 @@
         "name": "Khaled",
         "surname": "Algurush",
         "house_number": "45",
-        "addition": "",  
+        "addition": "",
         "street": "Högerdamm",
-        "postal_code": "20097",  
+        "postal_code": "20097",
         "city": "Hamburg",
-        "country": "Germany",  
+        "country": "Germany",
         "email": "email@hotmail.com",
         "phone": "0213456"
-      } 
+      }
     },
     {
       "responsive_id": "",
@@ -714,88 +719,89 @@
       "status": 4,
       "items": [
         {
-          "item_id": 101,
-          "item_name": "Widget A",
-          "sku": "837336933",
+          "item_id": 64,
+          "item_name": "Smart Baby Monitor",
+          "sku": "MON-SMART-OS",
           "quantity": 10,
           "unit_price": 15.00,
           "serial_number": "SN1234567890"
         },
         {
-          "item_id": 102,
-          "item_name": "Widget B",
-          "sku": "837933",
+          "item_id": 65,
+          "item_name": "Electric Ice Cream Maker",
+          "sku": "ICE-ELEC-OS",
           "quantity": 5,
           "unit_price": 20.00,
           "serial_number": "SN0987654321"
         },
         {
-          "item_id": 103,
-          "item_name": "Widget C",
-          "sku": "837336933",
+          "item_id": 66,
+          "item_name": "Smart Window Cleaner",
+          "sku": "WIN-SMART-OS",
           "quantity": 2,
           "unit_price": 50.00,
           "serial_number": "SN1122334455"
         },
         {
-          "item_id": 104,
-          "item_name": "Widget D",
-          "sku": "8373",
+          "item_id": 67,
+          "item_name": "Electric Pasta Maker",
+          "sku": "PAS-ELEC-OS",
           "quantity": 1,
           "unit_price": 100.00,
           "serial_number": "SN5566778899"
         },
         {
-          "item_id": 105,
-          "item_name": "Widget E",
-          "sku": "83",
+          "item_id": 68,
+          "item_name": "Smart Photo Frame",
+          "sku": "FRA-SMART-OS",
           "quantity": 3,
           "unit_price": 30.00,
           "serial_number": "SN9988776655"
         },
         {
-          "item_id": 106,
-          "item_name": "Widget F",
-          "sku": "83dd44",
+          "item_id": 69,
+          "item_name": "Electric Spin Mop",
+          "sku": "MOP-ELEC-OS",
           "quantity": 4,
           "unit_price": 25.00,
           "serial_number": "SN2233445566"
         },
         {
-          "item_id": 107,
-          "item_name": "Widget G",
-          "sku": "893774hss",
+          "item_id": 70,
+          "item_name": "Smart Meat Thermometer",
+          "sku": "THE-MEAT-OS",
           "quantity": 6,
           "unit_price": 18.00,
           "serial_number": "SN6677889900"
         },
         {
-          "item_id": 108,
-          "item_name": "Widget H",
-          "sku": "83793733",
+          "item_id": 71,
+          "item_name": "Electric Milk Frother",
+          "sku": "FRO-ELEC-OS",
           "quantity": 8,
           "unit_price": 12.00,
           "serial_number": "SN3344556677"
         },
         {
-          "item_id": 109,
-          "item_name": "Widget I",
-          "sku": "837336933",
+          "item_id": 72,
+          "item_name": "Smart Air Quality Monitor",
+          "sku": "MON-AIR-OS",
           "quantity": 9,
           "unit_price": 22.00,
           "serial_number": "SN7788990011"
         },
         {
-          "item_id": 110,
-          "item_name": "Widget J",
+          "item_id": 73,
+          "item_name": "Electric Food Dehydrator",
+          "sku": "DEH-ELEC-OS",
           "quantity": 7,
           "unit_price": 28.00,
           "serial_number": "SN1122339988"
         },
         {
-          "item_id": 111,
-          "item_name": "Widget K",
-          "sku": "8373338636",
+          "item_id": 74,
+          "item_name": "Smart Sleep Light",
+          "sku": "LIG-SLEEP-OS",
           "quantity": 4,
           "unit_price": 40.00,
           "serial_number": "SN1234567891"
@@ -825,14 +831,14 @@
         "name": "Khaled",
         "surname": "Algurush",
         "house_number": "45",
-        "addition": "",  
+        "addition": "",
         "street": "Högerdamm",
-        "postal_code": "20097",  
+        "postal_code": "20097",
         "city": "Hamburg",
-        "country": "Germany",  
+        "country": "Germany",
         "email": "email@hotmail.com",
         "phone": "0213456"
-      } 
+      }
     },
     {
       "responsive_id": "",
@@ -851,88 +857,89 @@
       "status": 5,
       "items": [
         {
-          "item_id": 101,
-          "item_name": "Widget A",
-          "sku": "837336933",
+          "item_id": 75,
+          "item_name": "Electric Wine Cooler",
+          "sku": "COO-WINE-OS",
           "quantity": 10,
           "unit_price": 15.00,
           "serial_number": "SN1234567890"
         },
         {
-          "item_id": 102,
-          "item_name": "Widget B",
-          "sku": "837933",
+          "item_id": 76,
+          "item_name": "Smart Baby Swing",
+          "sku": "SWI-BABY-OS",
           "quantity": 5,
           "unit_price": 20.00,
           "serial_number": "SN0987654321"
         },
         {
-          "item_id": 103,
-          "item_name": "Widget C",
-          "sku": "837336933",
+          "item_id": 77,
+          "item_name": "Electric Heated Vest",
+          "sku": "VES-ELEC-M",
           "quantity": 2,
           "unit_price": 50.00,
           "serial_number": "SN1122334455"
         },
         {
-          "item_id": 104,
-          "item_name": "Widget D",
-          "sku": "8373",
+          "item_id": 78,
+          "item_name": "Smart Bike Lock",
+          "sku": "LOC-BIKE-OS",
           "quantity": 1,
           "unit_price": 100.00,
           "serial_number": "SN5566778899"
         },
         {
-          "item_id": 105,
-          "item_name": "Widget E",
-          "sku": "83",
+          "item_id": 79,
+          "item_name": "Electric Heated Gloves",
+          "sku": "GLO-ELEC-M",
           "quantity": 3,
           "unit_price": 30.00,
           "serial_number": "SN9988776655"
         },
         {
-          "item_id": 106,
-          "item_name": "Widget F",
-          "sku": "83dd44",
+          "item_id": 80,
+          "item_name": "Smart Pet Feeder",
+          "sku": "FEE-PET-OS",
           "quantity": 4,
           "unit_price": 25.00,
           "serial_number": "SN2233445566"
         },
         {
-          "item_id": 107,
-          "item_name": "Widget G",
-          "sku": "893774hss",
+          "item_id": 81,
+          "item_name": "Electric Heated Mattress Pad",
+          "sku": "MAT-ELEC-OS",
           "quantity": 6,
           "unit_price": 18.00,
           "serial_number": "SN6677889900"
         },
         {
-          "item_id": 108,
-          "item_name": "Widget H",
-          "sku": "83793733",
+          "item_id": 82,
+          "item_name": "Smart Watering System",
+          "sku": "WAT-SMART-OS",
           "quantity": 8,
           "unit_price": 12.00,
           "serial_number": "SN3344556677"
         },
         {
-          "item_id": 109,
-          "item_name": "Widget I",
-          "sku": "837336933",
+          "item_id": 83,
+          "item_name": "Electric Heated Towel Rack",
+          "sku": "TOW-ELEC-OS",
           "quantity": 9,
           "unit_price": 22.00,
           "serial_number": "SN7788990011"
         },
         {
-          "item_id": 110,
-          "item_name": "Widget J",
+          "item_id": 84,
+          "item_name": "Smart Bike Trainer",
+          "sku": "TRA-BIKE-OS",
           "quantity": 7,
           "unit_price": 28.00,
           "serial_number": "SN1122339988"
         },
         {
-          "item_id": 111,
-          "item_name": "Widget K",
-          "sku": "8373338636",
+          "item_id": 85,
+          "item_name": "Electric Heated Jacket",
+          "sku": "JAC-ELEC-M",
           "quantity": 4,
           "unit_price": 40.00,
           "serial_number": "SN1234567891"
@@ -967,14 +974,14 @@
         "name": "Khaled",
         "surname": "Algurush",
         "house_number": "45",
-        "addition": "",  
+        "addition": "",
         "street": "Högerdamm",
-        "postal_code": "20097",  
+        "postal_code": "20097",
         "city": "Hamburg",
-        "country": "Germany",  
+        "country": "Germany",
         "email": "email@hotmail.com",
         "phone": "0213456"
-      } 
+      }
     },
     {
       "responsive_id": "",
@@ -993,88 +1000,89 @@
       "status": 6,
       "items": [
         {
-          "item_id": 101,
-          "item_name": "Widget A",
-          "sku": "837336933",
+          "item_id": 86,
+          "item_name": "Smart Sleep Headphones",
+          "sku": "HED-SLEEP-OS",
           "quantity": 10,
           "unit_price": 15.00,
           "serial_number": "SN1234567890"
         },
         {
-          "item_id": 102,
-          "item_name": "Widget B",
-          "sku": "837933",
+          "item_id": 87,
+          "item_name": "Electric Heated Insoles",
+          "sku": "INS-ELEC-M",
           "quantity": 5,
           "unit_price": 20.00,
           "serial_number": "SN0987654321"
         },
         {
-          "item_id": 103,
-          "item_name": "Widget C",
-          "sku": "837336933",
+          "item_id": 88,
+          "item_name": "Smart Home Security System",
+          "sku": "SEC-SMART-OS",
           "quantity": 2,
           "unit_price": 50.00,
           "serial_number": "SN1122334455"
         },
         {
-          "item_id": 104,
-          "item_name": "Widget D",
-          "sku": "8373",
+          "item_id": 89,
+          "item_name": "Electric Heated Sofa Blanket",
+          "sku": "SOF-ELEC-OS",
           "quantity": 1,
           "unit_price": 100.00,
           "serial_number": "SN5566778899"
         },
         {
-          "item_id": 105,
-          "item_name": "Widget E",
-          "sku": "83",
+          "item_id": 90,
+          "item_name": "Smart Home Lighting System",
+          "sku": "LIG-HOME-OS",
           "quantity": 3,
           "unit_price": 30.00,
           "serial_number": "SN9988776655"
         },
         {
-          "item_id": 106,
-          "item_name": "Widget F",
-          "sku": "83dd44",
+          "item_id": 91,
+          "item_name": "Electric Heated Car Seat Cover",
+          "sku": "CAR-ELEC-OS",
           "quantity": 4,
           "unit_price": 25.00,
           "serial_number": "SN2233445566"
         },
         {
-          "item_id": 107,
-          "item_name": "Widget G",
-          "sku": "893774hss",
+          "item_id": 92,
+          "item_name": "Smart Home Energy Monitor",
+          "sku": "MON-ENERGY-OS",
           "quantity": 6,
           "unit_price": 18.00,
           "serial_number": "SN6677889900"
         },
         {
-          "item_id": 108,
-          "item_name": "Widget H",
-          "sku": "83793733",
+          "item_id": 93,
+          "item_name": "Electric Heated Pet Bed",
+          "sku": "BED-PET-OS",
           "quantity": 8,
           "unit_price": 12.00,
           "serial_number": "SN3344556677"
         },
         {
-          "item_id": 109,
-          "item_name": "Widget I",
-          "sku": "837336933",
+          "item_id": 94,
+          "item_name": "Smart Home Climate Control",
+          "sku": "CLI-SMART-OS",
           "quantity": 9,
           "unit_price": 22.00,
           "serial_number": "SN7788990011"
         },
         {
-          "item_id": 110,
-          "item_name": "Widget J",
+          "item_id": 95,
+          "item_name": "Electric Heated Baby Bottle",
+          "sku": "BOT-ELEC-OS",
           "quantity": 7,
           "unit_price": 28.00,
           "serial_number": "SN1122339988"
         },
         {
-          "item_id": 111,
-          "item_name": "Widget K",
-          "sku": "8373338636",
+          "item_id": 96,
+          "item_name": "Smart Home Water Leak Detector",
+          "sku": "DET-WATER-OS",
           "quantity": 4,
           "unit_price": 40.00,
           "serial_number": "SN1234567891"
@@ -1110,14 +1118,14 @@
         "name": "Khaled",
         "surname": "Algurush",
         "house_number": "45",
-        "addition": "",  
+        "addition": "",
         "street": "Högerdamm",
-        "postal_code": "20097",  
+        "postal_code": "20097",
         "city": "Hamburg",
-        "country": "Germany",  
+        "country": "Germany",
         "email": "email@hotmail.com",
         "phone": "0213456"
-      } 
+      }
     },
     {
       "responsive_id": "",
@@ -1136,88 +1144,89 @@
       "status": 7,
       "items": [
         {
-          "item_id": 101,
-          "item_name": "Widget A",
-          "sku": "837336933",
+          "item_id": 97,
+          "item_name": "Electric Heated Car Blanket",
+          "sku": "BLA-CAR-OS",
           "quantity": 10,
           "unit_price": 15.00,
           "serial_number": "SN1234567890"
         },
         {
-          "item_id": 102,
-          "item_name": "Widget B",
-          "sku": "837933",
+          "item_id": 98,
+          "item_name": "Smart Home Voice Assistant",
+          "sku": "ASSIST-VOICE-OS",
           "quantity": 5,
           "unit_price": 20.00,
           "serial_number": "SN0987654321"
         },
         {
-          "item_id": 103,
-          "item_name": "Widget C",
-          "sku": "837336933",
+          "item_id": 99,
+          "item_name": "Electric Heated Car Seat Cushion",
+          "sku": "CUS-ELEC-OS",
           "quantity": 2,
           "unit_price": 50.00,
           "serial_number": "SN1122334455"
         },
         {
-          "item_id": 104,
-          "item_name": "Widget D",
-          "sku": "8373",
+          "item_id": 100,
+          "item_name": "Smart Home Smoke Detector",
+          "sku": "DET-SMOKE-OS",
           "quantity": 1,
           "unit_price": 100.00,
           "serial_number": "SN5566778899"
         },
         {
-          "item_id": 105,
-          "item_name": "Widget E",
-          "sku": "83",
+          "item_id": 1,
+          "item_name": "Premium T-Shirt",
+          "sku": "T-S-PREM-M",
           "quantity": 3,
           "unit_price": 30.00,
           "serial_number": "SN9988776655"
         },
         {
-          "item_id": 106,
-          "item_name": "Widget F",
-          "sku": "83dd44",
+          "item_id": 2,
+          "item_name": "Classic Jeans",
+          "sku": "JEA-CLAS-L",
           "quantity": 4,
           "unit_price": 25.00,
           "serial_number": "SN2233445566"
         },
         {
-          "item_id": 107,
-          "item_name": "Widget G",
-          "sku": "893774hss",
+          "item_id": 3,
+          "item_name": "Urban Hoodie",
+          "sku": "HOO-URBA-XL",
           "quantity": 6,
           "unit_price": 18.00,
           "serial_number": "SN6677889900"
         },
         {
-          "item_id": 108,
-          "item_name": "Widget H",
-          "sku": "83793733",
+          "item_id": 4,
+          "item_name": "Modern Sneakers",
+          "sku": "SNE-MODE-42",
           "quantity": 8,
           "unit_price": 12.00,
           "serial_number": "SN3344556677"
         },
         {
-          "item_id": 109,
-          "item_name": "Widget I",
-          "sku": "837336933",
+          "item_id": 5,
+          "item_name": "Slim Fit Jacket",
+          "sku": "JAC-SLIM-S",
           "quantity": 9,
           "unit_price": 22.00,
           "serial_number": "SN7788990011"
         },
         {
-          "item_id": 110,
-          "item_name": "Widget J",
+          "item_id": 6,
+          "item_name": "Basic Sweater",
+          "sku": "SWE-BASI-M",
           "quantity": 7,
           "unit_price": 28.00,
           "serial_number": "SN1122339988"
         },
         {
-          "item_id": 111,
-          "item_name": "Widget K",
-          "sku": "8373338636",
+          "item_id": 7,
+          "item_name": "Performance Polo",
+          "sku": "POL-PERF-L",
           "quantity": 4,
           "unit_price": 40.00,
           "serial_number": "SN1234567891"
@@ -1254,14 +1263,14 @@
         "name": "Khaled",
         "surname": "Algurush",
         "house_number": "45",
-        "addition": "",  
+        "addition": "",
         "street": "Högerdamm",
-        "postal_code": "20097",  
+        "postal_code": "20097",
         "city": "Hamburg",
-        "country": "Germany",  
+        "country": "Germany",
         "email": "email@hotmail.com",
         "phone": "0213456"
-      } 
+      }
     },
     {
       "responsive_id": "",
@@ -1280,88 +1289,89 @@
       "status": 8,
       "items": [
         {
-          "item_id": 101,
-          "item_name": "Widget A",
-          "sku": "837336933",
+          "item_id": 8,
+          "item_name": "Vintage Beanie",
+          "sku": "BEA-VINT-OS",
           "quantity": 10,
           "unit_price": 15.00,
           "serial_number": "SN1234567890"
         },
         {
-          "item_id": 102,
-          "item_name": "Widget B",
-          "sku": "837933",
+          "item_id": 9,
+          "item_name": "Tech Backpack",
+          "sku": "BAC-TECH-OS",
           "quantity": 5,
           "unit_price": 20.00,
           "serial_number": "SN0987654321"
         },
         {
-          "item_id": 103,
-          "item_name": "Widget C",
-          "sku": "837336933",
+          "item_id": 10,
+          "item_name": "Cotton Cap",
+          "sku": "CAP-COTT-OS",
           "quantity": 2,
           "unit_price": 50.00,
           "serial_number": "SN1122334455"
         },
         {
-          "item_id": 104,
-          "item_name": "Widget D",
-          "sku": "8373",
+          "item_id": 19,
+          "item_name": "Camping Tent",
+          "sku": "TEN-CAMP-4P",
           "quantity": 1,
           "unit_price": 100.00,
           "serial_number": "SN5566778899"
         },
         {
-          "item_id": 105,
-          "item_name": "Widget E",
-          "sku": "83",
+          "item_id": 20,
+          "item_name": "Travel Mug",
+          "sku": "MUG-TRAV-OS",
           "quantity": 3,
           "unit_price": 30.00,
           "serial_number": "SN9988776655"
         },
         {
-          "item_id": 106,
-          "item_name": "Widget F",
-          "sku": "83dd44",
+          "item_id": 21,
+          "item_name": "Laptop Sleeve",
+          "sku": "SLE-LAPT-15",
           "quantity": 4,
           "unit_price": 25.00,
           "serial_number": "SN2233445566"
         },
         {
-          "item_id": 107,
-          "item_name": "Widget G",
-          "sku": "893774hss",
+          "item_id": 22,
+          "item_name": "Desk Organizer",
+          "sku": "ORG-DESK-OS",
           "quantity": 6,
           "unit_price": 18.00,
           "serial_number": "SN6677889900"
         },
         {
-          "item_id": 108,
-          "item_name": "Widget H",
-          "sku": "83793733",
+          "item_id": 23,
+          "item_name": "Bluetooth Speaker",
+          "sku": "SPE-BLUE-OS",
           "quantity": 8,
           "unit_price": 12.00,
           "serial_number": "SN3344556677"
         },
         {
-          "item_id": 109,
-          "item_name": "Widget I",
-          "sku": "837336933",
+          "item_id": 24,
+          "item_name": "Smart Light Bulb",
+          "sku": "LIG-SMART-OS",
           "quantity": 9,
           "unit_price": 22.00,
           "serial_number": "SN7788990011"
         },
         {
-          "item_id": 110,
-          "item_name": "Widget J",
+          "item_id": 25,
+          "item_name": "Electric Kettle",
+          "sku": "KET-ELEC-OS",
           "quantity": 7,
           "unit_price": 28.00,
           "serial_number": "SN1122339988"
         },
         {
-          "item_id": 111,
-          "item_name": "Widget K",
-          "sku": "8373338636",
+          "item_id": 26,
+          "item_name": "Air Purifier",
+          "sku": "PUR-AIR-OS",
           "quantity": 4,
           "unit_price": 40.00,
           "serial_number": "SN1234567891"
@@ -1395,14 +1405,14 @@
         "name": "Khaled",
         "surname": "Algurush",
         "house_number": "45",
-        "addition": "",  
+        "addition": "",
         "street": "Högerdamm",
-        "postal_code": "20097",  
+        "postal_code": "20097",
         "city": "Hamburg",
-        "country": "Germany",  
+        "country": "Germany",
         "email": "email@hotmail.com",
         "phone": "0213456"
-      } 
+      }
     },
     {
       "responsive_id": "",
@@ -1421,88 +1431,89 @@
       "status": 9,
       "items": [
         {
-          "item_id": 101,
-          "item_name": "Widget A",
-          "sku": "837336933",
+          "item_id": 27,
+          "item_name": "Fitness Ball",
+          "sku": "BAL-FIT-65",
           "quantity": 10,
           "unit_price": 15.00,
           "serial_number": "SN1234567890"
         },
         {
-          "item_id": 102,
-          "item_name": "Widget B",
-          "sku": "837933",
+          "item_id": 28,
+          "item_name": "Digital Camera",
+          "sku": "CAM-DIGI-OS",
           "quantity": 5,
           "unit_price": 20.00,
           "serial_number": "SN0987654321"
         },
         {
-          "item_id": 103,
-          "item_name": "Widget C",
-          "sku": "837336933",
+          "item_id": 29,
+          "item_name": "Action Figure",
+          "sku": "FIG-ACTN-OS",
           "quantity": 2,
           "unit_price": 50.00,
           "serial_number": "SN1122334455"
         },
         {
-          "item_id": 104,
-          "item_name": "Widget D",
-          "sku": "8373",
+          "item_id": 30,
+          "item_name": "VR Headset",
+          "sku": "VR-HEAD-OS",
           "quantity": 1,
           "unit_price": 100.00,
           "serial_number": "SN5566778899"
         },
         {
-          "item_id": 105,
-          "item_name": "Widget E",
-          "sku": "83",
+          "item_id": 31,
+          "item_name": "Electric Scooter",
+          "sku": "SCO-ELEC-OS",
           "quantity": 3,
           "unit_price": 30.00,
           "serial_number": "SN9988776655"
         },
         {
-          "item_id": 106,
-          "item_name": "Widget F",
-          "sku": "83dd44",
+          "item_id": 32,
+          "item_name": "Smart Thermostat",
+          "sku": "THE-SMART-OS",
           "quantity": 4,
           "unit_price": 25.00,
           "serial_number": "SN2233445566"
         },
         {
-          "item_id": 107,
-          "item_name": "Widget G",
-          "sku": "893774hss",
+          "item_id": 33,
+          "item_name": "Noise Cancelling Headphones",
+          "sku": "HED-NOIS-OS",
           "quantity": 6,
           "unit_price": 18.00,
           "serial_number": "SN6677889900"
         },
         {
-          "item_id": 108,
-          "item_name": "Widget H",
-          "sku": "83793733",
+          "item_id": 34,
+          "item_name": "Smartphone Gimbal",
+          "sku": "GIM-SMART-OS",
           "quantity": 8,
           "unit_price": 12.00,
           "serial_number": "SN3344556677"
         },
         {
-          "item_id": 109,
-          "item_name": "Widget I",
-          "sku": "837336933",
+          "item_id": 35,
+          "item_name": "Portable Charger",
+          "sku": "CHA-PORT-OS",
           "quantity": 9,
           "unit_price": 22.00,
           "serial_number": "SN7788990011"
         },
         {
-          "item_id": 110,
-          "item_name": "Widget J",
+          "item_id": 36,
+          "item_name": "Smart Glasses",
+          "sku": "GLA-SMART-OS",
           "quantity": 7,
           "unit_price": 28.00,
           "serial_number": "SN1122339988"
         },
         {
-          "item_id": 111,
-          "item_name": "Widget K",
-          "sku": "8373338636",
+          "item_id": 37,
+          "item_name": "3D Printer",
+          "sku": "PRI-3D-OS",
           "quantity": 4,
           "unit_price": 40.00,
           "serial_number": "SN1234567891"
@@ -1537,14 +1548,14 @@
         "name": "Khaled",
         "surname": "Algurush",
         "house_number": "45",
-        "addition": "",  
+        "addition": "",
         "street": "Högerdamm",
-        "postal_code": "20097",  
+        "postal_code": "20097",
         "city": "Hamburg",
-        "country": "Germany",  
+        "country": "Germany",
         "email": "email@hotmail.com",
         "phone": "0213456"
-      } 
+      }
     },
     {
       "responsive_id": "",
@@ -1563,88 +1574,89 @@
       "status": 10,
       "items": [
         {
-          "item_id": 101,
-          "item_name": "Widget A",
-          "sku": "837336933",
+          "item_id": 38,
+          "item_name": "Smart Door Lock",
+          "sku": "LOC-SMART-OS",
           "quantity": 10,
           "unit_price": 15.00,
           "serial_number": "SN1234567890"
         },
         {
-          "item_id": 102,
-          "item_name": "Widget B",
-          "sku": "837933",
+          "item_id": 39,
+          "item_name": "Electric Toothbrush",
+          "sku": "TOO-ELEC-OS",
           "quantity": 5,
           "unit_price": 20.00,
           "serial_number": "SN0987654321"
         },
         {
-          "item_id": 103,
-          "item_name": "Widget C",
-          "sku": "837336933",
+          "item_id": 40,
+          "item_name": "Smart Scale",
+          "sku": "SCA-SMART-OS",
           "quantity": 2,
           "unit_price": 50.00,
           "serial_number": "SN1122334455"
         },
         {
-          "item_id": 104,
-          "item_name": "Widget D",
-          "sku": "8373",
+          "item_id": 41,
+          "item_name": "Electric Grill",
+          "sku": "GRI-ELEC-OS",
           "quantity": 1,
           "unit_price": 100.00,
           "serial_number": "SN5566778899"
         },
         {
-          "item_id": 105,
-          "item_name": "Widget E",
-          "sku": "83",
+          "item_id": 42,
+          "item_name": "Smart Water Bottle",
+          "sku": "BOT-SMART-OS",
           "quantity": 3,
           "unit_price": 30.00,
           "serial_number": "SN9988776655"
         },
         {
-          "item_id": 106,
-          "item_name": "Widget F",
-          "sku": "83dd44",
+          "item_id": 43,
+          "item_name": "Electric Fireplace",
+          "sku": "FIR-ELEC-OS",
           "quantity": 4,
           "unit_price": 25.00,
           "serial_number": "SN2233445566"
         },
         {
-          "item_id": 107,
-          "item_name": "Widget G",
-          "sku": "893774hss",
+          "item_id": 44,
+          "item_name": "Smart Mirror",
+          "sku": "MIR-SMART-OS",
           "quantity": 6,
           "unit_price": 18.00,
           "serial_number": "SN6677889900"
         },
         {
-          "item_id": 108,
-          "item_name": "Widget H",
-          "sku": "83793733",
+          "item_id": 45,
+          "item_name": "Electric Skateboard",
+          "sku": "SKA-ELEC-OS",
           "quantity": 8,
           "unit_price": 12.00,
           "serial_number": "SN3344556677"
         },
         {
-          "item_id": 109,
-          "item_name": "Widget I",
-          "sku": "837336933",
+          "item_id": 46,
+          "item_name": "Smart Coffee Maker",
+          "sku": "COF-SMART-OS",
           "quantity": 9,
           "unit_price": 22.00,
           "serial_number": "SN7788990011"
         },
         {
-          "item_id": 110,
-          "item_name": "Widget J",
+          "item_id": 47,
+          "item_name": "Electric Bike",
+          "sku": "BIK-ELEC-OS",
           "quantity": 7,
           "unit_price": 28.00,
           "serial_number": "SN1122339988"
         },
         {
-          "item_id": 111,
-          "item_name": "Widget K",
-          "sku": "8373338636",
+          "item_id": 48,
+          "item_name": "Smart Home Hub",
+          "sku": "HUB-SMART-OS",
           "quantity": 4,
           "unit_price": 40.00,
           "serial_number": "SN1234567891"
@@ -1680,14 +1692,14 @@
         "name": "Khaled",
         "surname": "Algurush",
         "house_number": "45",
-        "addition": "",  
+        "addition": "",
         "street": "Högerdamm",
-        "postal_code": "20097",  
+        "postal_code": "20097",
         "city": "Hamburg",
-        "country": "Germany",  
+        "country": "Germany",
         "email": "email@hotmail.com",
         "phone": "0213456"
-      } 
+      }
     },
     {
       "responsive_id": "",
@@ -1706,88 +1718,89 @@
       "status": 11,
        "items": [
         {
-          "item_id": 101,
-          "item_name": "Widget A",
-          "sku": "837336933",
+          "item_id": 49,
+          "item_name": "Electric Lawn Mower",
+          "sku": "MOW-ELEC-OS",
           "quantity": 10,
           "unit_price": 15.00,
           "serial_number": "SN1234567890"
         },
         {
-          "item_id": 102,
-          "item_name": "Widget B",
-          "sku": "837933",
+          "item_id": 50,
+          "item_name": "Smart Security Camera",
+          "sku": "CAM-SECUR-OS",
           "quantity": 5,
           "unit_price": 20.00,
           "serial_number": "SN0987654321"
         },
         {
-          "item_id": 103,
-          "item_name": "Widget C",
-          "sku": "837336933",
+          "item_id": 51,
+          "item_name": "Electric Pressure Cooker",
+          "sku": "COO-ELEC-OS",
           "quantity": 2,
           "unit_price": 50.00,
           "serial_number": "SN1122334455"
         },
         {
-          "item_id": 104,
-          "item_name": "Widget D",
-          "sku": "8373",
+          "item_id": 52,
+          "item_name": "Smart Air Conditioner",
+          "sku": "AIR-SMART-OS",
           "quantity": 1,
           "unit_price": 100.00,
           "serial_number": "SN5566778899"
         },
         {
-          "item_id": 105,
-          "item_name": "Widget E",
-          "sku": "83",
+          "item_id": 53,
+          "item_name": "Electric Fireplace Heater",
+          "sku": "HEA-ELEC-OS",
           "quantity": 3,
           "unit_price": 30.00,
           "serial_number": "SN9988776655"
         },
         {
-          "item_id": 106,
-          "item_name": "Widget F",
-          "sku": "83dd44",
+          "item_id": 54,
+          "item_name": "Smart Robot Vacuum",
+          "sku": "VAC-SMART-OS",
           "quantity": 4,
           "unit_price": 25.00,
           "serial_number": "SN2233445566"
         },
         {
-          "item_id": 107,
-          "item_name": "Widget G",
-          "sku": "893774hss",
+          "item_id": 55,
+          "item_name": "Electric Wine Opener",
+          "sku": "WOP-ELEC-OS",
           "quantity": 6,
           "unit_price": 18.00,
           "serial_number": "SN6677889900"
         },
         {
-          "item_id": 108,
-          "item_name": "Widget H",
-          "sku": "83793733",
+          "item_id": 56,
+          "item_name": "Smart Light Switch",
+          "sku": "SWI-SMART-OS",
           "quantity": 8,
           "unit_price": 12.00,
           "serial_number": "SN3344556677"
         },
         {
-          "item_id": 109,
-          "item_name": "Widget I",
-          "sku": "837336933",
+          "item_id": 57,
+          "item_name": "Electric Hand Warmer",
+          "sku": "HAN-ELEC-OS",
           "quantity": 9,
           "unit_price": 22.00,
           "serial_number": "SN7788990011"
         },
         {
-          "item_id": 110,
-          "item_name": "Widget J",
+          "item_id": 58,
+          "item_name": "Smart Sleep Tracker",
+          "sku": "SLE-SMART-OS",
           "quantity": 7,
           "unit_price": 28.00,
           "serial_number": "SN1122339988"
         },
         {
-          "item_id": 111,
-          "item_name": "Widget K",
-          "sku": "8373338636",
+          "item_id": 59,
+          "item_name": "Electric Foot Massager",
+          "sku": "MAS-ELEC-OS",
           "quantity": 4,
           "unit_price": 40.00,
           "serial_number": "SN1234567891"
@@ -1895,14 +1908,14 @@
         "name": "Khaled",
         "surname": "Algurush",
         "house_number": "45",
-        "addition": "",  
+        "addition": "",
         "street": "Högerdamm",
-        "postal_code": "20097",  
+        "postal_code": "20097",
         "city": "Hamburg",
-        "country": "Germany",  
+        "country": "Germany",
         "email": "email@hotmail.com",
         "phone": "0213456"
-      }  
+      }
     },
     {
       "responsive_id": "",
@@ -1921,88 +1934,89 @@
       "status": 12,
        "items": [
         {
-          "item_id": 101,
-          "item_name": "Widget A",
-          "sku": "837336933",
+          "item_id": 60,
+          "item_name": "Smart Plant Sensor",
+          "sku": "SEN-SMART-OS",
           "quantity": 10,
           "unit_price": 15.00,
           "serial_number": "SN1234567890"
         },
         {
-          "item_id": 102,
-          "item_name": "Widget B",
-          "sku": "837933",
+          "item_id": 61,
+          "item_name": "Electric Heated Blanket",
+          "sku": "BLA-ELEC-OS",
           "quantity": 5,
           "unit_price": 20.00,
           "serial_number": "SN0987654321"
         },
         {
-          "item_id": 103,
-          "item_name": "Widget C",
-          "sku": "837336933",
+          "item_id": 62,
+          "item_name": "Smart Garage Door Opener",
+          "sku": "GAR-SMART-OS",
           "quantity": 2,
           "unit_price": 50.00,
           "serial_number": "SN1122334455"
         },
         {
-          "item_id": 104,
-          "item_name": "Widget D",
-          "sku": "8373",
+          "item_id": 63,
+          "item_name": "Electric Air Fryer",
+          "sku": "FRY-ELEC-OS",
           "quantity": 1,
           "unit_price": 100.00,
           "serial_number": "SN5566778899"
         },
         {
-          "item_id": 105,
-          "item_name": "Widget E",
-          "sku": "83",
+          "item_id": 64,
+          "item_name": "Smart Baby Monitor",
+          "sku": "MON-SMART-OS",
           "quantity": 3,
           "unit_price": 30.00,
           "serial_number": "SN9988776655"
         },
         {
-          "item_id": 106,
-          "item_name": "Widget F",
-          "sku": "83dd44",
+          "item_id": 65,
+          "item_name": "Electric Ice Cream Maker",
+          "sku": "ICE-ELEC-OS",
           "quantity": 4,
           "unit_price": 25.00,
           "serial_number": "SN2233445566"
         },
         {
-          "item_id": 107,
-          "item_name": "Widget G",
-          "sku": "893774hss",
+          "item_id": 66,
+          "item_name": "Smart Window Cleaner",
+          "sku": "WIN-SMART-OS",
           "quantity": 6,
           "unit_price": 18.00,
           "serial_number": "SN6677889900"
         },
         {
-          "item_id": 108,
-          "item_name": "Widget H",
-          "sku": "83793733",
+          "item_id": 67,
+          "item_name": "Electric Pasta Maker",
+          "sku": "PAS-ELEC-OS",
           "quantity": 8,
           "unit_price": 12.00,
           "serial_number": "SN3344556677"
         },
         {
-          "item_id": 109,
-          "item_name": "Widget I",
-          "sku": "837336933",
+          "item_id": 68,
+          "item_name": "Smart Photo Frame",
+          "sku": "FRA-SMART-OS",
           "quantity": 9,
           "unit_price": 22.00,
           "serial_number": "SN7788990011"
         },
         {
-          "item_id": 110,
-          "item_name": "Widget J",
+          "item_id": 69,
+          "item_name": "Electric Spin Mop",
+          "sku": "MOP-ELEC-OS",
           "quantity": 7,
           "unit_price": 28.00,
           "serial_number": "SN1122339988"
         },
         {
-          "item_id": 111,
-          "item_name": "Widget K",
-          "sku": "8373338636",
+          "item_id": 70,
+          "item_name": "Smart Meat Thermometer",
+          "sku": "THE-MEAT-OS",
           "quantity": 4,
           "unit_price": 40.00,
           "serial_number": "SN1234567891"
@@ -2111,11 +2125,11 @@
         "name": "Khaled",
         "surname": "Algurush",
         "house_number": "45",
-        "addition": "",  
+        "addition": "",
         "street": "Högerdamm",
-        "postal_code": "20097",  
+        "postal_code": "20097",
         "city": "Hamburg",
-        "country": "Germany",  
+        "country": "Germany",
         "email": "email@hotmail.com",
         "phone": "0213456"
       },
@@ -2144,88 +2158,89 @@
       "aitional_fee": 5.00,
       "items": [
         {
-          "item_id": 101,
-          "item_name": "Widget A",
-          "sku": "837336933",
+          "item_id": 71,
+          "item_name": "Electric Milk Frother",
+          "sku": "FRO-ELEC-OS",
           "quantity": 10,
           "unit_price": 15.00,
           "serial_number": "SN1234567890"
         },
         {
-          "item_id": 102,
-          "item_name": "Widget B",
-          "sku": "837933",
+          "item_id": 72,
+          "item_name": "Smart Air Quality Monitor",
+          "sku": "MON-AIR-OS",
           "quantity": 5,
           "unit_price": 20.00,
           "serial_number": "SN0987654321"
         },
         {
-          "item_id": 103,
-          "item_name": "Widget C",
-          "sku": "837336933",
+          "item_id": 73,
+          "item_name": "Electric Food Dehydrator",
+          "sku": "DEH-ELEC-OS",
           "quantity": 2,
           "unit_price": 50.00,
           "serial_number": "SN1122334455"
         },
         {
-          "item_id": 104,
-          "item_name": "Widget D",
-          "sku": "8373",
+          "item_id": 74,
+          "item_name": "Smart Sleep Light",
+          "sku": "LIG-SLEEP-OS",
           "quantity": 1,
           "unit_price": 100.00,
           "serial_number": "SN5566778899"
         },
         {
-          "item_id": 105,
-          "item_name": "Widget E",
-          "sku": "83",
+          "item_id": 75,
+          "item_name": "Electric Wine Cooler",
+          "sku": "COO-WINE-OS",
           "quantity": 3,
           "unit_price": 30.00,
           "serial_number": "SN9988776655"
         },
         {
-          "item_id": 106,
-          "item_name": "Widget F",
-          "sku": "83dd44",
+          "item_id": 76,
+          "item_name": "Smart Baby Swing",
+          "sku": "SWI-BABY-OS",
           "quantity": 4,
           "unit_price": 25.00,
           "serial_number": "SN2233445566"
         },
         {
-          "item_id": 107,
-          "item_name": "Widget G",
-          "sku": "893774hss",
+          "item_id": 77,
+          "item_name": "Electric Heated Vest",
+          "sku": "VES-ELEC-M",
           "quantity": 6,
           "unit_price": 18.00,
           "serial_number": "SN6677889900"
         },
         {
-          "item_id": 108,
-          "item_name": "Widget H",
-          "sku": "83793733",
+          "item_id": 78,
+          "item_name": "Smart Bike Lock",
+          "sku": "LOC-BIKE-OS",
           "quantity": 8,
           "unit_price": 12.00,
           "serial_number": "SN3344556677"
         },
         {
-          "item_id": 109,
-          "item_name": "Widget I",
-          "sku": "837336933",
+          "item_id": 79,
+          "item_name": "Electric Heated Gloves",
+          "sku": "GLO-ELEC-M",
           "quantity": 9,
           "unit_price": 22.00,
           "serial_number": "SN7788990011"
         },
         {
-          "item_id": 110,
-          "item_name": "Widget J",
+          "item_id": 80,
+          "item_name": "Smart Pet Feeder",
+          "sku": "FEE-PET-OS",
           "quantity": 7,
           "unit_price": 28.00,
           "serial_number": "SN1122339988"
         },
         {
-          "item_id": 111,
-          "item_name": "Widget K",
-          "sku": "8373338636",
+          "item_id": 81,
+          "item_name": "Electric Heated Mattress Pad",
+          "sku": "MAT-ELEC-OS",
           "quantity": 4,
           "unit_price": 40.00,
           "serial_number": "SN1234567891"
@@ -2303,14 +2318,14 @@
         "name": "Khaled",
         "surname": "Algurush",
         "house_number": "45",
-        "addition": "",  
+        "addition": "",
         "street": "Högerdamm",
-        "postal_code": "20097",  
+        "postal_code": "20097",
         "city": "Hamburg",
-        "country": "Germany",  
+        "country": "Germany",
         "email": "email@hotmail.com",
         "phone": "0213456"
-      } 
+      }
     },
     {
       "responsive_id": "",
@@ -2328,17 +2343,17 @@
       "current_update": "2025-10-03 03:00:00",
       "status": 15,
       "items": [
-        { "item_id": 101, "item_name": "Widget A", "sku": "WIDGET-A",  "serial_number":"SN0987654321" },
-        { "item_id": 102, "item_name": "Widget B", "sku": "WIDGET-B",  "serial_number":"SN0987654321" },
-        { "item_id": 103, "item_name": "Widget C", "sku": "WIDGET-C",  "serial_number":"SN0987654321" },
-        { "item_id": 104, "item_name": "Widget D", "sku": "WIDGET-D",  "serial_number":"SN0987654321" },
-        { "item_id": 105, "item_name": "Widget E", "sku": "WIDGET-E",  "serial_number":"SN0987654321" },
-        { "item_id": 106, "item_name": "Widget F", "sku": "WIDGET-F",  "serial_number":"SN0987654321" },
-        { "item_id": 107, "item_name": "Widget G", "sku": "WIDGET-G",  "serial_number":"SN0987654321" },
-        { "item_id": 108, "item_name": "Widget H", "sku": "WIDGET-H",  "serial_number":"SN0987654321" },
-        { "item_id": 109, "item_name": "Widget I", "sku": "WIDGET-I",  "serial_number":"SN0987654321" },
-        { "item_id": 110, "item_name": "Widget J", "sku": "WIDGET-J",  "serial_number":"SN0987654321" },
-        { "item_id": 111, "item_name": "Widget K", "sku": "WIDGET-K",  "serial_number":"SN0987654321" }
+        { "item_id": 82, "item_name": "Smart Watering System", "sku": "WAT-SMART-OS",  "serial_number":"SN0987654321" },
+        { "item_id": 83, "item_name": "Electric Heated Towel Rack", "sku": "TOW-ELEC-OS",  "serial_number":"SN0987654321" },
+        { "item_id": 84, "item_name": "Smart Bike Trainer", "sku": "TRA-BIKE-OS",  "serial_number":"SN0987654321" },
+        { "item_id": 85, "item_name": "Electric Heated Jacket", "sku": "JAC-ELEC-M",  "serial_number":"SN0987654321" },
+        { "item_id": 86, "item_name": "Smart Sleep Headphones", "sku": "HED-SLEEP-OS",  "serial_number":"SN0987654321" },
+        { "item_id": 87, "item_name": "Electric Heated Insoles", "sku": "INS-ELEC-M",  "serial_number":"SN0987654321" },
+        { "item_id": 88, "item_name": "Smart Home Security System", "sku": "SEC-SMART-OS",  "serial_number":"SN0987654321" },
+        { "item_id": 89, "item_name": "Electric Heated Sofa Blanket", "sku": "SOF-ELEC-OS",  "serial_number":"SN0987654321" },
+        { "item_id": 90, "item_name": "Smart Home Lighting System", "sku": "LIG-HOME-OS",  "serial_number":"SN0987654321" },
+        { "item_id": 91, "item_name": "Electric Heated Car Seat Cover", "sku": "CAR-ELEC-OS",  "serial_number":"SN0987654321" },
+        { "item_id": 92, "item_name": "Smart Home Energy Monitor", "sku": "MON-ENERGY-OS",  "serial_number":"SN0987654321" }
       ],
       "parcels": [
         {
@@ -2529,14 +2544,14 @@
         "name": "Khaled",
         "surname": "Algurush",
         "house_number": "45",
-        "addition": "",  
+        "addition": "",
         "street": "Högerdamm",
-        "postal_code": "20097",  
+        "postal_code": "20097",
         "city": "Hamburg",
-        "country": "Germany",  
+        "country": "Germany",
         "email": "email@hotmail.com",
         "phone": "0213456"
-      }  
+      }
     },
     {
       "responsive_id": "",
@@ -2555,88 +2570,89 @@
       "status": 14,
        "items": [
         {
-          "item_id": 101,
-          "item_name": "Widget A",
-          "sku": "837336933",
+          "item_id": 93,
+          "item_name": "Electric Heated Pet Bed",
+          "sku": "BED-PET-OS",
           "quantity": 10,
           "unit_price": 15.00,
           "serial_number": "SN1234567890"
         },
         {
-          "item_id": 102,
-          "item_name": "Widget B",
-          "sku": "837933",
+          "item_id": 94,
+          "item_name": "Smart Home Climate Control",
+          "sku": "CLI-SMART-OS",
           "quantity": 5,
           "unit_price": 20.00,
           "serial_number": "SN0987654321"
         },
         {
-          "item_id": 103,
-          "item_name": "Widget C",
-          "sku": "837336933",
+          "item_id": 95,
+          "item_name": "Electric Heated Baby Bottle",
+          "sku": "BOT-ELEC-OS",
           "quantity": 2,
           "unit_price": 50.00,
           "serial_number": "SN1122334455"
         },
         {
-          "item_id": 104,
-          "item_name": "Widget D",
-          "sku": "8373",
+          "item_id": 96,
+          "item_name": "Smart Home Water Leak Detector",
+          "sku": "DET-WATER-OS",
           "quantity": 1,
           "unit_price": 100.00,
           "serial_number": "SN5566778899"
         },
         {
-          "item_id": 105,
-          "item_name": "Widget E",
-          "sku": "83",
+          "item_id": 97,
+          "item_name": "Electric Heated Car Blanket",
+          "sku": "BLA-CAR-OS",
           "quantity": 3,
           "unit_price": 30.00,
           "serial_number": "SN9988776655"
         },
         {
-          "item_id": 106,
-          "item_name": "Widget F",
-          "sku": "83dd44",
+          "item_id": 98,
+          "item_name": "Smart Home Voice Assistant",
+          "sku": "ASSIST-VOICE-OS",
           "quantity": 4,
           "unit_price": 25.00,
           "serial_number": "SN2233445566"
         },
         {
-          "item_id": 107,
-          "item_name": "Widget G",
-          "sku": "893774hss",
+          "item_id": 99,
+          "item_name": "Electric Heated Car Seat Cushion",
+          "sku": "CUS-ELEC-OS",
           "quantity": 6,
           "unit_price": 18.00,
           "serial_number": "SN6677889900"
         },
         {
-          "item_id": 108,
-          "item_name": "Widget H",
-          "sku": "83793733",
+          "item_id": 100,
+          "item_name": "Smart Home Smoke Detector",
+          "sku": "DET-SMOKE-OS",
           "quantity": 8,
           "unit_price": 12.00,
           "serial_number": "SN3344556677"
         },
         {
-          "item_id": 109,
-          "item_name": "Widget I",
-          "sku": "837336933",
+          "item_id": 1,
+          "item_name": "Premium T-Shirt",
+          "sku": "T-S-PREM-M",
           "quantity": 9,
           "unit_price": 22.00,
           "serial_number": "SN7788990011"
         },
         {
-          "item_id": 110,
-          "item_name": "Widget J",
+          "item_id": 2,
+          "item_name": "Classic Jeans",
+          "sku": "JEA-CLAS-L",
           "quantity": 7,
           "unit_price": 28.00,
           "serial_number": "SN1122339988"
         },
         {
-          "item_id": 111,
-          "item_name": "Widget K",
-          "sku": "8373338636",
+          "item_id": 3,
+          "item_name": "Urban Hoodie",
+          "sku": "HOO-URBA-XL",
           "quantity": 4,
           "unit_price": 40.00,
           "serial_number": "SN1234567891"
@@ -2782,18 +2798,18 @@
         "name": "Khaled",
         "surname": "Algurush",
         "house_number": "45",
-        "addition": "",  
+        "addition": "",
         "street": "Högerdamm",
-        "postal_code": "20097",  
+        "postal_code": "20097",
         "city": "Hamburg",
-        "country": "Germany",  
+        "country": "Germany",
         "email": "email@hotmail.com",
         "phone": "0213456"
       },
       "known_issues": [
     { "title": "without Invoice", "status": "in process" },
     { "title": "without Tracking Number", "status": "Resolved", "date": "2025-07-25T15:30:00"}
-  ]  
+  ]
     },
     {
       "responsive_id": "",
@@ -2812,88 +2828,89 @@
       "status": 16,
        "items": [
         {
-          "item_id": 101,
-          "item_name": "Widget A",
-          "sku": "837336933",
+          "item_id": 4,
+          "item_name": "Modern Sneakers",
+          "sku": "SNE-MODE-42",
           "quantity": 10,
           "unit_price": 15.00,
           "serial_number": "SN1234567890"
         },
         {
-          "item_id": 102,
-          "item_name": "Widget B",
-          "sku": "837933",
+          "item_id": 5,
+          "item_name": "Slim Fit Jacket",
+          "sku": "JAC-SLIM-S",
           "quantity": 5,
           "unit_price": 20.00,
           "serial_number": "SN0987654321"
         },
         {
-          "item_id": 103,
-          "item_name": "Widget C",
-          "sku": "837336933",
+          "item_id": 6,
+          "item_name": "Basic Sweater",
+          "sku": "SWE-BASI-M",
           "quantity": 2,
           "unit_price": 50.00,
           "serial_number": "SN1122334455"
         },
         {
-          "item_id": 104,
-          "item_name": "Widget D",
-          "sku": "8373",
+          "item_id": 7,
+          "item_name": "Performance Polo",
+          "sku": "POL-PERF-L",
           "quantity": 1,
           "unit_price": 100.00,
           "serial_number": "SN5566778899"
         },
         {
-          "item_id": 105,
-          "item_name": "Widget E",
-          "sku": "83",
+          "item_id": 8,
+          "item_name": "Vintage Beanie",
+          "sku": "BEA-VINT-OS",
           "quantity": 3,
           "unit_price": 30.00,
           "serial_number": "SN9988776655"
         },
         {
-          "item_id": 106,
-          "item_name": "Widget F",
-          "sku": "83dd44",
+          "item_id": 9,
+          "item_name": "Tech Backpack",
+          "sku": "BAC-TECH-OS",
           "quantity": 4,
           "unit_price": 25.00,
           "serial_number": "SN2233445566"
         },
         {
-          "item_id": 107,
-          "item_name": "Widget G",
-          "sku": "893774hss",
+          "item_id": 10,
+          "item_name": "Cotton Cap",
+          "sku": "CAP-COTT-OS",
           "quantity": 6,
           "unit_price": 18.00,
           "serial_number": "SN6677889900"
         },
         {
-          "item_id": 108,
-          "item_name": "Widget H",
-          "sku": "83793733",
+          "item_id": 19,
+          "item_name": "Camping Tent",
+          "sku": "TEN-CAMP-4P",
           "quantity": 8,
           "unit_price": 12.00,
           "serial_number": "SN3344556677"
         },
         {
-          "item_id": 109,
-          "item_name": "Widget I",
-          "sku": "837336933",
+          "item_id": 20,
+          "item_name": "Travel Mug",
+          "sku": "MUG-TRAV-OS",
           "quantity": 9,
           "unit_price": 22.00,
           "serial_number": "SN7788990011"
         },
         {
-          "item_id": 110,
-          "item_name": "Widget J",
+          "item_id": 21,
+          "item_name": "Laptop Sleeve",
+          "sku": "SLE-LAPT-15",
           "quantity": 7,
           "unit_price": 28.00,
           "serial_number": "SN1122339988"
         },
         {
-          "item_id": 111,
-          "item_name": "Widget K",
-          "sku": "8373338636",
+          "item_id": 22,
+          "item_name": "Desk Organizer",
+          "sku": "ORG-DESK-OS",
           "quantity": 4,
           "unit_price": 40.00,
           "serial_number": "SN1234567891"
@@ -3035,14 +3052,14 @@
         "name": "Khaled",
         "surname": "Algurush",
         "house_number": "45",
-        "addition": "",  
+        "addition": "",
         "street": "Högerdamm",
-        "postal_code": "20097",  
+        "postal_code": "20097",
         "city": "Hamburg",
-        "country": "Germany",  
+        "country": "Germany",
         "email": "email@hotmail.com",
         "phone": "0213456"
-      }  
+      }
     },
     {
       "responsive_id": "",
@@ -3061,88 +3078,89 @@
       "status": 5,
       "items": [
         {
-          "item_id": 101,
-          "item_name": "Widget A",
-          "sku": "837336933",
+          "item_id": 23,
+          "item_name": "Bluetooth Speaker",
+          "sku": "SPE-BLUE-OS",
           "quantity": 10,
           "unit_price": 15.00,
           "serial_number": "SN1234567890"
         },
         {
-          "item_id": 102,
-          "item_name": "Widget B",
-          "sku": "837933",
+          "item_id": 24,
+          "item_name": "Smart Light Bulb",
+          "sku": "LIG-SMART-OS",
           "quantity": 5,
           "unit_price": 20.00,
           "serial_number": "SN0987654321"
         },
         {
-          "item_id": 103,
-          "item_name": "Widget C",
-          "sku": "837336933",
+          "item_id": 25,
+          "item_name": "Electric Kettle",
+          "sku": "KET-ELEC-OS",
           "quantity": 2,
           "unit_price": 50.00,
           "serial_number": "SN1122334455"
         },
         {
-          "item_id": 104,
-          "item_name": "Widget D",
-          "sku": "8373",
+          "item_id": 26,
+          "item_name": "Air Purifier",
+          "sku": "PUR-AIR-OS",
           "quantity": 1,
           "unit_price": 100.00,
           "serial_number": "SN5566778899"
         },
         {
-          "item_id": 105,
-          "item_name": "Widget E",
-          "sku": "83",
+          "item_id": 27,
+          "item_name": "Fitness Ball",
+          "sku": "BAL-FIT-65",
           "quantity": 3,
           "unit_price": 30.00,
           "serial_number": "SN9988776655"
         },
         {
-          "item_id": 106,
-          "item_name": "Widget F",
-          "sku": "83dd44",
+          "item_id": 28,
+          "item_name": "Digital Camera",
+          "sku": "CAM-DIGI-OS",
           "quantity": 4,
           "unit_price": 25.00,
           "serial_number": "SN2233445566"
         },
         {
-          "item_id": 107,
-          "item_name": "Widget G",
-          "sku": "893774hss",
+          "item_id": 29,
+          "item_name": "Action Figure",
+          "sku": "FIG-ACTN-OS",
           "quantity": 6,
           "unit_price": 18.00,
           "serial_number": "SN6677889900"
         },
         {
-          "item_id": 108,
-          "item_name": "Widget H",
-          "sku": "83793733",
+          "item_id": 30,
+          "item_name": "VR Headset",
+          "sku": "VR-HEAD-OS",
           "quantity": 8,
           "unit_price": 12.00,
           "serial_number": "SN3344556677"
         },
         {
-          "item_id": 109,
-          "item_name": "Widget I",
-          "sku": "837336933",
+          "item_id": 31,
+          "item_name": "Electric Scooter",
+          "sku": "SCO-ELEC-OS",
           "quantity": 9,
           "unit_price": 22.00,
           "serial_number": "SN7788990011"
         },
         {
-          "item_id": 110,
-          "item_name": "Widget J",
+          "item_id": 32,
+          "item_name": "Smart Thermostat",
+          "sku": "THE-SMART-OS",
           "quantity": 7,
           "unit_price": 28.00,
           "serial_number": "SN1122339988"
         },
         {
-          "item_id": 111,
-          "item_name": "Widget K",
-          "sku": "8373338636",
+          "item_id": 33,
+          "item_name": "Noise Cancelling Headphones",
+          "sku": "HED-NOIS-OS",
           "quantity": 4,
           "unit_price": 40.00,
           "serial_number": "SN1234567891"
@@ -3173,14 +3191,14 @@
         "name": "Khaled",
         "surname": "Algurush",
         "house_number": "45",
-        "addition": "",  
+        "addition": "",
         "street": "Högerdamm",
-        "postal_code": "20097",  
+        "postal_code": "20097",
         "city": "Hamburg",
-        "country": "Germany",  
+        "country": "Germany",
         "email": "email@hotmail.com",
         "phone": "0213456"
-      } 
+      }
     },
     {
       "responsive_id": "",
@@ -3199,88 +3217,89 @@
       "status": 8,
       "items": [
         {
-          "item_id": 101,
-          "item_name": "Widget A",
-          "sku": "837336933",
+          "item_id": 34,
+          "item_name": "Smartphone Gimbal",
+          "sku": "GIM-SMART-OS",
           "quantity": 10,
           "unit_price": 15.00,
           "serial_number": "SN1234567890"
         },
         {
-          "item_id": 102,
-          "item_name": "Widget B",
-          "sku": "837933",
+          "item_id": 35,
+          "item_name": "Portable Charger",
+          "sku": "CHA-PORT-OS",
           "quantity": 5,
           "unit_price": 20.00,
           "serial_number": "SN0987654321"
         },
         {
-          "item_id": 103,
-          "item_name": "Widget C",
-          "sku": "837336933",
+          "item_id": 36,
+          "item_name": "Smart Glasses",
+          "sku": "GLA-SMART-OS",
           "quantity": 2,
           "unit_price": 50.00,
           "serial_number": "SN1122334455"
         },
         {
-          "item_id": 104,
-          "item_name": "Widget D",
-          "sku": "8373",
+          "item_id": 37,
+          "item_name": "3D Printer",
+          "sku": "PRI-3D-OS",
           "quantity": 1,
           "unit_price": 100.00,
           "serial_number": "SN5566778899"
         },
         {
-          "item_id": 105,
-          "item_name": "Widget E",
-          "sku": "83",
+          "item_id": 38,
+          "item_name": "Smart Door Lock",
+          "sku": "LOC-SMART-OS",
           "quantity": 3,
           "unit_price": 30.00,
           "serial_number": "SN9988776655"
         },
         {
-          "item_id": 106,
-          "item_name": "Widget F",
-          "sku": "83dd44",
+          "item_id": 39,
+          "item_name": "Electric Toothbrush",
+          "sku": "TOO-ELEC-OS",
           "quantity": 4,
           "unit_price": 25.00,
           "serial_number": "SN2233445566"
         },
         {
-          "item_id": 107,
-          "item_name": "Widget G",
-          "sku": "893774hss",
+          "item_id": 40,
+          "item_name": "Smart Scale",
+          "sku": "SCA-SMART-OS",
           "quantity": 6,
           "unit_price": 18.00,
           "serial_number": "SN6677889900"
         },
         {
-          "item_id": 108,
-          "item_name": "Widget H",
-          "sku": "83793733",
+          "item_id": 41,
+          "item_name": "Electric Grill",
+          "sku": "GRI-ELEC-OS",
           "quantity": 8,
           "unit_price": 12.00,
           "serial_number": "SN3344556677"
         },
         {
-          "item_id": 109,
-          "item_name": "Widget I",
-          "sku": "837336933",
+          "item_id": 42,
+          "item_name": "Smart Water Bottle",
+          "sku": "BOT-SMART-OS",
           "quantity": 9,
           "unit_price": 22.00,
           "serial_number": "SN7788990011"
         },
         {
-          "item_id": 110,
-          "item_name": "Widget J",
+          "item_id": 43,
+          "item_name": "Electric Fireplace",
+          "sku": "FIR-ELEC-OS",
           "quantity": 7,
           "unit_price": 28.00,
           "serial_number": "SN1122339988"
         },
         {
-          "item_id": 111,
-          "item_name": "Widget K",
-          "sku": "8373338636",
+          "item_id": 44,
+          "item_name": "Smart Mirror",
+          "sku": "MIR-SMART-OS",
           "quantity": 4,
           "unit_price": 40.00,
           "serial_number": "SN1234567891"
@@ -3314,14 +3333,14 @@
         "name": "Khaled",
         "surname": "Algurush",
         "house_number": "45",
-        "addition": "",  
+        "addition": "",
         "street": "Högerdamm",
-        "postal_code": "20097",  
+        "postal_code": "20097",
         "city": "Hamburg",
-        "country": "Germany",  
+        "country": "Germany",
         "email": "email@hotmail.com",
         "phone": "0213456"
-      } 
+      }
     },
     {
       "responsive_id": "",
@@ -3340,88 +3359,89 @@
       "status": 9,
       "items": [
         {
-          "item_id": 101,
-          "item_name": "Widget A",
-          "sku": "837336933",
+          "item_id": 45,
+          "item_name": "Electric Skateboard",
+          "sku": "SKA-ELEC-OS",
           "quantity": 10,
           "unit_price": 15.00,
           "serial_number": "SN1234567890"
         },
         {
-          "item_id": 102,
-          "item_name": "Widget B",
-          "sku": "837933",
+          "item_id": 46,
+          "item_name": "Smart Coffee Maker",
+          "sku": "COF-SMART-OS",
           "quantity": 5,
           "unit_price": 20.00,
           "serial_number": "SN0987654321"
         },
         {
-          "item_id": 103,
-          "item_name": "Widget C",
-          "sku": "837336933",
+          "item_id": 47,
+          "item_name": "Electric Bike",
+          "sku": "BIK-ELEC-OS",
           "quantity": 2,
           "unit_price": 50.00,
           "serial_number": "SN1122334455"
         },
         {
-          "item_id": 104,
-          "item_name": "Widget D",
-          "sku": "8373",
+          "item_id": 48,
+          "item_name": "Smart Home Hub",
+          "sku": "HUB-SMART-OS",
           "quantity": 1,
           "unit_price": 100.00,
           "serial_number": "SN5566778899"
         },
         {
-          "item_id": 105,
-          "item_name": "Widget E",
-          "sku": "83",
+          "item_id": 49,
+          "item_name": "Electric Lawn Mower",
+          "sku": "MOW-ELEC-OS",
           "quantity": 3,
           "unit_price": 30.00,
           "serial_number": "SN9988776655"
         },
         {
-          "item_id": 106,
-          "item_name": "Widget F",
-          "sku": "83dd44",
+          "item_id": 50,
+          "item_name": "Smart Security Camera",
+          "sku": "CAM-SECUR-OS",
           "quantity": 4,
           "unit_price": 25.00,
           "serial_number": "SN2233445566"
         },
         {
-          "item_id": 107,
-          "item_name": "Widget G",
-          "sku": "893774hss",
+          "item_id": 51,
+          "item_name": "Electric Pressure Cooker",
+          "sku": "COO-ELEC-OS",
           "quantity": 6,
           "unit_price": 18.00,
           "serial_number": "SN6677889900"
         },
         {
-          "item_id": 108,
-          "item_name": "Widget H",
-          "sku": "83793733",
+          "item_id": 52,
+          "item_name": "Smart Air Conditioner",
+          "sku": "AIR-SMART-OS",
           "quantity": 8,
           "unit_price": 12.00,
           "serial_number": "SN3344556677"
         },
         {
-          "item_id": 109,
-          "item_name": "Widget I",
-          "sku": "837336933",
+          "item_id": 53,
+          "item_name": "Electric Fireplace Heater",
+          "sku": "HEA-ELEC-OS",
           "quantity": 9,
           "unit_price": 22.00,
           "serial_number": "SN7788990011"
         },
         {
-          "item_id": 110,
-          "item_name": "Widget J",
+          "item_id": 54,
+          "item_name": "Smart Robot Vacuum",
+          "sku": "VAC-SMART-OS",
           "quantity": 7,
           "unit_price": 28.00,
           "serial_number": "SN1122339988"
         },
         {
-          "item_id": 111,
-          "item_name": "Widget K",
-          "sku": "8373338636",
+          "item_id": 55,
+          "item_name": "Electric Wine Opener",
+          "sku": "WOP-ELEC-OS",
           "quantity": 4,
           "unit_price": 40.00,
           "serial_number": "SN1234567891"
@@ -3456,14 +3476,14 @@
         "name": "Khaled",
         "surname": "Algurush",
         "house_number": "45",
-        "addition": "",  
+        "addition": "",
         "street": "Högerdamm",
-        "postal_code": "20097",  
+        "postal_code": "20097",
         "city": "Hamburg",
-        "country": "Germany",  
+        "country": "Germany",
         "email": "email@hotmail.com",
         "phone": "0213456"
-      } 
+      }
     },
     {
       "responsive_id": "",
@@ -3482,88 +3502,89 @@
       "status": 10,
       "items": [
         {
-          "item_id": 101,
-          "item_name": "Widget A",
-          "sku": "837336933",
+          "item_id": 56,
+          "item_name": "Smart Light Switch",
+          "sku": "SWI-SMART-OS",
           "quantity": 10,
           "unit_price": 15.00,
           "serial_number": "SN1234567890"
         },
         {
-          "item_id": 102,
-          "item_name": "Widget B",
-          "sku": "837933",
+          "item_id": 57,
+          "item_name": "Electric Hand Warmer",
+          "sku": "HAN-ELEC-OS",
           "quantity": 5,
           "unit_price": 20.00,
           "serial_number": "SN0987654321"
         },
         {
-          "item_id": 103,
-          "item_name": "Widget C",
-          "sku": "837336933",
+          "item_id": 58,
+          "item_name": "Smart Sleep Tracker",
+          "sku": "SLE-SMART-OS",
           "quantity": 2,
           "unit_price": 50.00,
           "serial_number": "SN1122334455"
         },
         {
-          "item_id": 104,
-          "item_name": "Widget D",
-          "sku": "8373",
+          "item_id": 59,
+          "item_name": "Electric Foot Massager",
+          "sku": "MAS-ELEC-OS",
           "quantity": 1,
           "unit_price": 100.00,
           "serial_number": "SN5566778899"
         },
         {
-          "item_id": 105,
-          "item_name": "Widget E",
-          "sku": "83",
+          "item_id": 60,
+          "item_name": "Smart Plant Sensor",
+          "sku": "SEN-SMART-OS",
           "quantity": 3,
           "unit_price": 30.00,
           "serial_number": "SN9988776655"
         },
         {
-          "item_id": 106,
-          "item_name": "Widget F",
-          "sku": "83dd44",
+          "item_id": 61,
+          "item_name": "Electric Heated Blanket",
+          "sku": "BLA-ELEC-OS",
           "quantity": 4,
           "unit_price": 25.00,
           "serial_number": "SN2233445566"
         },
         {
-          "item_id": 107,
-          "item_name": "Widget G",
-          "sku": "893774hss",
+          "item_id": 62,
+          "item_name": "Smart Garage Door Opener",
+          "sku": "GAR-SMART-OS",
           "quantity": 6,
           "unit_price": 18.00,
           "serial_number": "SN6677889900"
         },
         {
-          "item_id": 108,
-          "item_name": "Widget H",
-          "sku": "83793733",
+          "item_id": 63,
+          "item_name": "Electric Air Fryer",
+          "sku": "FRY-ELEC-OS",
           "quantity": 8,
           "unit_price": 12.00,
           "serial_number": "SN3344556677"
         },
         {
-          "item_id": 109,
-          "item_name": "Widget I",
-          "sku": "837336933",
+          "item_id": 64,
+          "item_name": "Smart Baby Monitor",
+          "sku": "MON-SMART-OS",
           "quantity": 9,
           "unit_price": 22.00,
           "serial_number": "SN7788990011"
         },
         {
-          "item_id": 110,
-          "item_name": "Widget J",
+          "item_id": 65,
+          "item_name": "Electric Ice Cream Maker",
+          "sku": "ICE-ELEC-OS",
           "quantity": 7,
           "unit_price": 28.00,
           "serial_number": "SN1122339988"
         },
         {
-          "item_id": 111,
-          "item_name": "Widget K",
-          "sku": "8373338636",
+          "item_id": 66,
+          "item_name": "Smart Window Cleaner",
+          "sku": "WIN-SMART-OS",
           "quantity": 4,
           "unit_price": 40.00,
           "serial_number": "SN1234567891"
@@ -3598,14 +3619,14 @@
         "name": "Khaled",
         "surname": "Algurush",
         "house_number": "45",
-        "addition": "",  
+        "addition": "",
         "street": "Högerdamm",
-        "postal_code": "20097",  
+        "postal_code": "20097",
         "city": "Hamburg",
-        "country": "Germany",  
+        "country": "Germany",
         "email": "email@hotmail.com",
         "phone": "0213456"
-      } 
+      }
     },
     {
       "responsive_id": "",
@@ -3624,88 +3645,89 @@
       "status": 11,
        "items": [
         {
-          "item_id": 101,
-          "item_name": "Widget A",
-          "sku": "837336933",
+          "item_id": 67,
+          "item_name": "Electric Pasta Maker",
+          "sku": "PAS-ELEC-OS",
           "quantity": 10,
           "unit_price": 15.00,
           "serial_number": "SN1234567890"
         },
         {
-          "item_id": 102,
-          "item_name": "Widget B",
-          "sku": "837933",
+          "item_id": 68,
+          "item_name": "Smart Photo Frame",
+          "sku": "FRA-SMART-OS",
           "quantity": 5,
           "unit_price": 20.00,
           "serial_number": "SN0987654321"
         },
         {
-          "item_id": 103,
-          "item_name": "Widget C",
-          "sku": "837336933",
+          "item_id": 69,
+          "item_name": "Electric Spin Mop",
+          "sku": "MOP-ELEC-OS",
           "quantity": 2,
           "unit_price": 50.00,
           "serial_number": "SN1122334455"
         },
         {
-          "item_id": 104,
-          "item_name": "Widget D",
-          "sku": "8373",
+          "item_id": 70,
+          "item_name": "Smart Meat Thermometer",
+          "sku": "THE-MEAT-OS",
           "quantity": 1,
           "unit_price": 100.00,
           "serial_number": "SN5566778899"
         },
         {
-          "item_id": 105,
-          "item_name": "Widget E",
-          "sku": "83",
+          "item_id": 71,
+          "item_name": "Electric Milk Frother",
+          "sku": "FRO-ELEC-OS",
           "quantity": 3,
           "unit_price": 30.00,
           "serial_number": "SN9988776655"
         },
         {
-          "item_id": 106,
-          "item_name": "Widget F",
-          "sku": "83dd44",
+          "item_id": 72,
+          "item_name": "Smart Air Quality Monitor",
+          "sku": "MON-AIR-OS",
           "quantity": 4,
           "unit_price": 25.00,
           "serial_number": "SN2233445566"
         },
         {
-          "item_id": 107,
-          "item_name": "Widget G",
-          "sku": "893774hss",
+          "item_id": 73,
+          "item_name": "Electric Food Dehydrator",
+          "sku": "DEH-ELEC-OS",
           "quantity": 6,
           "unit_price": 18.00,
           "serial_number": "SN6677889900"
         },
         {
-          "item_id": 108,
-          "item_name": "Widget H",
-          "sku": "83793733",
+          "item_id": 74,
+          "item_name": "Smart Sleep Light",
+          "sku": "LIG-SLEEP-OS",
           "quantity": 8,
           "unit_price": 12.00,
           "serial_number": "SN3344556677"
         },
         {
-          "item_id": 109,
-          "item_name": "Widget I",
-          "sku": "837336933",
+          "item_id": 75,
+          "item_name": "Electric Wine Cooler",
+          "sku": "COO-WINE-OS",
           "quantity": 9,
           "unit_price": 22.00,
           "serial_number": "SN7788990011"
         },
         {
-          "item_id": 110,
-          "item_name": "Widget J",
+          "item_id": 76,
+          "item_name": "Smart Baby Swing",
+          "sku": "SWI-BABY-OS",
           "quantity": 7,
           "unit_price": 28.00,
           "serial_number": "SN1122339988"
         },
         {
-          "item_id": 111,
-          "item_name": "Widget K",
-          "sku": "8373338636",
+          "item_id": 77,
+          "item_name": "Electric Heated Vest",
+          "sku": "VES-ELEC-M",
           "quantity": 4,
           "unit_price": 40.00,
           "serial_number": "SN1234567891"
@@ -3801,17 +3823,17 @@
         { "status": 9, "date": "2024-06-19T14:37:00" },
         { "status": 10, "date": "2024-06-19T14:37:00" },
         { "status": 11, "date": "2024-06-19T14:37:00" }
-        
+
       ],
       "customer_recipient": {
         "name": "Khaled",
         "surname": "Algurush",
         "house_number": "45",
-        "addition": "",  
+        "addition": "",
         "street": "Högerdamm",
-        "postal_code": "20097",  
+        "postal_code": "20097",
         "city": "Hamburg",
-        "country": "Germany",  
+        "country": "Germany",
         "email": "email@hotmail.com",
         "phone": "0213456"
       },
@@ -3819,1049 +3841,6 @@
     { "title": "without Invoice", "status": "in process" },
     { "title": "without Tracking Number", "status": "Resolved", "date": "2025-07-25T15:30:00"}
   ]
-    },
-    {
-      "responsive_id": "",
-      "id": 24,
-      "order_number": "ORD12368",
-      "customer_name": "4e Gruppe Anlage",
-      "recipient_name": "Oscar Neptunium",
-      "recipient_address": "852 Cedar St, Springfield",
-      "external_order_id": "EXT123479",
-      "storage": "Warehouse X",
-      "opened_at": "2025-10-02 09:00:00",
-      "last_update": "2025-10-03 10:30:00",
-      "time_spent": "24 hours",
-      "current_update": "2025-10-03 11:00:00",
-      "status": 12,
-       "items": [
-        {
-          "item_id": 101,
-          "item_name": "Widget A",
-          "sku": "837336933",
-          "quantity": 10,
-          "unit_price": 15.00,
-          "serial_number": "SN1234567890"
-        },
-        {
-          "item_id": 102,
-          "item_name": "Widget B",
-          "sku": "837933",
-          "quantity": 5,
-          "unit_price": 20.00,
-          "serial_number": "SN0987654321"
-        },
-        {
-          "item_id": 103,
-          "item_name": "Widget C",
-          "sku": "837336933",
-          "quantity": 2,
-          "unit_price": 50.00,
-          "serial_number": "SN1122334455"
-        },
-        {
-          "item_id": 104,
-          "item_name": "Widget D",
-          "sku": "8373",
-          "quantity": 1,
-          "unit_price": 100.00,
-          "serial_number": "SN5566778899"
-        },
-        {
-          "item_id": 105,
-          "item_name": "Widget E",
-          "sku": "83",
-          "quantity": 3,
-          "unit_price": 30.00,
-          "serial_number": "SN9988776655"
-        },
-        {
-          "item_id": 106,
-          "item_name": "Widget F",
-          "sku": "83dd44",
-          "quantity": 4,
-          "unit_price": 25.00,
-          "serial_number": "SN2233445566"
-        },
-        {
-          "item_id": 107,
-          "item_name": "Widget G",
-          "sku": "893774hss",
-          "quantity": 6,
-          "unit_price": 18.00,
-          "serial_number": "SN6677889900"
-        },
-        {
-          "item_id": 108,
-          "item_name": "Widget H",
-          "sku": "83793733",
-          "quantity": 8,
-          "unit_price": 12.00,
-          "serial_number": "SN3344556677"
-        },
-        {
-          "item_id": 109,
-          "item_name": "Widget I",
-          "sku": "837336933",
-          "quantity": 9,
-          "unit_price": 22.00,
-          "serial_number": "SN7788990011"
-        },
-        {
-          "item_id": 110,
-          "item_name": "Widget J",
-          "quantity": 7,
-          "unit_price": 28.00,
-          "serial_number": "SN1122339988"
-        },
-        {
-          "item_id": 111,
-          "item_name": "Widget K",
-          "sku": "8373338636",
-          "quantity": 4,
-          "unit_price": 40.00,
-          "serial_number": "SN1234567891"
-        }
-      ],
-      "parcels": [
-        {
-          "parcel_id": 1,
-          "weight": 2.5,
-          "dimensions": "10x10x10 cm",
-          "product_qty":5
-        },
-        {
-          "parcel_id": 2,
-          "weight": 3.0,
-          "dimensions": "15x15x15 cm",
-          "product_qty":1
-        },
-        {
-          "parcel_id": 3,
-          "weight": 1.5,
-          "dimensions": "20x20x20 cm",
-          "product_qty":4
+  }
 
-        },
-        {
-          "parcel_id": 4,
-          "weight": 4.0,
-          "dimensions": "25x25x25 cm",
-          "product_qty":5
-        },
-        {
-          "parcel_id": 5,
-          "weight": 2.0,
-          "dimensions": "30x30x30 cm",
-          "product_qty":5
-        },
-        {
-          "parcel_id": 6,
-          "weight": 3.5,
-          "dimensions": "35x35x35 cm",
-          "product_qty":10
-        },
-        {
-          "parcel_id": 7,
-          "weight": 1.0,
-          "dimensions": "40x40x40 cm",
-          "product_qty":5
-        },
-        {
-          "parcel_id": 8,
-          "weight": 2.2,
-          "dimensions": "45x45x45 cm",
-          "product_qty":9
-        },
-        {
-          "parcel_id": 9,
-          "weight": 3.8,
-          "dimensions": "50x50x50 cm",
-          "product_qty":5
-
-        },
-        {
-          "parcel_id": 10,
-          "weight": 4.5,
-          "dimensions": "55x55x55 cm",
-          "product_qty":5
-        },
-        {
-          "parcel_id": 11,
-          "weight": 4.5,
-          "dimensions": "55x55x55 cm",
-          "product_qty":5
-        }
-
-      ],
-      "shopify": {
-        "order_id": "Khaled",
-        "tracking_number": "Korrigiert",
-        "tracking_link": "Högerdamm",
-        "courier": "",
-        "notify": true
-      },
-      "documents": [],
-      "totals": {
-        "subtotal": 1249.5,
-        "fee": 56.8,
-        "total": 1306.3
-      },
-      "timeline": [
-         { "status": 0, "date": "2024-06-19T14:37:00" },
-        { "status": 1, "date": "2024-06-19T14:37:00" },
-        { "status": 2, "date": "2024-06-19T14:37:00" },
-        { "status": 3, "date": "2024-06-19T14:37:00" },
-        { "status": 4, "date": "2024-06-19T14:37:00" },
-        { "status": 5, "date": "2024-06-19T14:37:00" },
-        { "status": 6, "date": "2024-06-19T14:37:00" },
-        { "status": 7, "date": "2024-06-19T14:37:00" },
-        { "status": 8, "date": "2024-06-19T14:37:00" },
-        { "status": 9, "date": "2024-06-19T14:37:00" },
-        { "status": 10, "date": "2024-06-19T14:37:00" },
-        { "status": 11, "date": "2024-06-19T14:37:00" },
-        { "status": 12, "date": "2024-06-19T14:37:00" }
-      ],
-      "customer_recipient": {
-        "name": "Khaled",
-        "surname": "Algurush",
-        "house_number": "45",
-        "addition": "",  
-        "street": "Högerdamm",
-        "postal_code": "20097",  
-        "city": "Hamburg",
-        "country": "Germany",  
-        "email": "email@hotmail.com",
-        "phone": "0213456"
-      }  
-    },
-    {
-      "responsive_id": "",
-      "id": 25,
-      "order_number": "ORD12369",
-      "customer_name": "4e Gruppe Anlage",
-      "recipient_name": "Quinn Americium",
-      "recipient_address": "963 Spruce St, Springfield",
-      "external_order_id": "EXT123480",
-      "storage": "Warehouse Y",
-      "opened_at": "2025-10-02 10:00:00",
-      "creation_date": "2025-10-01 11:00:00",
-      "last_update": "2025-10-03 11:30:00",
-      "time_spent": "25 hours",
-      "current_update": "2025-10-03 12:00:00",
-      "dispatcher_profile":"DHL Parcel Int",
-      "status": 13,
-       "items": [
-        
-        {
-          "item_id": 106,
-          "item_name": "Widget F",
-          "sku": "83dd44",
-          "quantity": 4,
-          "unit_price": 25.00,
-          "serial_number": "SN2233445566"
-        },
-        {
-          "item_id": 107,
-          "item_name": "Widget G",
-          "sku": "893774hss",
-          "quantity": 6,
-          "unit_price": 18.00,
-          "serial_number": "SN6677889900"
-        },
-        {
-          "item_id": 108,
-          "item_name": "Widget H",
-          "sku": "83793733",
-          "quantity": 8,
-          "unit_price": 12.00,
-          "serial_number": "SN3344556677"
-        },
-        {
-          "item_id": 109,
-          "item_name": "Widget I",
-          "sku": "837336933",
-          "quantity": 9,
-          "unit_price": 22.00,
-          "serial_number": "SN7788990011"
-        },
-        {
-          "item_id": 110,
-          "item_name": "Widget J",
-          "quantity": 7,
-          "unit_price": 28.00,
-          "serial_number": "SN1122339988"
-        },
-        {
-          "item_id": 111,
-          "item_name": "Widget K",
-          "sku": "8373338636",
-          "quantity": 4,
-          "unit_price": 40.00,
-          "serial_number": "SN1234567891"
-        }
-      ],
-      "parcels": [
-        {
-          "parcel_id": 1,
-          "weight": 2.5,
-          "dimensions": "10x10x10 cm",
-          "product_qty":5,
-          "package":"Karton One"
-          
-        },
-        {
-          "parcel_id": 2,
-          "weight": 3.0,
-          "dimensions": "15x15x15 cm",
-          "product_qty":1,
-          "package":"Karton One"
-        },
-        {
-          "parcel_id": 3,
-          "weight": 1.5,
-          "dimensions": "20x20x20 cm",
-          "product_qty":4,
-           "package":"Karton One"
-
-        },
-        {
-          "parcel_id": 4,
-          "weight": 4.0,
-          "dimensions": "25x25x25 cm",
-          "product_qty":5,
-          "package":"Karton One"
-        },
-        {
-          "parcel_id": 5,
-          "weight": 2.0,
-          "dimensions": "30x30x30 cm",
-          "product_qty":5,
-          "package":"Karton XL"
-        },
-        {
-          "parcel_id": 6,
-          "weight": 3.5,
-          "dimensions": "35x35x35 cm",
-          "product_qty":10,
-          "package":"Karton XL"
-        },
-        {
-          "parcel_id": 7,
-          "weight": 1.0,
-          "dimensions": "40x40x40 cm",
-          "product_qty":5,
-          "package":"Karton M"
-        }
-
-      ],
-      "shopify": {
-        "order_id": "Khaled",
-        "tracking_number": "Korrigiert",
-        "tracking_link": "Högerdamm",
-        "courier": "",
-        "notify": true
-      },
-      "documents": [],
-      "totals": {
-        "subtotal": 1249.5,
-        "fee": 56.8,
-        "total": 1306.3
-      },
-      "timeline": [
-         { "status": 0, "date": "2024-06-19T14:37:00" },
-        { "status": 1, "date": "2024-06-19T14:37:00" },
-        { "status": 2, "date": "2024-06-19T14:37:00" },
-        { "status": 3, "date": "2024-06-19T14:37:00" },
-        { "status": 4, "date": "2024-06-19T14:37:00" },
-        { "status": 5, "date": "2024-06-19T14:37:00" },
-        { "status": 6, "date": "2024-06-19T14:37:00" },
-        { "status": 7, "date": "2024-06-19T14:37:00" },
-        { "status": 8, "date": "2024-06-19T14:37:00" },
-        { "status": 9, "date": "2024-06-19T14:37:00" },
-        { "status": 10, "date": "2024-06-19T14:37:00" },
-        { "status": 11, "date": "2024-06-19T14:37:00" },
-        { "status": 12, "date": "2024-06-19T14:37:00" },
-        { "status": 13, "date": "2024-06-19T14:37:00" }
-      ],
-      "customer_recipient": {
-        "name": "Khaled",
-        "surname": "Algurush",
-        "house_number": "45",
-        "addition": "",  
-        "street": "Högerdamm",
-        "postal_code": "20097",  
-        "city": "Hamburg",
-        "country": "Germany",  
-        "email": "email@hotmail.com",
-        "phone": "0213456"
-      },
-      "known_issues": [
-    { "title": "without Invoice", "status": "in process" },
-    { "title": "without Tracking Number", "status": "Resolved", "date": "2025-07-25T15:30:00"}
-  ] 
-    },
-    {
-      "responsive_id": "",
-      "id": 26,
-      "order_number": "ORD12370",
-      "customer_name": "Technology Corp",
-      "recipient_name": "Sam Berkelium",
-      "recipient_address": "147 Birch St, Springfield",
-      "external_order_id": "EXT123481",
-      "storage": "Warehouse Z",
-      "opened_at": "2025-10-02 11:00:00",
-      "creation_date": "2025-10-01 11:00:00",
-      "last_update": "2025-10-03 12:30:00",
-      "time_spent": "2 hours",
-      "current_update": "2025-10-03 13:00:00",
-      "status": 15,
-      "tracking_number": "09985053632911",
-      "dispatcher_profile":"DHL Parcel Int",
-      "priority": "High",
-       "items": [
-        {
-          "item_id": 101,
-          "item_name": "Widget A",
-          "sku": "837336933",
-          "quantity": 10,
-          "unit_price": 15.00,
-          "serial_number": "SN1234567890"
-        },
-        {
-          "item_id": 102,
-          "item_name": "Widget B",
-          "sku": "837933",
-          "quantity": 5,
-          "unit_price": 20.00,
-          "serial_number": "SN0987654321"
-        },
-        {
-          "item_id": 103,
-          "item_name": "Widget C",
-          "sku": "837336933",
-          "quantity": 2,
-          "unit_price": 50.00,
-          "serial_number": "SN1122334455"
-        },
-        {
-          "item_id": 104,
-          "item_name": "Widget D",
-          "sku": "8373",
-          "quantity": 1,
-          "unit_price": 100.00,
-          "serial_number": "SN5566778899"
-        },
-        {
-          "item_id": 105,
-          "item_name": "Widget E",
-          "sku": "83",
-          "quantity": 3,
-          "unit_price": 30.00,
-          "serial_number": "SN9988776655"
-        },
-        {
-          "item_id": 106,
-          "item_name": "Widget F",
-          "sku": "83dd44",
-          "quantity": 4,
-          "unit_price": 25.00,
-          "serial_number": "SN2233445566"
-        },
-        {
-          "item_id": 107,
-          "item_name": "Widget G",
-          "sku": "893774hss",
-          "quantity": 6,
-          "unit_price": 18.00,
-          "serial_number": "SN6677889900"
-        },
-        {
-          "item_id": 108,
-          "item_name": "Widget H",
-          "sku": "83793733",
-          "quantity": 8,
-          "unit_price": 12.00,
-          "serial_number": "SN3344556677"
-        },
-        {
-          "item_id": 109,
-          "item_name": "Widget I",
-          "sku": "837336933",
-          "quantity": 9,
-          "unit_price": 22.00,
-          "serial_number": "SN7788990011"
-        },
-        {
-          "item_id": 110,
-          "item_name": "Widget J",
-          "quantity": 7,
-          "unit_price": 28.00,
-          "serial_number": "SN1122339988"
-        },
-        {
-          "item_id": 111,
-          "item_name": "Widget K",
-          "sku": "8373338636",
-          "quantity": 4,
-          "unit_price": 40.00,
-          "serial_number": "SN1234567891"
-        }
-      ],
-      "parcels": [
-        {
-          "parcel_id": 1,
-          "weight": 2.5,
-          "dimensions": "10x10x10 cm",
-          "product_qty":1,
-           "package":"Karton M",
-          "tracking_number":"636538800000",
-          "dispatcher_profile":"DHL Parcel Int",
-          "hand_over_date":"2025-07-15 00:00:04",
-          "items": [
-            { "item_id": 101, "item_name": "Widget A", "sku": "WIDGET-A" }
-          ]
-        },
-        {
-          "parcel_id": 2,
-          "weight": 3.0,
-          "dimensions": "15x15x15 cm",
-          "product_qty":1,
-           "package":"Karton S",
-          "tracking_number":"63612340000",
-          "dispatcher_profile":"DHL",
-          "hand_over_date":"2025-07-15 00:00:04",
-          "items": [
-            { "item_id": 102, "item_name": "Widget B", "sku": "WIDGET-B" }
-          ]
-        },
-        {
-          "parcel_id": 3,
-          "weight": 1.5,
-          "dimensions": "20x20x20 cm",
-          "product_qty":1,
-           "package":"Karton One",
-          "tracking_number":"0000000wu6553",
-          "dispatcher_profile":"DHL ",
-          "hand_over_date":"2025-07-15 00:00:04",
-          "items": [
-            { "item_id": 103, "item_name": "Widget C", "sku": "WIDGET-C" }
-          ]
-
-        },
-        {
-          "parcel_id": 4,
-          "weight": 4.0,
-          "dimensions": "25x25x25 cm",
-          "product_qty":1,
-           "package":"Karton M",
-          "tracking_number":"000000008766653",
-          "dispatcher_profile":"DHL",
-          "hand_over_date":"2025-07-15 00:00:04",
-          "items": [
-            { "item_id": 104, "item_name": "Widget D", "sku": "WIDGET-D" }
-          ]
-        },
-        {
-          "parcel_id": 5,
-          "weight": 2.0,
-          "dimensions": "30x30x30 cm",
-          "product_qty":1,
-           "package":"Karton One",
-          "tracking_number":"0000976653",
-          "dispatcher_profile":"DHL",
-          "hand_over_date":"2025-07-15 00:00:04",
-          "items": [
-            { "item_id": 105, "item_name": "Widget E", "sku": "WIDGET-E" }
-          ]
-        },
-        {
-          "parcel_id": 6,
-          "weight": 3.5,
-          "dimensions": "35x35x35 cm",
-          "product_qty":1,
-           "package":"Karton XL",
-          "tracking_number":"09876543003",
-          "dispatcher_profile":"DHL",
-          "hand_over_date":"2025-07-15 00:00:04",
-          "items": [
-            { "item_id": 106, "item_name": "Widget F", "sku": "WIDGET-F" }
-          ]
-        },
-        {
-          "parcel_id": 7,
-          "weight": 1.0,
-          "dimensions": "40x40x40 cm",
-          "product_qty":1,
-           "package":"Karton M",
-          "tracking_number":"63987654003",
-          "dispatcher_profile":"DHL Parcel Int",
-          "hand_over_date":"2025-07-15 00:00:04",
-          "items": [
-            { "item_id": 107, "item_name": "Widget G", "sku": "WIDGET-G" }
-          ]
-        },
-        {
-          "parcel_id": 8,
-          "weight": 2.2,
-          "dimensions": "45x45x45 cm",
-          "product_qty":1,
-           "package":"Karton XL",
-          "tracking_number":"603937466000",
-          "dispatcher_profile":"DHL Parcel Int",
-          "hand_over_date":"2025-07-15 00:00:04",
-          "items": [
-            { "item_id": 108, "item_name": "Widget H", "sku": "WIDGET-H" }
-          ]
-        },
-        {
-          "parcel_id": 9,
-          "weight": 3.8,
-          "dimensions": "50x50x50 cm",
-          "product_qty":1,
-           "package":"Karton One",
-          "tracking_number":"00034746454",
-          "dispatcher_profile":"DHL Parcel Int",
-          "hand_over_date":"2025-07-15 00:00:04",
-          "items": [
-            { "item_id": 109, "item_name": "Widget I", "sku": "WIDGET-I" }
-          ]
-        },
-        {
-          "parcel_id": 10,
-          "weight": 4.5,
-          "dimensions": "55x55x55 cm",
-          "product_qty":5,
-           "package":"Karton One",
-          "tracking_number":"60000000653",
-          "dispatcher_profile":"DHL Parcel Int",
-          "hand_over_date":"2025-07-15 00:00:04",
-          "items": [
-            { "item_id": 111, "item_name": "Widget K", "sku": "WIDGET-K" }
-          ]
-        },
-        {
-          "parcel_id": 11,
-          "weight": 4.5,
-          "dimensions": "55x55x55 cm",
-          "product_qty":1,
-           "package":"Karton M",
-          "tracking_number":"6990976530053",
-          "dispatcher_profile":"DHL ",
-          "hand_over_date":"2025-07-15 00:00:04",
-          "items": [
-            { "item_id": 110, "item_name": "Widget J", "sku": "WIDGET-J" }
-          ]
-        }
-
-      ],
-      "shopify": {
-        "order_id": "Khaled",
-        "tracking_number": "Korrigiert",
-        "tracking_link": "Högerdamm",
-        "courier": "",
-        "notify": true
-      },
-      "documents": [],
-      "totals": {
-        "subtotal": 1249.5,
-        "fee": 56.8,
-        "total": 1306.3
-      },
-      "timeline": [
-         { "status": 0, "date": "2024-06-19T14:37:00" },
-        { "status": 1, "date": "2024-06-19T14:37:00" },
-        { "status": 2, "date": "2024-06-19T14:37:00" },
-        { "status": 3, "date": "2024-06-19T14:37:00" },
-        { "status": 4, "date": "2024-06-19T14:37:00" },
-        { "status": 5, "date": "2024-06-19T14:37:00" },
-        { "status": 6, "date": "2024-06-19T14:37:00" },
-        { "status": 7, "date": "2024-06-19T14:37:00" },
-        { "status": 8, "date": "2024-06-19T14:37:00" },
-        { "status": 9, "date": "2024-06-19T14:37:00" },
-        { "status": 10, "date": "2024-06-19T14:37:00" },
-        { "status": 11, "date": "2024-06-19T14:37:00" },
-        { "status": 12, "date": "2024-06-19T14:37:00" },
-        { "status": 13, "date": "2024-06-19T14:37:00" },
-        { "status": 14, "date": "2024-06-19T14:37:00" }
-      ],
-      "customer_recipient": {
-        "name": "Khaled",
-        "surname": "Algurush",
-        "house_number": "45",
-        "addition": "",  
-        "street": "Högerdamm",
-        "postal_code": "20097",  
-        "city": "Hamburg",
-        "country": "Germany",  
-        "email": "email@hotmail.com",
-        "phone": "0213456"
-      },
-      "known_issues": [
-    { "title": "without Invoice", "status": "in process" },
-    { "title": "without Tracking Number", "status": "Resolved", "date": "2025-07-25T15:30:00"}
-     ] 
-    },
-    {
-      "responsive_id": "",
-      "id": 27,
-      "order_number": "ORD12371",
-      "customer_name": "4e Gruppe Anlage",
-      "recipient_name": "Uma Einsteinium",
-      "recipient_address": "258 Maple St, Springfield",
-      "external_order_id": "EXT123482",
-      "storage": "Warehouse AA",
-      "opened_at": "2025-10-02 12:00:00",
-      "creation_date": "2025-10-01 11:00:00",
-      "last_update": "2025-10-03 13:30:00",
-      "time_spent": "3 hours",
-      "current_update": "2025-10-03 14:00:00",
-      "status": 3,
-      "items": [
-        {
-          "item_id": 101,
-          "item_name": "Widget A",
-          "sku": "837336933",
-          "quantity": 10,
-          "unit_price": 15.00,
-          "serial_number": "SN1234567890"
-        },
-        {
-          "item_id": 102,
-          "item_name": "Widget B",
-          "sku": "837933",
-          "quantity": 5,
-          "unit_price": 20.00,
-          "serial_number": "SN0987654321"
-        },
-        {
-          "item_id": 103,
-          "item_name": "Widget C",
-          "sku": "837336933",
-          "quantity": 2,
-          "unit_price": 50.00,
-          "serial_number": "SN1122334455"
-        },
-        {
-          "item_id": 104,
-          "item_name": "Widget D",
-          "sku": "8373",
-          "quantity": 1,
-          "unit_price": 100.00,
-          "serial_number": "SN5566778899"
-        },
-        {
-          "item_id": 105,
-          "item_name": "Widget E",
-          "sku": "83",
-          "quantity": 3,
-          "unit_price": 30.00,
-          "serial_number": "SN9988776655"
-        },
-        {
-          "item_id": 106,
-          "item_name": "Widget F",
-          "sku": "83dd44",
-          "quantity": 4,
-          "unit_price": 25.00,
-          "serial_number": "SN2233445566"
-        },
-        {
-          "item_id": 107,
-          "item_name": "Widget G",
-          "sku": "893774hss",
-          "quantity": 6,
-          "unit_price": 18.00,
-          "serial_number": "SN6677889900"
-        },
-        {
-          "item_id": 108,
-          "item_name": "Widget H",
-          "sku": "83793733",
-          "quantity": 8,
-          "unit_price": 12.00,
-          "serial_number": "SN3344556677"
-        },
-        {
-          "item_id": 109,
-          "item_name": "Widget I",
-          "sku": "837336933",
-          "quantity": 9,
-          "unit_price": 22.00,
-          "serial_number": "SN7788990011"
-        },
-        {
-          "item_id": 110,
-          "item_name": "Widget J",
-          "quantity": 7,
-          "unit_price": 28.00,
-          "serial_number": "SN1122339988"
-        },
-        {
-          "item_id": 111,
-          "item_name": "Widget K",
-          "sku": "8373338636",
-          "quantity": 4,
-          "unit_price": 40.00,
-          "serial_number": "SN1234567891"
-        }
-      ],
-      "shopify": {
-        "order_id": "Khaled",
-        "tracking_number": "Korrigiert",
-        "tracking_link": "Högerdamm",
-        "courier": "",
-        "notify": true
-      },
-      "documents": [],
-      "totals": {
-        "subtotal": 1249.5,
-        "fee": 56.8,
-        "total": 1306.3
-      },
-      "timeline": [
-         { "status": 0, "date": "2024-06-19T14:37:00" },
-        { "status": 1, "date": "2024-06-19T14:37:00" },
-        { "status": 2, "date": "2024-06-19T14:37:00" },
-        { "status": 3, "date": "2024-06-19T14:37:00" }
-      ],
-      "customer_recipient": {
-        "name": "Khaled",
-        "surname": "Algurush",
-        "house_number": "45",
-        "addition": "",  
-        "street": "Högerdamm",
-        "postal_code": "20097",  
-        "city": "Hamburg",
-        "country": "Germany",  
-        "email": "email@hotmail.com",
-        "phone": "0213456"
-      },
-      "known_issues": [
-    { "title": "without Invoice", "status": "in process" },
-    { "title": "without Tracking Number", "status": "Resolved", "date": "2025-07-25T15:30:00"}
-    ]
-    },
-
-    {
-      "responsive_id": "",
-      "id": 27,
-      "order_number": "0RD12OO71",
-      "customer_name": "4e Gruppe Anlage",
-      "recipient_name": "John Doe",
-      "recipient_address": "258 Maple St, Springfield",
-      "external_order_id": "EXT123482",
-      "storage": "Warehouse AA",
-      "opened_at": "2025-10-02 12:00:00",
-      "creation_date": "2025-10-01 11:00:00",
-      "last_update": "2025-10-03 13:30:00",
-      "time_spent": "3 hours",
-      "current_update": "2025-10-03 14:00:00",
-      "status": 16,
-      "warehouse":"Lager HH City",
-      "category":"",
-      "priority":"Medium",
-      "extra_info":"",
-      "dispatcher_profile":"DHL Parcel Int",
-      "items": [
-        {
-          "item_id": 101,
-          "item_name": "Widget A",
-          "sku": "837336933",
-          "quantity": 10,
-          "unit_price": 15.00,
-          "serial_number": "SN1234567890"
-        },
-        {
-          "item_id": 102,
-          "item_name": "Widget B",
-          "sku": "837933",
-          "quantity": 5,
-          "unit_price": 20.00,
-          "serial_number": "SN0987654321"
-        },
-        {
-          "item_id": 103,
-          "item_name": "Widget C",
-          "sku": "837336933",
-          "quantity": 2,
-          "unit_price": 50.00,
-          "serial_number": "SN1122334455"
-        },
-        {
-          "item_id": 104,
-          "item_name": "Widget D",
-          "sku": "8373",
-          "quantity": 1,
-          "unit_price": 100.00,
-          "serial_number": "SN5566778899"
-        },
-        {
-          "item_id": 105,
-          "item_name": "Widget E",
-          "sku": "83",
-          "quantity": 3,
-          "unit_price": 30.00,
-          "serial_number": "SN9988776655"
-        },
-        {
-          "item_id": 106,
-          "item_name": "Widget F",
-          "sku": "83dd44",
-          "quantity": 4,
-          "unit_price": 25.00,
-          "serial_number": "SN2233445566"
-        },
-        {
-          "item_id": 107,
-          "item_name": "Widget G",
-          "sku": "893774hss",
-          "quantity": 6,
-          "unit_price": 18.00,
-          "serial_number": "SN6677889900"
-        },
-        {
-          "item_id": 108,
-          "item_name": "Widget H",
-          "sku": "83793733",
-          "quantity": 8,
-          "unit_price": 12.00,
-          "serial_number": "SN3344556677"
-        },
-        {
-          "item_id": 109,
-          "item_name": "Widget I",
-          "sku": "837336933",
-          "quantity": 9,
-          "unit_price": 22.00,
-          "serial_number": "SN7788990011"
-        },
-        {
-          "item_id": 110,
-          "item_name": "Widget J",
-          "quantity": 7,
-          "unit_price": 28.00,
-          "serial_number": "SN1122339988"
-        },
-        {
-          "item_id": 111,
-          "item_name": "Widget K",
-          "sku": "8373338636",
-          "quantity": 4,
-          "unit_price": 40.00,
-          "serial_number": "SN1234567891"
-        }
-      ],
-      "parcels": [
-        {
-          "parcel_id": 1,
-          "weight": 2.5,
-          "dimensions": "10x10x10 cm",
-          "product_qty":5
-        },
-        {
-          "parcel_id": 2,
-          "weight": 3.0,
-          "dimensions": "15x15x15 cm",
-          "product_qty":1
-        },
-        {
-          "parcel_id": 3,
-          "weight": 1.5,
-          "dimensions": "20x20x20 cm",
-          "product_qty":4
-
-        },
-        {
-          "parcel_id": 4,
-          "weight": 4.0,
-          "dimensions": "25x25x25 cm",
-          "product_qty":5
-        },
-        {
-          "parcel_id": 5,
-          "weight": 2.0,
-          "dimensions": "30x30x30 cm",
-          "product_qty":5
-        },
-        {
-          "parcel_id": 6,
-          "weight": 3.5,
-          "dimensions": "35x35x35 cm",
-          "product_qty":10
-        },
-        {
-          "parcel_id": 7,
-          "weight": 1.0,
-          "dimensions": "40x40x40 cm",
-          "product_qty":5
-        },
-        {
-          "parcel_id": 8,
-          "weight": 2.2,
-          "dimensions": "45x45x45 cm",
-          "product_qty":9
-        },
-        {
-          "parcel_id": 9,
-          "weight": 3.8,
-          "dimensions": "50x50x50 cm",
-          "product_qty":5
-
-        },
-        {
-          "parcel_id": 10,
-          "weight": 4.5,
-          "dimensions": "55x55x55 cm",
-          "product_qty":5
-        },
-        {
-          "parcel_id": 11,
-          "weight": 4.5,
-          "dimensions": "55x55x55 cm",
-          "product_qty":5
-        }
-
-      ],
-      "shopify": {
-        "order_id": "Khaled",
-        "tracking_number": "Korrigiert",
-        "tracking_link": "Högerdamm",
-        "courier": "",
-        "notify": true
-      },
-      "documents": [],
-      "totals": {
-        "subtotal": 1249.5,
-        "fee": 56.8,
-        "total": 1306.3
-      },
-      "timeline": [
-         { "status": 0, "date": "2024-06-19T14:37:00" },
-        { "status": 1, "date": "2024-06-19T14:37:00" },
-        { "status": 2, "date": "2024-06-19T14:37:00" },
-        { "status": 3, "date": "2024-06-19T14:37:00" },
-        { "status": 4, "date": "2024-06-19T14:37:00" },
-        { "status": 16, "date": "2024-06-19T14:37:00" }
-      ],
-      "customer_recipient": {
-        "name": "Khaled",
-        "surname": "Algurush",
-        "house_number": "45",
-        "addition": "",  
-        "street": "Högerdamm",
-        "postal_code": "20097",  
-        "city": "Hamburg",
-        "country": "Germany",  
-        "email": "email@hotmail.com",
-        "phone": "0213456"
-      },
-      "known_issues": [
-    { "title": "without Invoice", "status": "in process" },
-    { "title": "without Tracking Number", "status": "Resolved", "date": "2025-07-25T15:30:00"}
-  ]  
-      
-    }
-
-  ]
-}
+] }
