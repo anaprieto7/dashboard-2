@@ -9,6 +9,14 @@ function applyAllFilters(datatable) {
     // Limpia cualquier filtro de rango global previo para no acumularlos
     $.fn.dataTable.ext.search.pop();
 
+    console.log('=== VERIFICACIÓN DE FUNCIONES ===');
+    console.log('initializeAdvancedFilters:', typeof initializeAdvancedFilters);
+    console.log('initializeProductEditModal:', typeof initializeProductEditModal);
+    console.log('initializeOnboardingTour:', typeof initializeOnboardingTour);
+    console.log('initializeCardFiltering:', typeof initializeCardFiltering);
+    console.log('initializeInventoryInsights:', typeof initializeInventoryInsights);
+    console.log('================================');
+
     // --- Lee los valores de TODOS los filtros que esta función gestiona ---
     const minStock = parseInt($('#min-stock-filter').val(), 10);
     
@@ -71,7 +79,7 @@ function applyAllFilters(datatable) {
 }
 
 // ===================================================================================
-// NUEVA FUNCIÓN PARA GESTIONAR LAS TABS
+// FUNCIÓN PARA GESTIONAR LAS TABS
 // ===================================================================================
 function initializeTabFilters(datatable) {
     const tabs = {
@@ -109,46 +117,157 @@ function initializeTabFilters(datatable) {
     });
 }
 
+// ===================================================================================
+// FUNCIÓN PARA FILTROS AVANZADOS
+// ===================================================================================
+function initializeAdvancedFilters(datatable) {
+    console.log('initializeAdvancedFilters called - temporary implementation');
+    
+    // Asignar eventos a los botones de filtros avanzados
+    $('#apply-offcanvas-filters-btn').on('click', function() {
+        applyAllFilters(datatable);
+    });
+    
+    $('#reset-offcanvas-filters-btn').on('click', function() {
+        // Resetear todos los filtros avanzados
+        $('.advanced-filter-input').val('');
+        $('.date-range-picker').val('');
+        applyAllFilters(datatable);
+    });
+    
+    // Inicializar date range pickers si existen
+    if ($.fn.daterangepicker) {
+        $('.date-range-picker').daterangepicker({
+            autoUpdateInput: false,
+            locale: {
+                cancelLabel: 'Clear'
+            }
+        });
+        
+        $('.date-range-picker').on('apply.daterangepicker', function(ev, picker) {
+            $(this).val(picker.startDate.format('MM/DD/YYYY') + ' to ' + picker.endDate.format('MM/DD/YYYY'));
+        });
+        
+        $('.date-range-picker').on('cancel.daterangepicker', function(ev, picker) {
+            $(this).val('');
+        });
+    }
+}
 
 // ===================================================================================
-// PARTE 2: EL BLOQUE DE INICIALIZACIÓN ("EL DIRECTOR DE ORQUESTA")
-// Llama a todos los módulos y asigna los eventos.
+// FUNCIÓN PARA MANEJAR INSIGHTS EN INVENTORY (ACTUALIZADA)
+// ===================================================================================
+function initializeInventoryInsightsHandler(datatable) {
+    console.log('🔧 Setting up inventory insights handler...');
+    console.log('🔍 generateInventoryInsights available:', typeof generateInventoryInsights);
+    console.log('🔍 initializeInventoryInsights available:', typeof initializeInventoryInsights);
+    
+    // Función para generar insights cuando sea necesario
+    const generateInsightsIfNeeded = () => {
+        console.log('🔄 Attempting to generate insights...');
+        
+        if (typeof generateInventoryInsights === 'function') {
+            console.log('📈 Generating inventory insights...');
+            try {
+                generateInventoryInsights();
+            } catch (error) {
+                console.error('❌ Error generating insights:', error);
+                const container = document.getElementById('insights-container');
+                if (container) {
+                    container.innerHTML = `
+                        <div class="alert alert-danger">
+                            <h6>Error Generating Insights</h6>
+                            <p class="mb-0">There was an error generating the insights. Please try again.</p>
+                            <small>Error: ${error.message}</small>
+                        </div>
+                    `;
+                }
+            }
+        } else {
+            console.warn('❌ generateInventoryInsights function not found');
+            const container = document.getElementById('insights-container');
+            if (container) {
+                container.innerHTML = `
+                    <div class="alert alert-warning">
+                        <h6>Insights Not Available</h6>
+                        <p class="mb-0">The insights feature is currently unavailable. Please refresh the page.</p>
+                    </div>
+                `;
+            }
+        }
+    };
+
+    // Manejar cambio de tabs con Bootstrap
+    $('a[data-bs-toggle="tab"]').on('shown.bs.tab', function (e) {
+        const targetTab = $(e.target).attr('href');
+        console.log('🔄 Tab changed to:', targetTab);
+        
+        if (targetTab === '#inventory-insights') {
+            // Pequeño delay para asegurar que el tab esté completamente visible
+            setTimeout(() => {
+                generateInsightsIfNeeded();
+            }, 100);
+        }
+    });
+    
+    // Si el tab de insights está activo al cargar, generar insights inmediatamente
+    if ($('#tab-insights').hasClass('active')) {
+        console.log('📊 Initial insights generation (tab already active)...');
+        setTimeout(generateInsightsIfNeeded, 500);
+    }
+    
+    // También generar insights si la función de inicialización existe
+    if (typeof initializeInventoryInsights === 'function') {
+        console.log('🔧 Calling initializeInventoryInsights...');
+        try {
+            initializeInventoryInsights();
+        } catch (error) {
+            console.error('❌ Error in initializeInventoryInsights:', error);
+        }
+    }
+}
+
+// ===================================================================================
+// PARTE 2: BLOQUE DE INICIALIZACIÓN PRINCIPAL
 // ===================================================================================
 $(function () {
+    console.log('🚀 Starting app initialization...');
+    
     // Inicializa componentes de terceros
     $('#customer-filter').select2({ placeholder: 'Select Customers' });
 
     const productDatatable = initializeProductDataTable();
-    
+   
     if (productDatatable) {
+        console.log('✅ DataTable initialized successfully');
+        window.productDatatable = productDatatable;
+        console.log('📊 DataTable exported to window.productDatatable');
+
 
         const productSavedViewsConfig = {
             datatable: productDatatable,
-            filterFunction: applyAllFilters, // La función de filtro de esta página
-            storageKey: 'productFilterViews_user1', // La clave de almacenamiento original
-            filterInputIds: [ // La lista de filtros ORIGINAL de la página de productos
+            filterFunction: applyAllFilters,
+            storageKey: 'productFilterViews_user1',
+            filterInputIds: [
                 'main-search', 'customer-filter', 'status-filter', 'min-stock-filter',
                 'sku-filter', 'ean-barcode-filter', 'min-qty', 'max-qty',
                 'min-reservable', 'max-reservable', 'min-weight', 'max-weight',
                 'min-volume', 'max-volume', 'created-at-range', 'updated-at-range'
             ]
         };
-        // --- Inicializa los MÓDULOS DE FILTRO REUTILIZABLES ---
-        // Estos módulos gestionan sus propios eventos y filtros de columna.
-        initializeCustomerFilter(productDatatable, {
-            columnIndex: 1 
-        });
+
+        // --- INICIALIZAR MÓDULOS DE FILTRO REUTILIZABLES ---
+        initializeCustomerFilter(productDatatable, { columnIndex: 1 });
         initializeStatusFilter(productDatatable);
-         initializeOnboardingTour();
-         initializeTabFilters(productDatatable);
+        initializeOnboardingTour();
+        initializeTabFilters(productDatatable);
         
-        // --- Asigna listeners para los filtros gestionados por app.js ---
-        // Estos filtros son "instantáneos" y llaman a la función maestra.
+        // --- ASIGNAR EVENT LISTENERS ---
         $('#main-search').on('keyup', () => applyAllFilters(productDatatable));
         $('#min-stock-filter').on('input', () => applyAllFilters(productDatatable));
         
-        // --- Inicializa el resto de los módulos de la interfaz ---
-        initializeAdvancedFilters(productDatatable); // Este módulo llama a applyAllFilters desde sus botones
+        // --- INICIALIZAR MÓDULOS DE INTERFAZ ---
+        initializeAdvancedFilters(productDatatable);
         initializeClearFilters(productDatatable);
         initializeBulkActions(productDatatable);
         initializeExportActions(productDatatable);
@@ -158,8 +277,29 @@ $(function () {
         initializeMiniPagination(productDatatable);
         initializeColumnVisibility(productDatatable);
         initializeProductEditModal(productDatatable);
+
+        // --- MANEJO MEJORADO DE INSIGHTS (SOLO PARA INVENTORY) ---
+        if (window.TABLE_MODE === 'inventory') {
+            console.log('📊 Inventory mode detected - Setting up insights...');
+            initializeInventoryInsightsHandler(productDatatable);
+        }
         
-        // Llamada inicial para establecer el estado de las pills y el botón Clear
-        updateActiveFiltersUI(); 
+        // Llamada inicial para UI
+        updateActiveFiltersUI();
     }
+
+    // Feather icons y tooltips
+    if (productDatatable) {
+        productDatatable.on('draw', function () {
+            if (window.feather) {
+                feather.replace({ width: 14, height: 14 });
+            }
+            $('[data-bs-toggle="tooltip"]').tooltip();
+        });
+    }
+    
+    if (window.feather) {
+        feather.replace({ width: 14, height: 14 });
+    }
+    $('[data-bs-toggle="tooltip"]').tooltip();
 });

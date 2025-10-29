@@ -9,7 +9,7 @@
     <meta name="description" content="Vuexy admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
     <meta name="keywords" content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="PIXINVENT">
-    <title>Dashboard - Products list</title>
+    <title>Dashboard - Inventory List</title>
     <link rel="apple-touch-icon" href="../../../../app-assets/images/ico/apple-icon-120.png">
     <link rel="shortcut icon" type="image/x-icon" href="../../../../app-assets/images/ico/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet">
@@ -144,11 +144,11 @@
                         </li>
                         <li class="active"><a class="d-flex align-items-cente" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Products">Products</span></a>
                             <ul class="menu-content">
-                                <li class="active">
-                                    <a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Product List">Product List</span></a>
+                                <li >
+                                    <a class="d-flex align-items-center" href="../../../../starterkit/ltr/vertical-menu-template-semi-dark/products/products-list-Admin.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Product List">Product List</span></a>
                                 </li>
-                                <li>
-                                    <a class="d-flex align-items-center" href="../../../../starter-kit/ltr/vertical-menu-template-semi-dark/products/inventroy-list-Admin.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Inventory List">Inventory list</span></a>
+                                <li class="active">
+                                    <a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Inventory List">Inventory list</span></a>
                                 </li>
                                 <li>
                                     <a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="GeoData Import">GeoData Import</span></a>
@@ -324,11 +324,11 @@
                 <div class="content-header-left col-md-9 col-12 mb-2">
                     <div class="row breadcrumbs-top">
                         <div class="col-12">
-                            <h2 class="content-header-title float-start mb-0">Product Management</h2>
+                            <h2 class="content-header-title float-start mb-0">Inventory</h2>
                             <div class="breadcrumb-wrapper">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item">Fulfillment</li>
-                                    <li class="breadcrumb-item active">Products List</li>
+                                    <li class="breadcrumb-item active">Inventory List</li>
                                 </ol>
                             </div>
                         </div>
@@ -342,314 +342,348 @@
                 </div>
             </div>
             <div class="content-body">
-                <!--  cards products -->
-                <div class="row match-height">
-                    <!-- Total Products Card -->
-                    <div class="col-lg-4 col-md-6 col-12">
-                        <div class="card card-statistic inventory-card" data-filter="all">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between">
-                                    <div>
-                                        <h6 class="fw-bolder mb-0">Total Products</h6>
-                                        <h2 class="text-primary" id="total-products-count">0</h2>
-                                    </div>
-                                    <div class="avatar bg-light-primary p-50">
-                                        <span class="avatar-content">
-                                            <i data-feather="package" class="font-medium-5"></i>
-                                        </span>
-                                    </div>
-                                </div>
-                                <small class="text-muted">Across all warehouses</small>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Low Stock Card -->
-                    <div class="col-lg-4 col-md-6 col-12">
-                        <div class="card card-statistic inventory-card" data-filter="low_stock">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between">
-                                    <div>
-                                        <h6 class="fw-bolder mb-0">Low Stock</h6>
-                                        <h2 class="text-warning" id="low-stock-count">0</h2>
-                                    </div>
-                                    <div class="avatar bg-light-warning p-50">
-                                        <span class="avatar-content">
-                                            <i data-feather="alert-triangle" class="font-medium-5"></i>
-                                        </span>
-                                    </div>
-                                </div>
-                                <small class="text-muted">Need replenishment</small>
-                            </div>
-                        </div>
-                    </div>          
-                    <!-- Out of Stock Card -->
-                    <div class="col-lg-4 col-md-6 col-12">
-                        <div class="card card-statistic inventory-card" data-filter="out_of_stock">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between">
-                                    <div>
-                                        <h6 class="fw-bolder mb-0">Out of Stock</h6>
-                                        <h2 class="text-danger" id="out-of-stock-count">0</h2>
-                                    </div>
-                                    <div class="avatar bg-light-danger p-50">
-                                        <span class="avatar-content">
-                                            <i data-feather="x-circle" class="font-medium-5"></i>
-                                        </span>
-                                    </div>
-                                </div>
-                                <small class="text-muted">Urgent attention needed</small>
-                            </div>
-                        </div>
-                    </div>
+                <div class="row mb-2">
+                    <!-- Nav Tabs -->
+                    <ul class="nav nav-tabs mt-2 mb-1" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="tab-list" data-bs-toggle="tab" href="#inventory-list" role="tab">
+                        <i data-feather="list" class="me-25"></i> Inventory List
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="tab-insights" data-bs-toggle="tab" href="#inventory-insights" role="tab">
+                        <i data-feather="bar-chart-2" class="me-25"></i> Insights
+                        </a>
+                    </li>
+                    </ul>
                 </div>
-                <div class="card">
-                    <div class="card-header">
-                        <h4 class="card-title">Search & Filter</h4>
-                    </div>
-                    <div class="card-body">
-                        <div class="row g-1 align-items-end">
-                            <div class="col-md-4">
-                                <label for="main-search" class="form-label">Search Product</label>
-                                <input type="text" id="main-search" class="form-control" placeholder="Search by Name, SKU, EAN...">
+                <!--Content-->
+                <div class="tab-content mt-1 mb-2">
+                <!-- 🧾 Inventory List -->
+                <div class="tab-pane fade show active" id="inventory-list" role="tabpanel">
+                    <div class="row match-height">
+                        <!-- Total Products Card -->
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <div class="card card-statistic inventory-card" data-filter="all">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between">
+                                        <div>
+                                            <h6 class="fw-bolder mb-0">Total Products</h6>
+                                            <h2 class="text-primary" id="total-products-count">0</h2>
+                                        </div>
+                                        <div class="avatar bg-light-primary p-50">
+                                            <span class="avatar-content">
+                                                <i data-feather="package" class="font-medium-5"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <small class="text-muted">Across all warehouses</small>
+                                </div>
                             </div>
-                            <div class="col-md-2">
-                                <label for="customer-filter" class="form-label">Filter by Customer</label>
-                                <select id="customer-filter" class="select2 form-select" multiple>
-                                    <option value="4e Gruppe Anlage">4e Gruppe Anlage</option>
-                                    <option value="Shopping Inc">Shopping Inc</option>
-                                    <option value="Technology Corp">Technology Corp</option>
-                                </select>
+                        </div>
+                        <!-- Low Stock Card -->
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <div class="card card-statistic inventory-card" data-filter="low_stock">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between">
+                                        <div>
+                                            <h6 class="fw-bolder mb-0">Low Stock</h6>
+                                            <h2 class="text-warning" id="low-stock-count">0</h2>
+                                        </div>
+                                        <div class="avatar bg-light-warning p-50">
+                                            <span class="avatar-content">
+                                                <i data-feather="alert-triangle" class="font-medium-5"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <small class="text-muted">Need replenishment</small>
+                                </div>
                             </div>
-                            <div class="col-md-2">
-                                <label for="status-filter" class="form-label">Filter by Status</label>
-                                <select id="status-filter" class="form-select">
-                                    <option value="">All</option>
-                                    <option value="Active">Active</option>
-                                    <option value="Inactive">Inactive</option>
-                                </select>
-                            </div>
-                            <div class="col-md-2">
-                                <label for="min-stock-filter" class="form-label">Minimum Stock</label>
-                                <input type="number" id="min-stock-filter" class="form-control" placeholder="e.g., 50">
-                            </div>
-                            <div class="col-md-2">
-                                <!-- BOTÓN "Advanced" ACTUALIZADO -->
-                                <button class="btn btn-primary w-100" type="button" data-bs-toggle="collapse" data-bs-target="#advancedFiltersCollapse" aria-expanded="false" aria-controls="advancedFiltersCollapse">
-                                    <i data-feather="sliders" class="me-50"></i> Advanced
-                                </button>
+                        </div>          
+                        <!-- Out of Stock Card -->
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <div class="card card-statistic inventory-card" data-filter="out_of_stock">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between">
+                                        <div>
+                                            <h6 class="fw-bolder mb-0">Out of Stock</h6>
+                                            <h2 class="text-danger" id="out-of-stock-count">0</h2>
+                                        </div>
+                                        <div class="avatar bg-light-danger p-50">
+                                            <span class="avatar-content">
+                                                <i data-feather="x-circle" class="font-medium-5"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <small class="text-muted">Urgent attention needed</small>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="collapse" id="advancedFiltersCollapse">
-                    <div class="card card-body border-top">
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <h5 class="mb-0">Advanced Filters</h5>
-                            <button type="button" class="btn-close" data-bs-toggle="collapse" data-bs-target="#advancedFiltersCollapse" aria-label="Close"></button>
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Search & Filter</h4>
                         </div>
-                        <div class="row g-2">
-                            <!-- Columna 1: Specific Identifiers -->
-                            <div class="col-lg-3 col-md-6">
-                                <h6><i data-feather="hash" class="me-50"></i>Specific Identifiers</h6>
-                                <div class="mb-1">
-                                    <label class="form-label small">SKU contains</label>
-                                    <input type="text" id="sku-filter" class="form-control advanced-filter-input" placeholder="e.g., JEA-">
+                        <div class="card-body">
+                            <div class="row g-1 align-items-end">
+                                <div class="col-md-4">
+                                    <label for="main-search" class="form-label">Search Product</label>
+                                    <input type="text" id="main-search" class="form-control" placeholder="Search by Name, SKU, EAN...">
                                 </div>
-                                <div>
-                                    <label class="form-label small">EAN / Barcode is</label>
-                                    <input type="text" id="ean-barcode-filter" class="form-control advanced-filter-input" placeholder="Exact match search">
+                                <div class="col-md-2">
+                                    <label for="customer-filter" class="form-label">Filter by Customer</label>
+                                    <select id="customer-filter" class="select2 form-select" multiple>
+                                        <option value="4e Gruppe Anlage">4e Gruppe Anlage</option>
+                                        <option value="Shopping Inc">Shopping Inc</option>
+                                        <option value="Technology Corp">Technology Corp</option>
+                                    </select>
                                 </div>
-                            </div>
-
-                            <!-- Columna 2: Inventory Details -->
-                            <div class="col-lg-3 col-md-6">
-                                <h6><i data-feather="archive" class="me-50"></i>Inventory Details</h6>
-                                <div class="mb-1">
-                                    <label class="form-label small">Quantity</label>
-                                    <div class="input-group">
-                                        <span class="input-group-text">Min</span>
-                                        <input type="number" id="min-qty" class="form-control advanced-filter-input" placeholder="0">
-                                        <span class="input-group-text">Max</span>
-                                        <input type="number" id="max-qty" class="form-control advanced-filter-input" placeholder="100">
-                                    </div>
+                                <div class="col-md-2">
+                                    <label for="status-filter" class="form-label">Filter by Status</label>
+                                    <select id="status-filter" class="form-select">
+                                        <option value="">All</option>
+                                        <option value="Active">Active</option>
+                                        <option value="Inactive">Inactive</option>
+                                    </select>
                                 </div>
-                                <div>
-                                    <label class="form-label small">Reservable Qty</label>
-                                    <div class="input-group">
-                                        <span class="input-group-text">Min</span>
-                                        <input type="number" id="min-reservable" class="form-control advanced-filter-input" placeholder="0">
-                                        <span class="input-group-text">Max</span>
-                                        <input type="number" id="max-reservable" class="form-control advanced-filter-input" placeholder="50">
-                                    </div>
+                                <div class="col-md-2">
+                                    <label for="min-stock-filter" class="form-label">Minimum Stock</label>
+                                    <input type="number" id="min-stock-filter" class="form-control" placeholder="e.g., 50">
                                 </div>
-                            </div>
-
-                            <!-- Columna 3: Measurements -->
-                            <div class="col-lg-3 col-md-6">
-                                <h6><i data-feather="compass" class="me-50"></i>Measurements</h6>
-                                <div class="mb-1">
-                                    <label class="form-label small">Weight (g)</label>
-                                    <div class="input-group">
-                                        <span class="input-group-text">Min</span>
-                                        <input type="number" id="min-weight" class="form-control advanced-filter-input" placeholder="100">
-                                        <span class="input-group-text">Max</span>
-                                        <input type="number" id="max-weight" class="form-control advanced-filter-input" placeholder="5000">
-                                    </div>
-                                </div>
-                                <div>
-                                    <label class="form-label small">Volume (cm³)</label>
-                                    <div class="input-group">
-                                        <span class="input-group-text">Min</span>
-                                        <input type="number" id="min-volume" class="form-control advanced-filter-input" placeholder="1000">
-                                        <span class="input-group-text">Max</span>
-                                        <input type="number" id="max-volume" class="form-control advanced-filter-input" placeholder="50000">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Columna 4: Timestamps -->
-                            <div class="col-lg-3 col-md-6">
-                                <h6><i data-feather="calendar" class="me-50"></i>Timestamps</h6>
-                                <div class="mb-1">
-                                    <label class="form-label small">Created At</label>
-                                    <input type="text" id="created-at-range" class="form-control advanced-filter-input date-range-picker" placeholder="Select date range">
-                                </div>
-                                <div>
-                                    <label class="form-label small">Updated At</label>
-                                    <input type="text" id="updated-at-range" class="form-control advanced-filter-input date-range-picker" placeholder="Select date range">
-                                </div>
-                            </div>
-                            
-                            <!-- Botones de Acción en una Fila Propia -->
-                            <div class="col-12 d-flex justify-content-end gap-2 pt-1 mt-1 border-top">
-                                <button class="btn btn-outline-secondary" id="reset-offcanvas-filters-btn">
-                                    <i data-feather="refresh-cw" class="me-50"></i>
-                                    Reset
-                                </button>
-                                <button class="btn btn-primary" id="apply-offcanvas-filters-btn">
-                                    <i data-feather="check-circle" class="me-50"></i>
-                                    Apply Filters
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mb-1">
-                    <div class="col-12 text-end">
-                        <div class="btn-group mb-1 text-end" role="group" aria-label="Saved Views">
-                            <button type="button" class="btn btn-flat-primary dropdown-toggle" id="saved-views-btn" 
-                                    data-bs-toggle="dropdown" aria-expanded="false"
-                                    title="Load, save, or manage your custom filter views">
-                                <i data-feather="eye" class="me-50"></i>
-                                <span id="current-view-name">Unsaved View</span>
-                            </button>
-                            <ul class="dropdown-menu" id="saved-views-dropdown-menu" style="min-width: 250px;">
-                                </ul>
-                        </div>
-                    </div>
-                </div>
-                                <div id="active-filters-section" class="d-flex justify-content-between align-items-center mt-1 mb-1 d-none">
-                    <div id="pills-container" class="d-flex flex-wrap gap-1"></div>
-                    <button class="btn btn-sm btn-outline-primary" id="clear-filters-btn"><i data-feather="x-circle" class="me-25"></i> Clear All</button>
-                </div>
-                <div class="card">
-                    <div class="card-header border-bottom">
-                        <ul class="nav nav-tabs" role="tablist">
-                            <li class="nav-item">
-                                <a class="nav-link active" id="all-products-tab" href="#" role="tab">All</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="active-products-tab" href="#" role="tab">Active</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="inactive-products-tab" href="#" role="tab">Inactive</a>
-                            </li>
-                        </ul>
-                        <div class="d-flex align-items-center gap-1">
-                            <div id="mini-pagination-container" class="d-flex align-items-center">
-                            </div>
-                            <div id="bulk-action-container" class="d-none">
-                                <div class="dropdown">
-                                    <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown">
-                                        Bulk Action
+                                <div class="col-md-2">
+                                    <!-- BOTÓN "Advanced" ACTUALIZADO -->
+                                    <button class="btn btn-primary w-100" type="button" data-bs-toggle="collapse" data-bs-target="#advancedFiltersCollapse" aria-expanded="false" aria-controls="advancedFiltersCollapse">
+                                        <i data-feather="sliders" class="me-50"></i> Advanced
                                     </button>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Activate</a></li>
-                                        <li><a class="dropdown-item" href="#">Deactivate</a></li>
-                                        <li><a class="dropdown-item" href="#">Edit</a></li>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="collapse" id="advancedFiltersCollapse">
+                        <div class="card card-body border-top">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <h5 class="mb-0">Advanced Filters</h5>
+                                <button type="button" class="btn-close" onclick="$('#advancedFiltersCollapse').collapse('hide')" aria-label="Close"></button>
+                            </div>
+                            <div class="row g-2">
+                                <!-- Columna 1: Specific Identifiers -->
+                                <div class="col-lg-3 col-md-6">
+                                    <h6><i data-feather="hash" class="me-50"></i>Specific Identifiers</h6>
+                                    <div class="mb-1">
+                                        <label class="form-label small">SKU contains</label>
+                                        <input type="text" id="sku-filter" class="form-control advanced-filter-input" placeholder="e.g., JEA-">
+                                    </div>
+                                    <div>
+                                        <label class="form-label small">EAN / Barcode is</label>
+                                        <input type="text" id="ean-barcode-filter" class="form-control advanced-filter-input" placeholder="Exact match search">
+                                    </div>
+                                </div>
+
+                                <!-- Columna 2: Inventory Details -->
+                                <div class="col-lg-3 col-md-6">
+                                    <h6><i data-feather="archive" class="me-50"></i>Inventory Details</h6>
+                                    <div class="mb-1">
+                                        <label class="form-label small">Quantity</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text">Min</span>
+                                            <input type="number" id="min-qty" class="form-control advanced-filter-input" placeholder="0">
+                                            <span class="input-group-text">Max</span>
+                                            <input type="number" id="max-qty" class="form-control advanced-filter-input" placeholder="100">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label class="form-label small">Reservable Qty</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text">Min</span>
+                                            <input type="number" id="min-reservable" class="form-control advanced-filter-input" placeholder="0">
+                                            <span class="input-group-text">Max</span>
+                                            <input type="number" id="max-reservable" class="form-control advanced-filter-input" placeholder="50">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Columna 3: Measurements -->
+                                <div class="col-lg-3 col-md-6">
+                                    <h6><i data-feather="compass" class="me-50"></i>Measurements</h6>
+                                    <div class="mb-1">
+                                        <label class="form-label small">Weight (g)</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text">Min</span>
+                                            <input type="number" id="min-weight" class="form-control advanced-filter-input" placeholder="100">
+                                            <span class="input-group-text">Max</span>
+                                            <input type="number" id="max-weight" class="form-control advanced-filter-input" placeholder="5000">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label class="form-label small">Volume (cm³)</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text">Min</span>
+                                            <input type="number" id="min-volume" class="form-control advanced-filter-input" placeholder="1000">
+                                            <span class="input-group-text">Max</span>
+                                            <input type="number" id="max-volume" class="form-control advanced-filter-input" placeholder="50000">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Columna 4: Timestamps -->
+                                <div class="col-lg-3 col-md-6">
+                                    <h6><i data-feather="calendar" class="me-50"></i>Timestamps</h6>
+                                    <div class="mb-1">
+                                        <label class="form-label small">Created At</label>
+                                        <input type="text" id="created-at-range" class="form-control advanced-filter-input date-range-picker" placeholder="Select date range">
+                                    </div>
+                                    <div>
+                                        <label class="form-label small">Updated At</label>
+                                        <input type="text" id="updated-at-range" class="form-control advanced-filter-input date-range-picker" placeholder="Select date range">
+                                    </div>
+                                </div>
+                                
+                                <!-- Botones de Acción en una Fila Propia -->
+                                <div class="col-12 d-flex justify-content-end gap-2 pt-1 mt-1 border-top">
+                                    <button class="btn btn-outline-secondary" id="reset-offcanvas-filters-btn">
+                                        <i data-feather="refresh-cw" class="me-50"></i>
+                                        Reset
+                                    </button>
+                                    <button class="btn btn-primary" id="apply-offcanvas-filters-btn">
+                                        <i data-feather="check-circle" class="me-50"></i>
+                                        Apply Filters
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-1">
+                        <div class="col-12 text-end">
+                            <div class="btn-group mb-1 text-end" role="group" aria-label="Saved Views">
+                                <button type="button" class="btn btn-flat-primary dropdown-toggle" id="saved-views-btn" 
+                                        data-bs-toggle="dropdown" aria-expanded="false"
+                                        title="Load, save, or manage your custom filter views">
+                                    <i data-feather="eye" class="me-50"></i>
+                                    <span id="current-view-name">Unsaved View</span>
+                                </button>
+                                <ul class="dropdown-menu" id="saved-views-dropdown-menu" style="min-width: 250px;">
+                                    </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="active-filters-section" class="d-flex justify-content-between align-items-center mt-1 mb-1 d-none">
+                        <div id="pills-container" class="d-flex flex-wrap gap-1"></div>
+                        <button class="btn btn-sm btn-outline-primary" id="clear-filters-btn"><i data-feather="x-circle" class="me-25"></i> Clear All</button>
+                    </div>
+                    <div class="card">
+                        <div class="card-header border-bottom">
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="all-products-tab" href="#" role="tab">All</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="active-products-tab" href="#" role="tab">Active</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="inactive-products-tab" href="#" role="tab">Inactive</a>
+                                </li>
+                            </ul>
+                            <div class="d-flex align-items-center gap-1">
+                                <div id="mini-pagination-container" class="d-flex align-items-center">
+                                </div>
+                                <div id="bulk-action-container" class="d-none">
+                                    <div class="dropdown">
+                                        <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                            Bulk Action
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="#">Activate</a></li>
+                                            <li><a class="dropdown-item" href="#">Deactivate</a></li>
+                                            <li><a class="dropdown-item" href="#">Edit</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="btn-group">
+                                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="export-dropdown-btn" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i data-feather="share" class="me-50"></i>
+                                        <span>Export</span>
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="export-dropdown-btn">
+                                        <li>
+                                            <a class="dropdown-item" href="#" id="export-print">
+                                                <i data-feather="printer" class="me-50"></i>
+                                                <span>Print</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#" id="export-csv">
+                                                <i data-feather="file-text" class="me-50"></i>
+                                                <span>Csv</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#" id="export-excel">
+                                                <i data-feather="grid" class="me-50"></i>
+                                                <span>Excel</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#" id="export-pdf">
+                                                <i data-feather="file" class="me-50"></i>
+                                                <span>Pdf</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#" id="export-copy">
+                                                <i data-feather="copy" class="me-50"></i>
+                                                <span>Copy</span>
+                                            </a>
+                                        </li>
                                     </ul>
                                 </div>
-                            </div>
-                            <div class="btn-group">
-                                <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="export-dropdown-btn" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i data-feather="share" class="me-50"></i>
-                                    <span>Export</span>
+                                <button class="btn btn-icon btn-icon rounded-circle btn-primary waves-effect waves-float waves-light" id="colvis-btn" title="Customize Columns">
+                                    <i data-feather="settings"></i>
                                 </button>
-                                <ul class="dropdown-menu" aria-labelledby="export-dropdown-btn">
-                                    <li>
-                                        <a class="dropdown-item" href="#" id="export-print">
-                                            <i data-feather="printer" class="me-50"></i>
-                                            <span>Print</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#" id="export-csv">
-                                            <i data-feather="file-text" class="me-50"></i>
-                                            <span>Csv</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#" id="export-excel">
-                                            <i data-feather="grid" class="me-50"></i>
-                                            <span>Excel</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#" id="export-pdf">
-                                            <i data-feather="file" class="me-50"></i>
-                                            <span>Pdf</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#" id="export-copy">
-                                            <i data-feather="copy" class="me-50"></i>
-                                            <span>Copy</span>
-                                        </a>
-                                    </li>
-                                </ul>
                             </div>
-                            <button class="btn btn-icon btn-icon rounded-circle btn-primary waves-effect waves-float waves-light" id="colvis-btn" title="Customize Columns">
-                                <i data-feather="settings"></i>
-                            </button>
+                        </div>
+                        <div class="card-datatable table-responsive pt-0">
+                            <table class="datatables-basic table" id="product-table">
+                                <thead>
+                                    <tr>
+                                        <th><input type="checkbox" class="form-check-input" id="select-all-checkbox"></th>
+                                        <th>Customer</th>
+                                        <th>Name</th>
+                                        <th>SKU</th>
+                                        <th>EAN</th>
+                                        <th>Barcode</th>                 
+                                        <th>Quantity</th>
+                                        <th>Reservable Qty</th>        
+                                        <th>Virtual Qty</th>           
+                                        <th>Announced Qty</th>         
+                                        <th>Unit Volume</th>            
+                                        <th>Unit Weight</th>
+                                        <th>Created At</th>              
+                                        <th>Updated At</th>
+                                        <th>Status</th>
+                                        <th id="table-actions">Actions</th>
+                                    </tr>
+                                </thead>
+                            </table>
                         </div>
                     </div>
-                    <div class="card-datatable table-responsive pt-0">
-                        <table class="datatables-basic table" id="product-table">
-                            <thead>
-                                <tr>
-                                    <th><input type="checkbox" class="form-check-input" id="select-all-checkbox"></th>
-                                    <th>Customer</th>
-                                    <th>Name</th>
-                                    <th>SKU</th>
-                                    <th>EAN</th>
-                                    <th>Barcode</th>                 
-                                    <th>Quantity</th>
-                                    <th>Reservable Qty</th>        
-                                    <th>Virtual Qty</th>           
-                                    <th>Announced Qty</th>         
-                                    <th>Unit Volume</th>            
-                                     <th>Unit Weight</th>
-                                    <th>Created At</th>              
-                                    <th>Updated At</th>
-                                    <th>Status</th>
-                                    <th id="table-actions">Actions</th>
-                                </tr>
-                            </thead>
-                        </table>
+                </div>  
+
+                <!-- 📊 Inventory Insights - FUERA del tab inventory-list -->
+                <div class="tab-pane fade" id="inventory-insights" role="tabpanel">
+                    <div class="card mt-2">
+                        <div class="card-header">
+                            <h4 class="card-title mb-0">Inventory Insights</h4>
+                        </div>
+                        <div class="card-body">
+                            <div id="insights-container">
+                                <!-- Aquí generaremos el contenido dinámicamente -->
+                                <p class="text-muted">Loading insights...</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                </div>             
-                <div class="modal fade" id="colvis-modal" tabindex="-1" aria-labelledby="colvisModalLabel" aria-hidden="true">
+                      
+            <div class="modal fade" id="colvis-modal" tabindex="-1" aria-labelledby="colvisModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -663,8 +697,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="modal fade" id="productDetailsModal" tabindex="-1" aria-labelledby="productDetailsModalLabel" aria-hidden="true">
+            </div>
+             <div class="modal fade" id="productDetailsModal" tabindex="-1" aria-labelledby="productDetailsModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg modal-dialog-scrollable">
                         <div class="modal-content">
                         <div class="modal-header">
@@ -728,94 +762,92 @@
                         </div>
                         </div>
                     </div>
-                </div>
-            
-            <!-- Product Edit modal-->
-            <div class="modal fade" id="productEditModal" tabindex="-1" aria-labelledby="productEditModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg modal-dialog-scrollable">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="productEditModalLabel">Edit Product</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <!-- El formulario envuelve todo el contenido editable -->
-                            <form id="product-edit-form">
-                                <!-- Campo oculto para guardar el ID de la fila -->
-                                <input type="hidden" id="edit-product-id">
+                </div>   
+                <!-- Product Edit modal-->
+                <div class="modal fade" id="productEditModal" tabindex="-1" aria-labelledby="productEditModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="productEditModalLabel">Edit Product</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <!-- El formulario envuelve todo el contenido editable -->
+                                <form id="product-edit-form">
+                                    <!-- Campo oculto para guardar el ID de la fila -->
+                                    <input type="hidden" id="edit-product-id">
 
-                                <h6><i class="bx bx-info-circle me-1"></i>General Information</h6>
-                                <hr class="mt-2">
-                                <div class="row">
-                                    <div class="col-md-6 mb-1">
-                                        <label for="edit-product-name" class="form-label">Product Name</label>
-                                        <input type="text" id="edit-product-name" class="form-control" required>
+                                    <h6><i class="bx bx-info-circle me-1"></i>General Information</h6>
+                                    <hr class="mt-2">
+                                    <div class="row">
+                                        <div class="col-md-6 mb-1">
+                                            <label for="edit-product-name" class="form-label">Product Name</label>
+                                            <input type="text" id="edit-product-name" class="form-control" required>
+                                        </div>
+                                        <div class="col-md-6 mb-1">
+                                            <label for="edit-product-sku" class="form-label">SKU</label>
+                                            <input type="text" id="edit-product-sku" class="form-control" readonly>
+                                        </div>
+                                        <div class="col-md-6 mb-1">
+                                            <label for="edit-product-ean" class="form-label">EAN</label>
+                                            <input type="text" id="edit-product-ean" class="form-control">
+                                        </div>
+                                        <div class="col-md-6 mb-1">
+                                            <label for="edit-product-group" class="form-label">Product Group</label>
+                                            <select id="edit-product-group" class="form-select">
+                                                <option value="Default">Default</option>
+                                                <option value="Electronics">Electronics</option>
+                                                <option value="Apparel">Apparel</option>
+                                            </select>
+                                        </div>
                                     </div>
-                                    <div class="col-md-6 mb-1">
-                                        <label for="edit-product-sku" class="form-label">SKU</label>
-                                        <input type="text" id="edit-product-sku" class="form-control" readonly>
-                                    </div>
-                                    <div class="col-md-6 mb-1">
-                                        <label for="edit-product-ean" class="form-label">EAN</label>
-                                        <input type="text" id="edit-product-ean" class="form-control">
-                                    </div>
-                                    <div class="col-md-6 mb-1">
-                                        <label for="edit-product-group" class="form-label">Product Group</label>
-                                        <select id="edit-product-group" class="form-select">
-                                            <option value="Default">Default</option>
-                                            <option value="Electronics">Electronics</option>
-                                            <option value="Apparel">Apparel</option>
-                                        </select>
-                                    </div>
-                                </div>
 
-                                <h6 class="mt-4"><i class="bx bx-package me-1"></i>Inventory</h6>
-                                <hr class="mt-2">
-                                <div class="row text-center">
-                                    <div class="col-6 col-md-3 mb-3">
-                                        <label for="edit-qty-total" class="form-label fw-bold">Total</label>
-                                        <input type="number" id="edit-qty-total" class="form-control text-center">
+                                    <h6 class="mt-4"><i class="bx bx-package me-1"></i>Inventory</h6>
+                                    <hr class="mt-2">
+                                    <div class="row text-center">
+                                        <div class="col-6 col-md-3 mb-3">
+                                            <label for="edit-qty-total" class="form-label fw-bold">Total</label>
+                                            <input type="number" id="edit-qty-total" class="form-control text-center">
+                                        </div>
+                                        <div class="col-6 col-md-3 mb-3">
+                                            <label for="edit-qty-available" class="form-label fw-bold">Available</label>
+                                            <input type="number" id="edit-qty-available" class="form-control text-center">
+                                        </div>
+                                        <div class="col-6 col-md-3 mb-3">
+                                            <label for="edit-qty-reserved" class="form-label fw-bold">Reserved</label>
+                                            <input type="number" id="edit-qty-reserved" class="form-control text-center">
+                                        </div>
+                                        <div class="col-6 col-md-3 mb-3">
+                                            <label for="edit-qty-virtual" class="form-label fw-bold">Virtual</label>
+                                            <input type="number" id="edit-qty-virtual" class="form-control text-center">
+                                        </div>
                                     </div>
-                                    <div class="col-6 col-md-3 mb-3">
-                                        <label for="edit-qty-available" class="form-label fw-bold">Available</label>
-                                        <input type="number" id="edit-qty-available" class="form-control text-center">
-                                    </div>
-                                    <div class="col-6 col-md-3 mb-3">
-                                        <label for="edit-qty-reserved" class="form-label fw-bold">Reserved</label>
-                                        <input type="number" id="edit-qty-reserved" class="form-control text-center">
-                                    </div>
-                                    <div class="col-6 col-md-3 mb-3">
-                                        <label for="edit-qty-virtual" class="form-label fw-bold">Virtual</label>
-                                        <input type="number" id="edit-qty-virtual" class="form-control text-center">
-                                    </div>
-                                </div>
 
-                                <h6 class="mt-4"><i class="bx bx-ruler me-1"></i>Physical Attributes</h6>
-                                <hr class="mt-2">
-                                <div class="row">
-                                    <div class="col-md-4 mb-1">
-                                        <label for="edit-product-weight" class="form-label">Unit Weight (g)</label>
-                                        <input type="number" id="edit-product-weight" class="form-control">
+                                    <h6 class="mt-4"><i class="bx bx-ruler me-1"></i>Physical Attributes</h6>
+                                    <hr class="mt-2">
+                                    <div class="row">
+                                        <div class="col-md-4 mb-1">
+                                            <label for="edit-product-weight" class="form-label">Unit Weight (g)</label>
+                                            <input type="number" id="edit-product-weight" class="form-control">
+                                        </div>
+                                        <div class="col-md-4 mb-1">
+                                            <label for="edit-product-volume" class="form-label">Unit Volume (cm³)</label>
+                                            <input type="number" id="edit-product-volume" class="form-control">
+                                        </div>
+                                        <div class="col-md-4 mb-1">
+                                            <label for="edit-product-barcode" class="form-label">Barcode</label>
+                                            <input type="text" id="edit-product-barcode" class="form-control">
+                                        </div>
                                     </div>
-                                    <div class="col-md-4 mb-1">
-                                        <label for="edit-product-volume" class="form-label">Unit Volume (cm³)</label>
-                                        <input type="number" id="edit-product-volume" class="form-control">
-                                    </div>
-                                    <div class="col-md-4 mb-1">
-                                        <label for="edit-product-barcode" class="form-label">Barcode</label>
-                                        <input type="text" id="edit-product-barcode" class="form-control">
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
-                            <button type="submit" class="btn btn-primary" id="save-product-changes-btn" form="product-edit-form">Save Changes</button>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+                                <button type="submit" class="btn btn-primary" id="save-product-changes-btn" form="product-edit-form">Save Changes</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
 
             <!--END: Product Edit modal-->
             
@@ -846,27 +878,27 @@
                 </div>
             </div>
             <!--End Saved View Modal-->
-        <!-- =================================================================
-            CONFIRMATION NEW DESIGN MODAL-
-            ================================================================= -->
-        <div class="modal fade" id="newDesignConfirmModal" tabindex="-1" aria-labelledby="newDesignConfirmModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="newDesignConfirmModalLabel">Switch to the New Design</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>The view will be switched to the new version. You can switch back to the current view at any time.</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-primary" id="confirm-new-design-btn">Switch to New Design</button>
-            </div>
-            </div>
+                <!-- =================================================================
+                    CONFIRMATION NEW DESIGN MODAL-
+                    ================================================================= -->
+                <div class="modal fade" id="newDesignConfirmModal" tabindex="-1" aria-labelledby="newDesignConfirmModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="newDesignConfirmModalLabel">Switch to the New Design</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>The view will be switched to the new version. You can switch back to the current view at any time.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary" id="confirm-new-design-btn">Switch to New Design</button>
+                    </div>
+                    </div>
+                </div>
+                </div>
         </div>
-        </div>
-    <!-- ED CONFIRMATION NEW DESIGN MODAL-->
     </div>
     <!-- END: Content-->
 
@@ -897,8 +929,14 @@
     <!-- END: Theme JS-->
 
     <!-- BEGIN: Page JS-->
+          <script>
+                window.TABLE_MODE = 'inventory'; 
+        </script>
+
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 
     <script src="../../../../app-assets/vendors/js/tables/datatable/jquery.dataTables.min.js"></script>
     <script src="../../../../app-assets/vendors/js/tables/datatable/dataTables.bootstrap5.min.js"></script>
@@ -930,14 +968,15 @@
     <script src="../../../../app-assets/js/scripts/products/export-actions.js"></script>
     <script src="../../../../app-assets/js/scripts/products/mini-pagination.js"></script>
     <script src="../../../../app-assets/js/scripts/products/column-visibility.js"></script>
-    <script src="../../../../app-assets/js/scripts/products/product-modal.js"></script>
     <script src="../../../../app-assets/js/scripts/filters/reusable-filters.js"></script>
     <script src="../../../../app-assets/js/scripts/products/filter-customer.js"></script>
     <script src="../../../../app-assets/js/scripts/products/filter-status.js"></script>
     <script src="../../../../app-assets/js/scripts/products/saved-filters.js"></script>
     <script src="../../../../app-assets/js/scripts/products/product-list-onboarding.js"></script>
-    <script src="/app-assets/js/scripts/products/product-edit-modal.js"></script>
     <script src="../../../../app-assets/js/scripts/products/inventory-cards.js"></script>
+    <script src="../../../../app-assets/js/scripts/products/inventory-insights.js"></script>
+     <script src="../../../../app-assets/js/scripts/products/product-edit-modal.js"></script>
+     <script src="../../../../app-assets/js/scripts/products/card-filtering.js"></script>
 
     <script src="../../../../app-assets/js/scripts/products/app.js"></script>
     
