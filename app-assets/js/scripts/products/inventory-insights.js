@@ -1,5 +1,18 @@
 'use strict';
 
+// =================================================================
+// VARIABLES GLOBALES PARA EXPORTACIÓN
+// =================================================================
+let totalProducts = 0;
+let totalLowStock = 0;
+let totalOutOfStock = 0;
+let totalCriticalLowStock = 0;
+let topCustomers = [];
+let reservedZero = [];
+let inactiveStock = [];
+let missingEAN = [];
+let stale = [];
+
 // Función principal para generar insights
 function generateInventoryInsights() {
     console.log('📈 Starting inventory insights generation...');
@@ -22,6 +35,7 @@ function generateInventoryInsights() {
 
     // Intentar obtener datos de múltiples fuentes
     let productData = [];
+
     
     // Fuente 1: window.productData (si existe)
     if (window.productData && Array.isArray(window.productData)) {
@@ -101,10 +115,12 @@ function generateInventoryInsights() {
     const LOW_STOCK_THRESHOLD = 20; // Definir el umbral de bajo stock
     
     const customersLow = {};
-    const totalProducts = data.length;
-    let totalLowStock = 0; // quantity ≤ 20
-    let totalOutOfStock = 0; // quantity = 0
-    let totalCriticalLowStock = 0; // quantity ≤ 5
+    
+    // ACTUALIZAR LAS VARIABLES GLOBALES
+    totalProducts = data.length;
+    totalLowStock = 0; // quantity ≤ 20
+    totalOutOfStock = 0; // quantity = 0
+    totalCriticalLowStock = 0; // quantity ≤ 5
 
     data.forEach(p => {
         const quantity = parseInt(p.quantity) || 0;
@@ -130,14 +146,14 @@ function generateInventoryInsights() {
         }
     });
 
-    const topCustomers = Object.entries(customersLow)
+    topCustomers = Object.entries(customersLow)
         .sort((a, b) => b[1] - a[1])
         .slice(0, 5);
 
-    const reservedZero  = data.filter(p => p.reservableQuantity > 0 && p.quantity === 0);
-    const inactiveStock = data.filter(p => p.status === 'Inactive' && p.quantity > 0);
-    const missingEAN    = data.filter(p => !p.ean || p.ean.trim() === '');
-    const stale         = data.filter(p => {
+    reservedZero = data.filter(p => p.reservableQuantity > 0 && p.quantity === 0);
+    inactiveStock = data.filter(p => p.status === 'Inactive' && p.quantity > 0);
+    missingEAN = data.filter(p => !p.ean || p.ean.trim() === '');
+    stale = data.filter(p => {
         if (!p.updatedAt) return false;
         const diffDays = (now - new Date(p.updatedAt)) / 86400000;
         return diffDays > 90;
@@ -159,6 +175,21 @@ function generateInventoryInsights() {
     // GENERAR HTML CON LOW STOCK ≤ 20
     // =================================================================
     const html = `
+        <div class="row">
+            <!-- Header con botones de exportación alineados a la derecha -->
+            <div class="col-12 mb-2">
+                <div class="text-end"> <!-- Clase text-end para alinear a la derecha -->
+                    <div class="btn-group">
+                        <button class="btn btn-outline-primary btn-sm" onclick="exportInsightsToPDF()">
+                            <i data-feather="download" class="me-1"></i> Export PDF
+                        </button>
+                        <button class="btn btn-outline-success btn-sm" onclick="exportInsightsToExcel()">
+                            <i data-feather="download" class="me-1"></i> Export Excel
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="row">
             <!-- Quick Stats -->
             <div class="row match-height mb-1">
@@ -349,48 +380,74 @@ function generateInventoryInsights() {
             
         </div>
         
-        <!-- Additional Alerts -->
+        <!-- Additional Inventory Alerts -->
         <div class="row">
             <div class="col-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h5 class="card-title mb-0">📋 Additional Inventory Alerts</h5>
+                <div class="card border-0">
+                    <div class="card-header bg-light-primary">
+                        <h5 class="card-title mb-0">
+                            <i data-feather="alert-octagon" class="me-25 text-warning"></i>
+                            Inventory Indicators
+                        </h5>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body mt-2">
                         <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <div class="alert alert-danger d-flex align-items-center h-100 p-1">
-                                    <i data-feather="x-circle" class="me-1"></i>
-                                    <div class="flex-grow-1">
-                                        <strong>Out of Stock</strong><br>
-                                        <span class="fw-bold">${totalOutOfStock}</span> SKUs with 0 units available
+                            <!-- Reserved but 0 Available -->
+                            <div class="col-xl-4 col-md-6 col-12 mb-1">
+                                <div class="card card-statistic border-warning">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between">
+                                            <div>
+                                                <h6 class="fw-bolder mb-0">Critical Alerts</h6>
+                                                <h2 class="text-warning">${reservedZero.length}</h2>
+                                            </div>
+                                            <div class="avatar bg-light-warning p-50">
+                                                <span class="avatar-content">
+                                                    <i data-feather="alert-triangle" class="font-medium-5 text-warning"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <small class="text-muted">Reserved but 0 available</small>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6 mb-3">
-                                <div class="alert alert-warning d-flex align-items-center h-100 p-1">
-                                    <i data-feather="alert-triangle" class="me-1"></i>
-                                    <div class="flex-grow-1">
-                                        <strong>Reserved but 0 Available</strong><br>
-                                        <span class="fw-bold">${reservedZero.length}</span> SKUs need immediate attention
+
+                            <!-- Inactive with Stock -->
+                            <div class="col-xl-4 col-md-6 col-12 mb-1">
+                                <div class="card card-statistic border-secondary">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between">
+                                            <div>
+                                                <h6 class="fw-bolder mb-0">Inactive with Stock</h6>
+                                                <h2 class="text-secondary">${inactiveStock.length}</h2>
+                                            </div>
+                                            <div class="avatar bg-light-secondary p-50">
+                                                <span class="avatar-content">
+                                                    <i data-feather="package" class="font-medium-5 text-secondary"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <small class="text-muted">Inactive with inventory</small>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6 mb-3">
-                                <div class="alert alert-secondary d-flex align-items-center h-100 p-1">
-                                    <i data-feather="package" class="me-1"></i>
-                                    <div class="flex-grow-1">
-                                        <strong>Inactive with Stock</strong><br>
-                                        <span class="fw-bold">${inactiveStock.length}</span> inactive products have inventory
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <div class="alert alert-dark d-flex align-items-center h-100 p-1">
-                                    <i data-feather="clock" class="me-1"></i>
-                                    <div class="flex-grow-1">
-                                        <strong>Not Updated > 90 days</strong><br>
-                                        <span class="fw-bold">${stale.length}</span> products may need review
+
+                            <!-- Not Updated > 90 days -->
+                            <div class="col-xl-4 col-md-6 col-12 mb-1">
+                                <div class="card card-statistic border-dark">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between">
+                                            <div>
+                                                <h6 class="fw-bolder mb-0">Stale Products</h6>
+                                                <h2 class="text-dark">${stale.length}</h2>
+                                            </div>
+                                            <div class="avatar bg-light-dark p-50">
+                                                <span class="avatar-content">
+                                                    <i data-feather="clock" class="font-medium-5 text-dark"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <small class="text-muted">Not updated > 90 days</small>
                                     </div>
                                 </div>
                             </div>
@@ -404,12 +461,12 @@ function generateInventoryInsights() {
         <div class="row mt-3">
             <div class="col-12">
                 <div class="card">
-                    <div class="card-header text-white">
+                    <div class="card-header bg-light-primary mb-2">
                         <h5 class="card-title mb-0">📊 Inventory Health Summary</h5>
                     </div>
                     <div class="card-body">
                         <div class="row text-center">
-                            <div class="col-md-4 mb-3">
+                            <div class="col-md-4 mb-1">
                                 <div class="card bg-light-success">
                                     <div class="card-body">
                                         <h3 class=" mb-1">${Math.round((totalProducts - totalLowStock - totalOutOfStock) / totalProducts * 100)}%</h3>
@@ -418,7 +475,7 @@ function generateInventoryInsights() {
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4 mb-3">
+                            <div class="col-md-4 mb-1">
                                 <div class="card bg-light-warning">
                                     <div class="card-body">
                                         <h3 class="text mb-1">${Math.round(totalLowStock / totalProducts * 100)}%</h3>
@@ -427,7 +484,7 @@ function generateInventoryInsights() {
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4 mb-3">
+                            <div class="col-md-4 mb-1">
                                 <div class="card bg-light-danger">
                                     <div class="card-body">
                                         <h3 class="text mb-1">${Math.round(totalOutOfStock / totalProducts * 100)}%</h3>
@@ -437,7 +494,7 @@ function generateInventoryInsights() {
                                 </div>
                             </div>
                         </div>
-                        <p class="mb-0 text-muted text-center mt-2">
+                        <p class="mb-0 text-secondary text-center mt-1">
                             <strong>Analysis completed:</strong> ${new Date().toLocaleString()} | 
                             Based on ${totalProducts} products in inventory
                         </p>
@@ -459,7 +516,257 @@ function generateInventoryInsights() {
     console.log('✅ Insights generated successfully with Low Stock ≤ 20');
 }
 
-// ... el resto del código se mantiene igual (initializeInventoryInsights y exportación)
+// =================================================================
+// FUNCIONES DE EXPORTACIÓN
+// =================================================================
+
+// Función para exportar a PDF
+function exportInsightsToPDF() {
+    console.log('📄 Exporting insights to PDF...');
+    
+    // Verificar que html2pdf esté disponible
+    if (typeof html2pdf === 'undefined') {
+        console.error('❌ html2pdf library not loaded');
+        alert('PDF export functionality is not available. Please make sure html2pdf is loaded.');
+        return;
+    }
+
+    const insightsContainer = document.getElementById('insights-container');
+    if (!insightsContainer) {
+        alert('No insights data available to export.');
+        return;
+    }
+
+    // Crear un elemento temporal para la exportación
+    const exportElement = document.createElement('div');
+    exportElement.innerHTML = `
+        <div style="padding: 20px; font-family: Arial, sans-serif;">
+            <h1 style="color: #2c5aa0; text-align: center; margin-bottom: 10px;">Inventory Insights Report</h1>
+            <p style="text-align: center; color: #666; margin-bottom: 20px;">
+                Generated on: ${new Date().toLocaleString()}
+            </p>
+            ${generateExportHTML()}
+        </div>
+    `;
+
+    // Configuración de html2pdf
+    const options = {
+        margin: [10, 10, 10, 10],
+        filename: `inventory-insights-${new Date().toISOString().split('T')[0]}.pdf`,
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2, useCORS: true },
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    };
+
+    // Generar PDF
+    html2pdf().set(options).from(exportElement).save();
+}
+
+// Función para exportar a Excel
+function exportInsightsToExcel() {
+    console.log('📊 Exporting insights to Excel...');
+    
+    // Verificar que XLSX esté disponible
+    if (typeof XLSX === 'undefined') {
+        console.error('❌ SheetJS library not loaded');
+        alert('Excel export functionality is not available. Please make sure SheetJS is loaded.');
+        return;
+    }
+
+    try {
+        // Crear datos para Excel
+        const workbook = XLSX.utils.book_new();
+        
+        // Hoja 1: Resumen de métricas
+        const summaryData = [
+            ['Inventory Insights Summary', ''],
+            ['Generated on', new Date().toLocaleString()],
+            [''],
+            ['METRIC', 'VALUE', 'DESCRIPTION'],
+            ['Total Products', totalProducts, 'Across all warehouses'],
+            ['Low Stock (≤20 units)', totalLowStock, 'Products with quantity ≤ 20'],
+            ['Critical Stock (≤5 units)', totalCriticalLowStock, 'Products with quantity ≤ 5'],
+            ['Out of Stock', totalOutOfStock, 'Products with 0 units available'],
+            ['Critical Alerts', reservedZero.length, 'Reserved but 0 available'],
+            ['Inactive with Stock', inactiveStock.length, 'Inactive products with inventory'],
+            ['Stale Products', stale.length, 'Not updated in 90+ days'],
+            ['Missing EAN/Barcode', missingEAN.length, 'Products without identification']
+        ];
+        
+        const summarySheet = XLSX.utils.aoa_to_sheet(summaryData);
+        XLSX.utils.book_append_sheet(workbook, summarySheet, 'Summary');
+        
+        // Hoja 2: Top Customers con Low Stock
+        if (topCustomers.length > 0) {
+            const customersData = [
+                ['Top Customers with Low Stock', '', ''],
+                ['Rank', 'Customer Name', 'Low Stock SKUs', 'Percentage of Total Low Stock']
+            ];
+            
+            topCustomers.forEach(([name, count], index) => {
+                const percentage = Math.round((count / totalLowStock) * 100);
+                customersData.push([index + 1, name, count, `${percentage}%`]);
+            });
+            
+            const customersSheet = XLSX.utils.aoa_to_sheet(customersData);
+            XLSX.utils.book_append_sheet(workbook, customersSheet, 'Top Customers');
+        }
+        
+        // Hoja 3: Health Analysis
+        const healthData = [
+            ['Inventory Health Analysis', '', ''],
+            ['Category', 'Count', 'Percentage', 'Description'],
+            ['Healthy Stock', totalProducts - totalLowStock - totalOutOfStock, 
+             `${Math.round((totalProducts - totalLowStock - totalOutOfStock) / totalProducts * 100)}%`, 
+             'SKUs with > 20 units'],
+            ['Low Stock', totalLowStock, 
+             `${Math.round(totalLowStock / totalProducts * 100)}%`, 
+             'SKUs with ≤ 20 units'],
+            ['Out of Stock', totalOutOfStock, 
+             `${Math.round(totalOutOfStock / totalProducts * 100)}%`, 
+             'SKUs with 0 units']
+        ];
+        
+        const healthSheet = XLSX.utils.aoa_to_sheet(healthData);
+        XLSX.utils.book_append_sheet(workbook, healthSheet, 'Health Analysis');
+        
+        // Descargar archivo
+        XLSX.writeFile(workbook, `inventory-insights-${new Date().toISOString().split('T')[0]}.xlsx`);
+        
+        console.log('✅ Excel export completed successfully');
+        
+    } catch (error) {
+        console.error('❌ Error exporting to Excel:', error);
+        alert('Error exporting to Excel: ' + error.message);
+    }
+}
+
+// Función auxiliar para generar HTML de exportación
+function generateExportHTML() {
+    const healthyStockCount = totalProducts - totalLowStock - totalOutOfStock;
+    const healthyStockPercentage = Math.round(healthyStockCount / totalProducts * 100);
+    const lowStockPercentage = Math.round(totalLowStock / totalProducts * 100);
+    const outOfStockPercentage = Math.round(totalOutOfStock / totalProducts * 100);
+    
+    return `
+        <div style="margin-bottom: 10px;">
+            <h4 style="color: #2c5aa0; border-bottom: 2px solid #2c5aa0; padding-bottom: 5px;">Key Metrics</h4>
+            <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
+                <tr style="background-color: #f8f9fa;">
+                    <th style="padding: 10px; text-align: left; border: 1px solid #ddd;">Metric</th>
+                    <th style="padding: 10px; text-align: center; border: 1px solid #ddd;">Count</th>
+                    <th style="padding: 10px; text-align: left; border: 1px solid #ddd;">Description</th>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border: 1px solid #ddd;"><strong>Total Products</strong></td>
+                    <td style="padding: 10px; text-align: center; border: 1px solid #ddd;">${totalProducts}</td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">Across all warehouses</td>
+                </tr>
+                <tr style="background-color: #f8f9fa;">
+                    <td style="padding: 10px; border: 1px solid #ddd;"><strong>Low Stock (≤20 units)</strong></td>
+                    <td style="padding: 10px; text-align: center; border: 1px solid #ddd;">${totalLowStock}</td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">Products needing replenishment</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border: 1px solid #ddd;"><strong>Critical Stock (≤5 units)</strong></td>
+                    <td style="padding: 10px; text-align: center; border: 1px solid #ddd;">${totalCriticalLowStock}</td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">Urgent attention required</td>
+                </tr>
+                <tr style="background-color: #f8f9fa;">
+                    <td style="padding: 10px; border: 1px solid #ddd;"><strong>Out of Stock</strong></td>
+                    <td style="padding: 10px; text-align: center; border: 1px solid #ddd;">${totalOutOfStock}</td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">0 units available</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div style="margin-bottom: 10px;">
+            <h4 style="color: #2c5aa0; border-bottom: 2px solid #2c5aa0; padding-bottom: 5px;">Inventory Health</h4>
+            <table style="width: 100%; border-collapse: collapse;">
+                <tr style="background-color: #f8f9fa;">
+                    <th style="padding: 10px; text-align: left; border: 1px solid #ddd;">Category</th>
+                    <th style="padding: 10px; text-align: center; border: 1px solid #ddd;">Count</th>
+                    <th style="padding: 10px; text-align: center; border: 1px solid #ddd;">Percentage</th>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border: 1px solid #ddd;"><strong>Healthy Stock</strong></td>
+                    <td style="padding: 10px; text-align: center; border: 1px solid #ddd;">${healthyStockCount}</td>
+                    <td style="padding: 10px; text-align: center; border: 1px solid #ddd;">${healthyStockPercentage}%</td>
+                </tr>
+                <tr style="background-color: #f8f9fa;">
+                    <td style="padding: 10px; border: 1px solid #ddd;"><strong>Low Stock</strong></td>
+                    <td style="padding: 10px; text-align: center; border: 1px solid #ddd;">${totalLowStock}</td>
+                    <td style="padding: 10px; text-align: center; border: 1px solid #ddd;">${lowStockPercentage}%</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border: 1px solid #ddd;"><strong>Out of Stock</strong></td>
+                    <td style="padding: 10px; text-align: center; border: 1px solid #ddd;">${totalOutOfStock}</td>
+                    <td style="padding: 10px; text-align: center; border: 1px solid #ddd;">${outOfStockPercentage}%</td>
+                </tr>
+            </table>
+        </div>
+        
+        ${topCustomers.length > 0 ? `
+        <div style="margin-bottom: 10px;">
+            <h4 style="color: #2c5aa0; border-bottom: 2px solid #2c5aa0; padding-bottom: 5px;">Top Customers with Low Stock</h4>
+            <table style="width: 100%; border-collapse: collapse;">
+                <tr style="background-color: #f8f9fa;">
+                    <th style="padding: 10px; text-align: left; border: 1px solid #ddd;">Rank</th>
+                    <th style="padding: 10px; text-align: left; border: 1px solid #ddd;">Customer Name</th>
+                    <th style="padding: 10px; text-align: center; border: 1px solid #ddd;">Low Stock SKUs</th>
+                    <th style="padding: 10px; text-align: center; border: 1px solid #ddd;">Percentage</th>
+                </tr>
+                ${topCustomers.map(([name, count], index) => {
+                    const percentage = Math.round((count / totalLowStock) * 100);
+                    return `
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #ddd;">${index + 1}</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">${name}</td>
+                        <td style="padding: 10px; text-align: center; border: 1px solid #ddd;">${count}</td>
+                        <td style="padding: 10px; text-align: center; border: 1px solid #ddd;">${percentage}%</td>
+                    </tr>
+                    `;
+                }).join('')}
+            </table>
+        </div>
+        ` : ''}
+        
+        <div style="margin-bottom: 10px;">
+            <h4 style="color: #2c5aa0; border-bottom: 2px solid #2c5aa0; padding-bottom: 5px;">Additional Alerts</h4>
+            <table style="width: 100%; border-collapse: collapse;">
+                <tr style="background-color: #f8f9fa;">
+                    <th style="padding: 10px; text-align: left; border: 1px solid #ddd;">Alert Type</th>
+                    <th style="padding: 10px; text-align: center; border: 1px solid #ddd;">Count</th>
+                    <th style="padding: 10px; text-align: left; border: 1px solid #ddd;">Description</th>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border: 1px solid #ddd;"><strong>Critical Alerts</strong></td>
+                    <td style="padding: 10px; text-align: center; border: 1px solid #ddd;">${reservedZero.length}</td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">Reserved but 0 available</td>
+                </tr>
+                <tr style="background-color: #f8f9fa;">
+                    <td style="padding: 10px; border: 1px solid #ddd;"><strong>Inactive with Stock</strong></td>
+                    <td style="padding: 10px; text-align: center; border: 1px solid #ddd;">${inactiveStock.length}</td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">Inactive products with inventory</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border: 1px solid #ddd;"><strong>Stale Products</strong></td>
+                    <td style="padding: 10px; text-align: center; border: 1px solid #ddd;">${stale.length}</td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">Not updated in 90+ days</td>
+                </tr>
+                <tr style="background-color: #f8f9fa;">
+                    <td style="padding: 10px; border: 1px solid #ddd;"><strong>Missing EAN/Barcode</strong></td>
+                    <td style="padding: 10px; text-align: center; border: 1px solid #ddd;">${missingEAN.length}</td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">Products without identification</td>
+                </tr>
+            </table>
+        </div>
+    `;
+}
+
+// Hacer las funciones de exportación disponibles globalmente
+window.exportInsightsToPDF = exportInsightsToPDF;
+window.exportInsightsToExcel = exportInsightsToExcel;
 
 // Función de inicialización para compatibilidad
 function initializeInventoryInsights() {
