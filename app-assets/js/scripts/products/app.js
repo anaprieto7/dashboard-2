@@ -1,6 +1,134 @@
 'use strict';
 
 // ===================================================================================
+// ✅ DEFINIR FUNCIONES DE MODALES PRIMERO (ANTES DE LAS DATATABLES)
+// ===================================================================================
+
+// ✅ INICIALIZAR SISTEMA DE MODALES PARA PRODUCTOS
+function initializeProductModals() {
+  console.log('🚀 Initializing product modals system...');
+  
+  // Esperar a que la DataTable esté completamente inicializada
+  setTimeout(() => {
+    if (window.productDataTable && typeof initializeProductEditModal === 'function') {
+      console.log('📝 Initializing product edit modal with DataTable...');
+      initializeProductEditModal(window.productDataTable);
+    } else {
+      console.warn('⚠️ Product DataTable or edit modal function not available');
+    }
+    
+    // Verificar si product-modal.js está cargado y tiene su función de inicialización
+    if (typeof initializeProductModal === 'function') {
+      console.log('👁️ Initializing product view modal...');
+      initializeProductModal(window.productDataTable);
+    } else {
+      // Fallback: inicializar modal de vista manualmente
+      console.log('🔧 Setting up fallback modal system...');
+      initializeProductModalFallback();
+    }
+  }, 500);
+}
+
+// ✅ FALLBACK PARA MODAL DE VISTA
+function initializeProductModalFallback() {
+  console.log('🛠️ Setting up fallback product modal...');
+  
+  const detailsModal = new bootstrap.Modal(document.getElementById('productDetailsModal'));
+  let currentProductData = null;
+
+  // Event listener para botones de información
+  $(document).on('click', '#product-table .view-info-btn', function (e) {
+    e.preventDefault();
+    const row = $(this).closest('tr');
+    const productId = row.find('input.row-checkbox').data('id'); // Obtener ID del checkbox
+    
+    console.log('👁️ View info clicked for product:', productId);
+    
+    if (window.productDataTable && productId) {
+      // Buscar el producto en los datos de la DataTable
+      const allData = window.productDataTable.rows().data();
+      let productData = null;
+      
+      for (let i = 0; i < allData.length; i++) {
+        if (allData[i].id == productId) {
+          productData = allData[i];
+          break;
+        }
+      }
+      
+      if (productData) {
+        currentProductData = productData;
+        populateProductModal(productData);
+        detailsModal.show();
+      }
+    }
+  });
+
+  // Función para llenar el modal de vista
+  function populateProductModal(data) {
+    $('#modalProductName').text(data.name || 'N/A');
+    $('#modalProductSKU').text(data.sku || 'N/A');
+    $('#modalProductEAN').text(data.ean || 'N/A');
+    $('#modalProductGroup').text(data.product_group || 'Default');
+    $('#modalQtyTotal').text(data.quantity || 0);
+    $('#modalQtyAvailable').text(data.reservableQuantity || 0);
+    $('#modalQtyReserved').text(data.announcedQuantity || 0);
+    $('#modalQtyVirtual').text(data.virtualQuantity || 0);
+    
+    // Actualizar feather icons dentro del modal
+    if (window.feather) {
+      feather.replace({ width: 14, height: 14 });
+    }
+  }
+
+  // Event listener para el botón de editar dentro del modal de vista
+  $(document).on('click', '#editProductBtn', function() {
+    if (currentProductData) {
+      console.log('✏️ Edit button clicked in view modal for product:', currentProductData.id);
+      
+      // Cerrar el modal de vista primero
+      detailsModal.hide();
+      
+      // Esperar a que se cierre completamente
+      setTimeout(() => {
+        if (window.productDataTable && typeof ProductEditManager !== 'undefined') {
+          // Buscar la fila en la DataTable
+          const allData = window.productDataTable.rows().data();
+          let rowElement = null;
+          
+          for (let i = 0; i < allData.length; i++) {
+            if (allData[i].id == currentProductData.id) {
+              rowElement = window.productDataTable.row(i).node();
+              break;
+            }
+          }
+          
+          if (rowElement) {
+            console.log('📝 Opening edit modal for row:', rowElement);
+            ProductEditManager.openModal(rowElement);
+          }
+        }
+      }, 300);
+    }
+  });
+}
+
+// ===================================================================================
+// ✅ VARIABLES GLOBALES (DESPUÉS DE LAS FUNCIONES)
+// ===================================================================================
+
+// Variable global para almacenar la instancia de DataTable
+window.inventoryDataTable = null;
+window.productDataTable = null;
+window.productData = [];
+
+// ===================================================================================
+// ✅ AGREGAR FUNCIONES AL OBJETO WINDOW (PARA DISPONIBILIDAD GLOBAL)
+// ===================================================================================
+
+window.initializeProductModals = initializeProductModals;
+window.initializeProductModalFallback = initializeProductModalFallback;
+// ===================================================================================
 // PARTE 1: LA FUNCIÓN MAESTRA ("EL CEREBRO")
 // Gestiona todos los filtros que no son modulares (rangos, búsqueda, etc.).
 // ===================================================================================
@@ -303,3 +431,4 @@ $(function () {
     }
     $('[data-bs-toggle="tooltip"]').tooltip();
 });
+

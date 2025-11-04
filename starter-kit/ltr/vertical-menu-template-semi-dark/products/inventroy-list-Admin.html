@@ -43,6 +43,13 @@
     <link rel="stylesheet" type="text/css" href="../../../../app-assets/vendors/css/forms/select/select2.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/shepherd.js@10.0.1/dist/css/shepherd.css"/>
     <!-- END: Custom CSS-->
+     <!-- En el head -->
+        <script>
+        // Establecer el modo para que las acciones se rendericen correctamente
+        window.TABLE_MODE = 'inventory';
+        </script>
+
+
 
 </head>
 <!-- END: Head-->
@@ -145,7 +152,7 @@
                         <li class="active"><a class="d-flex align-items-cente" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Products">Products</span></a>
                             <ul class="menu-content">
                                 <li >
-                                    <a class="d-flex align-items-center" href="../../../../starterkit/ltr/vertical-menu-template-semi-dark/products/products-list-Admin.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Product List">Product List</span></a>
+                                    <a class="d-flex align-items-center" href="products-list-Admin.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Product List">Product List</span></a>
                                 </li>
                                 <li class="active">
                                     <a class="d-flex align-items-center" href="../../../../starterkit/ltr/vertical-menu-template-semi-dark/products/inventory-list-Admin.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Inventory List">Inventory list</span></a>
@@ -357,17 +364,19 @@
                         <div class="row match-height">
                             <!-- Total Products Card -->
                             <div class="col-lg-4 col-md-6 col-12">
-                                <div class="card card-statistic inventory-card" data-filter="all">
+                                <div class="card card-statistic inventory-card" id="total-products-card" data-filter="all">
                                     <div class="card-body">
                                         <div class="d-flex justify-content-between">
                                             <div>
                                                 <h6 class="fw-bolder mb-0">Total Products</h6>
                                                 <h2 class="text-primary" id="total-products-count">0</h2>
                                             </div>
-                                            <div class="avatar bg-light-primary p-50">
-                                                <span class="avatar-content">
-                                                    <i data-feather="package" class="font-medium-5"></i>
-                                                </span>
+                                            <div>
+                                                <div class="avatar bg-light-primary p-50">
+                                                    <span class="avatar-content">
+                                                        <i data-feather="package" class="font-medium-5"></i>
+                                                    </span>
+                                                </div>
                                             </div>
                                         </div>
                                         <small class="text-muted">Across all warehouses</small>
@@ -376,36 +385,40 @@
                             </div>
                             <!-- Low Stock Card -->
                             <div class="col-lg-4 col-md-6 col-12">
-                                <div class="card card-statistic inventory-card" data-filter="low_stock">
+                                <div class="card card-statistic inventory-card" id="low-stock-card" data-filter="low_stock">
                                     <div class="card-body">
                                         <div class="d-flex justify-content-between">
                                             <div>
                                                 <h6 class="fw-bolder mb-0">Low Stock</h6>
                                                 <h2 class="text-warning" id="low-stock-count">0</h2>
                                             </div>
-                                            <div class="avatar bg-light-warning p-50">
-                                                <span class="avatar-content">
-                                                    <i data-feather="alert-triangle" class="font-medium-5"></i>
-                                                </span>
+                                            <div>
+                                                <div class="avatar bg-light-warning p-50">
+                                                    <span class="avatar-content">
+                                                        <i data-feather="alert-triangle" class="font-medium-5"></i>
+                                                    </span>
+                                                </div>
                                             </div>
                                         </div>
                                         <small class="text-muted">Need replenishment</small>
                                     </div>
                                 </div>
                             </div>          
-                            <!-- Out of Stock Card -->
+                            <!-- Out of Low stock Card -->
                             <div class="col-lg-4 col-md-6 col-12">
-                                <div class="card card-statistic inventory-card" data-filter="out_of_stock">
+                                <div class="card card-statistic inventory-card" id="critical-stock-card" data-filter="out_of_stock">
                                     <div class="card-body">
                                         <div class="d-flex justify-content-between">
                                             <div>
-                                                <h6 class="fw-bolder mb-0">Out of Stock</h6>
+                                                <h6 class="fw-bolder mb-0">Critical Stock</h6>
                                                 <h2 class="text-danger" id="out-of-stock-count">0</h2>
                                             </div>
-                                            <div class="avatar bg-light-danger p-50">
-                                                <span class="avatar-content">
-                                                    <i data-feather="x-circle" class="font-medium-5"></i>
-                                                </span>
+                                            <div>
+                                                <div class="avatar bg-light-danger p-50">
+                                                    <span class="avatar-content">
+                                                        <i data-feather="alert-triangle" class="font-medium-5"></i>
+                                                    </span>
+                                                </div>
                                             </div>
                                         </div>
                                         <small class="text-muted">Urgent attention needed</small>
@@ -413,6 +426,7 @@
                                 </div>
                             </div>
                         </div>
+                        
                         <div class="card">
                             <div class="card-header">
                                 <h4 class="card-title">Search & Filter</h4>
@@ -634,25 +648,31 @@
                                     </button>
                                 </div>
                             </div>
+                             <!-- En el body donde inicializas la tabla -->
+                            <script>
+                            document.addEventListener('DOMContentLoaded', function() {
+                                // Inicializar específicamente la tabla de inventory
+                                initializeInventoryDataTable();
+                                
+                                // Opcional: También puedes inicializar insights si están en la misma página
+                                if (typeof generateInventoryInsights === 'function') {
+                                setTimeout(generateInventoryInsights, 500);
+                                }
+                            });
+                            </script>
                             <div class="card-datatable table-responsive pt-0">
-                                <table class="datatables-basic table" id="product-table">
+                                <table class="datatables-basic table" id="inventory-table">
                                     <thead>
                                         <tr>
-                                            <th><input type="checkbox" class="form-check-input" id="select-all-checkbox"></th>
                                             <th>Customer</th>
-                                            <th>Name</th>
                                             <th>SKU</th>
-                                            <th>EAN</th>
-                                            <th>Barcode</th>                 
+                                            <th>Product Name</th>
+                                            <th>Warehouse</th>
+                                            <th>Cell Type</th>
                                             <th>Quantity</th>
-                                            <th>Reservable Qty</th>        
-                                            <th>Virtual Qty</th>           
-                                            <th>Announced Qty</th>         
-                                            <th>Unit Volume</th>            
-                                            <th>Unit Weight</th>
-                                            <th>Created At</th>              
-                                            <th>Updated At</th>
-                                            <th>Status</th>
+                                            <th>Available</th>
+                                            <th>Reserved</th>
+                                            <th>Volume (m³)</th>
                                             <th id="table-actions">Actions</th>
                                         </tr>
                                     </thead>

@@ -11,7 +11,8 @@ const ProductEditManager = {
      * Será llamado desde otros módulos.
      */
     openModal: function(rowElement) {
-        console.log('ProductEditManager.openModal() fue llamado.');
+        console.log('ProductEditManager.openModal() fue llamado.', rowElement);
+        $('.modal').modal('hide');
         this.currentRow = rowElement;
         const rowData = this.datatable.row(this.currentRow).data();
         
@@ -19,6 +20,22 @@ const ProductEditManager = {
             this._populateForm(rowData);
             this.modal.show();
         }
+
+                setTimeout(() => {
+            if (rowElement) {
+                this.currentRow = rowElement;
+                const rowData = this.datatable.row(this.currentRow).data();
+                
+                if (rowData) {
+                    this._populateForm(rowData);
+                    this.modal.show();
+                } else {
+                    console.error('No se pudieron obtener los datos de la fila');
+                }
+            } else {
+                console.error('No se proporcionó una fila válida');
+            }
+        }, 300);
     },
     
     /**
@@ -90,4 +107,3 @@ function initializeProductEditModal(datatable) {
         ProductEditManager._handleFormSubmit(e);
     });
 }
-

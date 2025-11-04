@@ -7,7 +7,7 @@ $(function () {
     const detailsModalElement = document.getElementById('productDetailsModal');
     const detailsModal = new bootstrap.Modal(detailsModalElement);
     let currentRowForActions = null; // Variable para guardar la fila actual
-    let shouldOpenEditModal = false; // Flag para controlar la transición entre modales
+    let currentProductData = null; // Guardar los datos del producto
 
     // ===================================================================================
     // 2. DEFINICIÓN DE FUNCIONES
@@ -44,6 +44,9 @@ $(function () {
                 console.error("Error generating barcode", e);
             }
         }
+        
+        // Guardar los datos actuales
+        currentProductData = data;
     }
 
     // ===================================================================================
@@ -64,24 +67,32 @@ $(function () {
 
     // Listener para el botón "Edit Product" DENTRO del modal de detalles
     $('#editProductBtn').on('click', function() {
-        if (currentRowForActions) {
-            $(this).blur(); // <-- ¡NUEVA LÍNEA! Quita el foco del botón para evitar conflictos.
-            shouldOpenEditModal = true;
+        if (currentRowForActions && currentProductData) {
+            $(this).blur(); // Quita el foco del botón para evitar conflictos.
+            
+            // Cerrar el modal de detalles primero
             detailsModal.hide();
+            
+            // Esperar a que el modal de detalles se cierre completamente
+            $(detailsModalElement).on('hidden.bs.modal', function() {
+                // Limpiar el evento
+                $(detailsModalElement).off('hidden.bs.modal');
+                
+                // Abrir el modal de edición directamente
+                if (typeof ProductEditManager !== 'undefined') {
+                    console.log('Opening edit modal from view modal...');
+                    ProductEditManager.openModal(currentRowForActions);
+                } else {
+                    console.error('ProductEditManager is not defined');
+                }
+            });
         }
     });
 
-    // Listener que se dispara DESPUÉS de que el modal de detalles se haya cerrado
+    // Elimina o comenta el listener antiguo que causaba problemas
+    /*
     detailsModalElement.addEventListener('hidden.bs.modal', function (event) {
-        if (shouldOpenEditModal && currentRowForActions) {
-            // Mensaje de depuración para confirmar que se dispara el evento
-            console.log('View modal closed. Triggering click on edit icon...');
-            // Simula un clic en el botón de editar de la fila guardada.
-            // Esto activa la lógica en 'product-edit-modal.js'.
-            $(currentRowForActions).find('.item-edit').trigger('click');
-        }
-        // Resetea el flag para la próxima vez
-        shouldOpenEditModal = false;
+        // Este listener ya no es necesario porque manejamos la transición en el click del botón editar
     });
+    */
 });
-

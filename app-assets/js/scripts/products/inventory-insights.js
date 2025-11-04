@@ -13,6 +13,60 @@ let inactiveStock = [];
 let missingEAN = [];
 let stale = [];
 
+
+// =================================================================
+// CÁLCULOS DE INSIGHTS - USANDO FUNCIÓN UNIFICADA
+// =================================================================
+
+// ✅ USAR FUNCIÓN UNIFICADA PARA CONTEO PRINCIPAL
+let counts;
+if (window.getUnifiedStockCounts) {
+    counts = window.getUnifiedStockCounts(data);
+} else {
+    // Fallback si la función no está disponible
+    counts = getUnifiedStockCountsFallback(data);
+}
+
+// ✅ ACTUALIZAR VARIABLES GLOBALES CON DATOS UNIFICADOS
+totalProducts = counts.totalProducts;
+totalLowStock = counts.lowStock;        // 6-20 unidades
+totalCriticalLowStock = counts.criticalStock; // 1-5 unidades  
+totalOutOfStock = counts.outOfStock;    // 0 unidades
+
+console.log('📈 Unified insights counts:', counts);
+
+// ✅ MANTENER CÁLCULOS ADICIONALES ESPECÍFICOS DE INSIGHTS
+const customersLow = {};
+
+// Para insights, considerar ambos tipos de bajo stock para agrupar por cliente
+data.forEach(p => {
+    const quantity = parseInt(p.quantity) || 0;
+    
+    if (quantity > 0 && quantity <= 20) {
+        if (p.customer) {
+            customersLow[p.customer] = (customersLow[p.customer] || 0) + 1;
+        }
+    }
+});
+
+topCustomers = Object.entries(customersLow)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 5);
+
+// Resto de cálculos específicos de insights...
+reservedZero = data.filter(p => p.reservableQuantity > 0 && p.quantity === 0);
+inactiveStock = data.filter(p => p.status === 'Inactive' && p.quantity > 0);
+missingEAN = data.filter(p => !p.ean || p.ean.trim() === '');
+stale = data.filter(p => {
+    if (!p.updatedAt) return false;
+    try {
+        const diffDays = (now - new Date(p.updatedAt)) / 86400000;
+        return diffDays > 90;
+    } catch (e) {
+        return false;
+    }
+});
+
 // Función principal para generar insights
 function generateInventoryInsights() {
     console.log('📈 Starting inventory insights generation...');
@@ -33,45 +87,58 @@ function generateInventoryInsights() {
         </div>
     `;
 
-    // Intentar obtener datos de múltiples fuentes
+    // ✅ CORREGIDO: Obtener datos de las fuentes correctas
     let productData = [];
 
-    
-    // Fuente 1: window.productData (si existe)
-    if (window.productData && Array.isArray(window.productData)) {
-        console.log('📊 Using window.productData');
+    console.log('🔍 Searching for product data sources...', {
+        windowProductData: window.productData ? window.productData.length : 'undefined',
+        inventoryDataTable: window.inventoryDataTable ? 'available' : 'undefined',
+        productDataGlobal: window.productData ? 'available' : 'undefined'
+    });
+
+    // Fuente 1: window.productData (la fuente principal)
+    if (window.productData && Array.isArray(window.productData) && window.productData.length > 0) {
+        console.log('📊 Using window.productData for insights');
         productData = window.productData;
     }
-    // Fuente 2: DataTable (si existe)
-    else if (window.productDatatable) {
-        console.log('📊 Using DataTable data');
+    // Fuente 2: DataTable de inventory
+    else if (window.inventoryDataTable) {
+        console.log('📊 Using inventoryDataTable data');
         try {
-            productData = window.productDatatable.rows().data().toArray();
+            productData = window.inventoryDataTable.rows().data().toArray();
+            console.log('📊 DataTable data retrieved:', productData.length, 'items');
         } catch (error) {
             console.warn('❌ Could not get data from DataTable:', error);
         }
     }
-    // Fuente 3: Buscar la tabla manualmente
+    // Fuente 3: Intentar obtener datos del DOM de inventory-table
     else {
-        console.log('🔍 Searching for product table data...');
-        const table = document.getElementById('product-table');
+        console.log('🔍 Trying to extract data from inventory table DOM...');
+        const table = document.getElementById('inventory-table');
         if (table) {
             const rows = table.querySelectorAll('tbody tr');
+            console.log('📋 Found', rows.length, 'rows in inventory table');
+            
             productData = Array.from(rows).map(row => {
                 const cells = row.querySelectorAll('td');
+                // ✅ ACTUALIZADO: Mapear columnas según la estructura de inventory-table
                 return {
-                    customer: cells[1]?.textContent?.trim() || '',
-                    quantity: parseInt(cells[6]?.textContent) || 0, // Columna quantity
-                    reservableQuantity: parseInt(cells[7]?.textContent) || 0,
-                    status: cells[14]?.textContent?.trim() || 'Active',
-                    ean: cells[4]?.textContent?.trim() || '',
-                    updatedAt: cells[13]?.textContent?.trim() || null
+                    customer: cells[0]?.textContent?.trim() || '', // Columna 0: customer
+                    name: cells[2]?.textContent?.trim() || '', // Columna 2: product name
+                    sku: cells[1]?.textContent?.trim() || '', // Columna 1: sku
+                    quantity: parseInt(cells[5]?.textContent) || 0, // Columna 5: quantity
+                    reservableQuantity: parseInt(cells[7]?.textContent) || 0, // Columna 7: reserved
+                    status: 'Active', // Asumir activo por defecto en inventory
+                    ean: '', // No disponible en inventory view
+                    updatedAt: new Date().toISOString() // Usar fecha actual como fallback
                 };
             });
+        } else {
+            console.warn('❌ No inventory table found in DOM');
         }
     }
 
-    console.log('📋 Data for insights:', productData.length, 'products');
+    console.log('📋 Final data for insights:', productData.length, 'products');
 
     // Si no hay datos, mostrar mensaje
     if (!productData || productData.length === 0) {
@@ -96,14 +163,16 @@ function generateInventoryInsights() {
     // Procesar los datos
     const now = new Date();
     
-    // Normalizador de campos - USANDO LA ESTRUCTURA DE TU DATATABLE
+    // Normalizador de campos - ACTUALIZADO para inventory
     const norm = p => ({
         customer: p.customer || '',
-        quantity: p.quantity || 0, // Columna quantity de data-table-init.js
-        reservableQuantity: p.reservableQuantity || 0,
+        name: p.name || '',
+        sku: p.sku || '',
+        quantity: parseInt(p.quantity) || 0,
+        reservableQuantity: parseInt(p.reservableQuantity) || 0,
         ean: p.ean || '',
         status: p.status || 'Active',
-        updatedAt: p.updatedAt || null
+        updatedAt: p.updatedAt || new Date().toISOString()
     });
 
     const data = productData.map(norm);
@@ -112,15 +181,15 @@ function generateInventoryInsights() {
     // =================================================================
     // CÁLCULOS DE INSIGHTS - CON LOW STOCK ≤ 20
     // =================================================================
-    const LOW_STOCK_THRESHOLD = 20; // Definir el umbral de bajo stock
+    const LOW_STOCK_THRESHOLD = 20;
     
     const customersLow = {};
     
     // ACTUALIZAR LAS VARIABLES GLOBALES
     totalProducts = data.length;
-    totalLowStock = 0; // quantity ≤ 20
-    totalOutOfStock = 0; // quantity = 0
-    totalCriticalLowStock = 0; // quantity ≤ 5
+    totalLowStock = 0;
+    totalOutOfStock = 0;
+    totalCriticalLowStock = 0;
 
     data.forEach(p => {
         const quantity = parseInt(p.quantity) || 0;
@@ -150,19 +219,24 @@ function generateInventoryInsights() {
         .sort((a, b) => b[1] - a[1])
         .slice(0, 5);
 
+    // ✅ ACTUALIZADO: Ajustar cálculos para datos de inventory
     reservedZero = data.filter(p => p.reservableQuantity > 0 && p.quantity === 0);
     inactiveStock = data.filter(p => p.status === 'Inactive' && p.quantity > 0);
     missingEAN = data.filter(p => !p.ean || p.ean.trim() === '');
     stale = data.filter(p => {
         if (!p.updatedAt) return false;
-        const diffDays = (now - new Date(p.updatedAt)) / 86400000;
-        return diffDays > 90;
+        try {
+            const diffDays = (now - new Date(p.updatedAt)) / 86400000;
+            return diffDays > 90;
+        } catch (e) {
+            return false;
+        }
     });
 
     console.log('📈 Insights calculated:', {
         totalProducts,
-        totalLowStock, // quantity ≤ 20
-        totalCriticalLowStock, // quantity ≤ 5
+        totalLowStock,
+        totalCriticalLowStock,
         totalOutOfStock,
         topCustomers: topCustomers.length,
         reservedZero: reservedZero.length,
@@ -172,13 +246,13 @@ function generateInventoryInsights() {
     });
 
     // =================================================================
-    // GENERAR HTML CON LOW STOCK ≤ 20
+    // GENERAR HTML (MANTENER TU CÓDIGO EXISTENTE)
     // =================================================================
     const html = `
         <div class="row">
             <!-- Header con botones de exportación alineados a la derecha -->
             <div class="col-12 mb-2">
-                <div class="text-end"> <!-- Clase text-end para alinear a la derecha -->
+                <div class="text-end">
                     <div class="btn-group">
                         <button class="btn btn-outline-primary btn-sm" onclick="exportInsightsToPDF()">
                             <i data-feather="download" class="me-1"></i> Export PDF
@@ -287,7 +361,7 @@ function generateInventoryInsights() {
         </div>
             
             <!-- Low Stock Analysis -->
-            <div class="col-md-6 mb-3">
+            <div class="col-md-6 mb-1">
                 <div class="card h-100 border-primary">
                     <div class="card-header bg-light-primary text-dark">
                         <h5 class="card-title mb-0">⚠️ Low Stock Analysis (≤ 20 units)</h5>
@@ -336,7 +410,7 @@ function generateInventoryInsights() {
                 </div>
             </div>
             <!-- Top Customers with Low Stock -->
-            <div class="col-md-6 mb-3">
+            <div class="col-md-6 mb-1">
                 <div class="card h-100 border-primary">
                     <div class="card-header bg-light-primary text-dark">
                         <h5 class="card-title mb-0"> Top Customers with Low Stock</h5>
@@ -381,7 +455,7 @@ function generateInventoryInsights() {
         </div>
         
         <!-- Additional Inventory Alerts -->
-        <div class="row">
+        <div class="row mb-1">
             <div class="col-12">
                 <div class="card border-0">
                     <div class="card-header bg-light-primary">
@@ -458,7 +532,7 @@ function generateInventoryInsights() {
         </div>
         
         <!-- Summary -->
-        <div class="row mt-3">
+        <div class="row mb-1">
             <div class="col-12">
                 <div class="card">
                     <div class="card-header bg-light-primary mb-2">
@@ -513,18 +587,48 @@ function generateInventoryInsights() {
         }, 100);
     }
     
-    console.log('✅ Insights generated successfully with Low Stock ≤ 20');
+    console.log('✅ Insights generated successfully with', totalProducts, 'products');
 }
 
+
+
+
+// ✅ FUNCIÓN FALLBACK PARA INSIGHTS
+function getUnifiedStockCountsFallback(data) {
+    if (!data || !Array.isArray(data)) {
+        return { totalProducts: 0, lowStock: 0, criticalStock: 0, outOfStock: 0 };
+    }
+
+    let totalProducts = data.length;
+    let lowStock = 0;
+    let criticalStock = 0;
+    let outOfStock = 0;
+
+    data.forEach(product => {
+        const quantity = parseInt(product.quantity) || 0;
+        
+        // ✅ MISMAS DEFINICIONES UNIFICADAS
+        if (quantity === 0) {
+            outOfStock++;
+        } else if (quantity <= 5) {
+            criticalStock++;
+        } else if (quantity <= 20) {
+            lowStock++;
+        }
+    });
+
+    return { totalProducts, lowStock, criticalStock, outOfStock };
+}
+
+
+
 // =================================================================
-// FUNCIONES DE EXPORTACIÓN
+// FUNCIONES DE EXPORTACIÓN (MANTENER TU CÓDIGO EXISTENTE)
 // =================================================================
 
-// Función para exportar a PDF
 function exportInsightsToPDF() {
     console.log('📄 Exporting insights to PDF...');
     
-    // Verificar que html2pdf esté disponible
     if (typeof html2pdf === 'undefined') {
         console.error('❌ html2pdf library not loaded');
         alert('PDF export functionality is not available. Please make sure html2pdf is loaded.');
@@ -537,7 +641,6 @@ function exportInsightsToPDF() {
         return;
     }
 
-    // Crear un elemento temporal para la exportación
     const exportElement = document.createElement('div');
     exportElement.innerHTML = `
         <div style="padding: 20px; font-family: Arial, sans-serif;">
@@ -549,7 +652,6 @@ function exportInsightsToPDF() {
         </div>
     `;
 
-    // Configuración de html2pdf
     const options = {
         margin: [10, 10, 10, 10],
         filename: `inventory-insights-${new Date().toISOString().split('T')[0]}.pdf`,
@@ -558,15 +660,12 @@ function exportInsightsToPDF() {
         jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
     };
 
-    // Generar PDF
     html2pdf().set(options).from(exportElement).save();
 }
 
-// Función para exportar a Excel
 function exportInsightsToExcel() {
     console.log('📊 Exporting insights to Excel...');
     
-    // Verificar que XLSX esté disponible
     if (typeof XLSX === 'undefined') {
         console.error('❌ SheetJS library not loaded');
         alert('Excel export functionality is not available. Please make sure SheetJS is loaded.');
@@ -574,10 +673,8 @@ function exportInsightsToExcel() {
     }
 
     try {
-        // Crear datos para Excel
         const workbook = XLSX.utils.book_new();
         
-        // Hoja 1: Resumen de métricas
         const summaryData = [
             ['Inventory Insights Summary', ''],
             ['Generated on', new Date().toLocaleString()],
@@ -596,7 +693,6 @@ function exportInsightsToExcel() {
         const summarySheet = XLSX.utils.aoa_to_sheet(summaryData);
         XLSX.utils.book_append_sheet(workbook, summarySheet, 'Summary');
         
-        // Hoja 2: Top Customers con Low Stock
         if (topCustomers.length > 0) {
             const customersData = [
                 ['Top Customers with Low Stock', '', ''],
@@ -612,7 +708,6 @@ function exportInsightsToExcel() {
             XLSX.utils.book_append_sheet(workbook, customersSheet, 'Top Customers');
         }
         
-        // Hoja 3: Health Analysis
         const healthData = [
             ['Inventory Health Analysis', '', ''],
             ['Category', 'Count', 'Percentage', 'Description'],
@@ -630,7 +725,6 @@ function exportInsightsToExcel() {
         const healthSheet = XLSX.utils.aoa_to_sheet(healthData);
         XLSX.utils.book_append_sheet(workbook, healthSheet, 'Health Analysis');
         
-        // Descargar archivo
         XLSX.writeFile(workbook, `inventory-insights-${new Date().toISOString().split('T')[0]}.xlsx`);
         
         console.log('✅ Excel export completed successfully');
@@ -641,7 +735,6 @@ function exportInsightsToExcel() {
     }
 }
 
-// Función auxiliar para generar HTML de exportación
 function generateExportHTML() {
     const healthyStockCount = totalProducts - totalLowStock - totalOutOfStock;
     const healthyStockPercentage = Math.round(healthyStockCount / totalProducts * 100);
@@ -768,20 +861,17 @@ function generateExportHTML() {
 window.exportInsightsToPDF = exportInsightsToPDF;
 window.exportInsightsToExcel = exportInsightsToExcel;
 
-// Función de inicialización para compatibilidad
+// ✅ CORREGIDO: Mejor inicialización para inventory insights
 function initializeInventoryInsights() {
     console.log('🔧 initializeInventoryInsights called');
     
-    // Pequeño delay para asegurar que los datos estén cargados
+    // Esperar a que la DataTable esté completamente inicializada
     setTimeout(() => {
-        // Solo generar si el tab está activo
-        if ($('#tab-insights').hasClass('active')) {
-            console.log('📊 Tab is active, generating insights immediately');
+        if (document.getElementById('insights-container')) {
+            console.log('📊 Generating insights from initialize function');
             generateInventoryInsights();
-        } else {
-            console.log('📊 Tab is not active, insights will generate when tab is opened');
         }
-    }, 1000);
+    }, 1500);
 }
 
 // Auto-inicialización cuando el script se carga
@@ -792,3 +882,22 @@ console.log('🔍 initializeInventoryInsights:', typeof initializeInventoryInsig
 // Hacer las funciones disponibles globalmente
 window.generateInventoryInsights = generateInventoryInsights;
 window.initializeInventoryInsights = initializeInventoryInsights;
+
+// ✅ NUEVO: Inicialización automática cuando se cambia a la pestaña de insights
+document.addEventListener('DOMContentLoaded', function() {
+    // Si hay pestañas, regenerar insights cuando se active la pestaña de insights
+    const insightsTab = document.querySelector('[data-bs-target="#insights-tab"]');
+    if (insightsTab) {
+        insightsTab.addEventListener('shown.bs.tab', function() {
+            console.log('📊 Insights tab activated, generating insights...');
+            setTimeout(generateInventoryInsights, 500);
+        });
+    }
+    
+    // Si ya estamos en la pestaña de insights, generar inmediatamente
+    if (document.getElementById('insights-container') && 
+        document.querySelector('[data-bs-target="#insights-tab"].active')) {
+        console.log('📊 Already on insights tab, generating insights...');
+        setTimeout(generateInventoryInsights, 1000);
+    }
+});
