@@ -361,7 +361,7 @@ function generateInventoryInsights() {
         </div>
             
             <!-- Low Stock Analysis -->
-            <div class="col-md-6 mb-1">
+            <div class="col-md-6 mb-3">
                 <div class="card h-100 border-primary">
                     <div class="card-header bg-light-primary text-dark">
                         <h5 class="card-title mb-0">⚠️ Low Stock Analysis (≤ 20 units)</h5>
@@ -410,7 +410,7 @@ function generateInventoryInsights() {
                 </div>
             </div>
             <!-- Top Customers with Low Stock -->
-            <div class="col-md-6 mb-1">
+            <div class="col-md-6 mb-3">
                 <div class="card h-100 border-primary">
                     <div class="card-header bg-light-primary text-dark">
                         <h5 class="card-title mb-0"> Top Customers with Low Stock</h5>
