@@ -345,7 +345,7 @@ function initializeInventoryDataTable() {
                   feather.icons['more-vertical'].toSvg({ class: 'font-small-4' }) +
                 '</button>' +
                 '<div class="dropdown-menu">' +
-                  '<a class="dropdown-item view-info-btn" href="javascript:;" data-id="' + full.id + '">' +
+                  '<a class="dropdown-item" href="product-detail-Admin.html?id=' + full.id + '">' +
                     feather.icons['info'].toSvg({ class: 'font-small-4 me-50' }) + 'View Details' +
                   '</a>' +
                   '<a class="dropdown-item" href="product-detail-Admin.html?id=' + full.id + '">' +
