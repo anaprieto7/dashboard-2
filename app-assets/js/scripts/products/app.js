@@ -365,6 +365,9 @@ function initializeInventoryInsightsHandler(datatable) {
 // CÓDIGO ACTUALIZADO: app-assets/js/scripts/products/app.js
 // (Solo el bloque de inicialización principal)
 
+// CÓDIGO ACTUALIZADO: app-assets/js/scripts/products/app.js
+// (Solo el bloque de inicialización principal)
+
 $(function () {
     console.log('🚀 Starting SMART app initialization...');
     
@@ -402,12 +405,11 @@ $(function () {
                         'min-volume', 'max-volume', 'created-at-range', 'updated-at-range'
                     ]
                 },
-                // CORRECCIÓN: Definir los grupos de columnas aquí
                 columnGroups: {
-                    'General Info': [1, 2, 3, 4, 5], // Customer, Name, SKU, EAN, Barcode
-                    'Inventory Details': [6, 7, 8, 9], // Qty, Reservable, Virtual, Announced
-                    'Measurements': [10, 11], // Volume, Weight
-                    'Timestamps': [12, 13] // Created, Updated
+                    'General Info': [1, 2, 3, 4, 5],
+                    'Inventory Details': [6, 7, 8, 9],
+                    'Measurements': [10, 11],
+                    'Timestamps': [12, 13]
                 }
             };
 
@@ -419,7 +421,7 @@ $(function () {
                 datatable: mainDataTable,
                 filters: {
                     customer: { columnIndex: 0 },
-                    status: { columnIndex: 9}, 
+                    status: { columnIndex: 9 }, 
                     minStock: { columnIndex: 5 }, 
                     sku: 1, ean: null, barcode: null, qty: 5, reservable: 6, 
                     volume: 8, weight: null, created: null, updated: null 
@@ -435,11 +437,11 @@ $(function () {
                         'min-volume', 'max-volume', 'created-at-range', 'updated-at-range'
                     ]
                 },
-                // CORRECCIÓN: Definir los grupos de columnas para INVENTORY
                 columnGroups: {
-                    'General Info': [0, 1, 2, 3, 4], // Customer, SKU, Name, Warehouse, Cell Type
-                    'Inventory Details': [5, 6, 7], // Qty, Available, Reserved
-                    'Measurements': [8], // Volume
+                    'General Info': [0, 1, 2, 3, 4],
+                    'Inventory Details': [5, 6, 7],
+                    'Measurements': [8],
+                    'Metadata': [9]
                 }
             };
         }
@@ -454,34 +456,29 @@ $(function () {
 
         // --- 3. INICIALIZAR MÓDULOS COMPARTIDOS ---
         
+        // ... (otros módulos: initializeMainSearch, initializeCustomerFilter, etc.)
         if (typeof initializeMainSearch === 'function') {
             initializeMainSearch(mainDataTable);
         } else {
             $('#main-search').on('keyup', () => applyAllFilters(mainDataTable, pageConfig));
         }
-        
         if (typeof initializeCustomerFilter === 'function') {
             initializeCustomerFilter(mainDataTable, pageConfig.filters.customer);
         }
-
         if (typeof initializeMinStockFilter === 'function') {
             initializeMinStockFilter(mainDataTable, pageConfig.filters.minStock);
         } else {
             $('#min-stock-filter').on('input', () => applyAllFilters(mainDataTable, pageConfig));
         }
-
         if (typeof initializeStatusFilter === 'function' && pageConfig.filters.status) {
             initializeStatusFilter(mainDataTable, pageConfig.filters.status);
         }
-
         if (typeof initializeAdvancedFilters === 'function') {
             initializeAdvancedFilters(mainDataTable, pageConfig);
         }
-
         if (typeof initializeClearFilters === 'function') {
             initializeClearFilters(mainDataTable, pageConfig); 
         }
-
         if (typeof initializeExportActions === 'function') {
             initializeExportActions(mainDataTable);
         }
@@ -494,20 +491,42 @@ $(function () {
         if (typeof initializeMiniPagination === 'function') {
             initializeMiniPagination(mainDataTable);
         }
-        
-        // CORRECCIÓN: Pasar los grupos de columnas a la función
         if (typeof initializeColumnVisibility === 'function') {
             initializeColumnVisibility(mainDataTable, pageConfig.columnGroups);
         }
 
+
         // --- 4. INICIALIZAR MÓDULOS ESPECÍFICOS DE PRODUCT-LIST ---
         if (isProductPage) {
-            // ... (código de módulos específicos)
+            console.log('✨ Initializing Product-List specific modules...');
+            if (typeof initializeTabFilters === 'function') {
+                initializeTabFilters(mainDataTable, pageConfig);
+            }
+            if (typeof initializeOnboardingTour === 'function') {
+                initializeOnboardingTour();
+            }
+            if (typeof initializeBulkActions === 'function') {
+                initializeBulkActions(mainDataTable);
+            }
+            // CORRECCIÓN AQUÍ: Pasa el pageConfig
+            if (typeof initializeCardFiltering === 'function') {
+                initializeCardFiltering(mainDataTable, pageConfig); 
+            }
+            if (typeof initializeProductEditModal === 'function') {
+                initializeProductEditModal(mainDataTable);
+            }
         }
 
         // --- 5. INICIALIZAR MÓDULOS ESPECÍFICOS DE INVENTORY-LIST ---
         if (isInventoryPage) {
-            // ... (código de módulos específicos)
+            console.log('📊 Initializing Inventory-List specific modules...');
+            if (typeof initializeInventoryInsightsHandler === 'function') {
+                initializeInventoryInsightsHandler(mainDataTable);
+            }
+            // CORRECCIÓN AQUÍ: Pasa el pageConfig
+            if (typeof initializeCardFiltering === 'function') {
+                initializeCardFiltering(mainDataTable, pageConfig); 
+            }
         }
         
         if (typeof updateActiveFiltersUI === 'function') {
