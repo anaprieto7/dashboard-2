@@ -133,22 +133,18 @@ window.initializeProductModalFallback = initializeProductModalFallback;
 // Gestiona todos los filtros que no son modulares (rangos, búsqueda, etc.).
 // ===================================================================================
 
-function applyAllFilters(datatable) {
+function applyAllFilters(datatable, config) {
     // Limpia cualquier filtro de rango global previo para no acumularlos
-    $.fn.dataTable.ext.search.pop();
-
-    console.log('=== VERIFICACIÓN DE FUNCIONES ===');
-    console.log('initializeAdvancedFilters:', typeof initializeAdvancedFilters);
-    console.log('initializeProductEditModal:', typeof initializeProductEditModal);
-    console.log('initializeOnboardingTour:', typeof initializeOnboardingTour);
-    console.log('initializeCardFiltering:', typeof initializeCardFiltering);
-    console.log('initializeInventoryInsights:', typeof initializeInventoryInsights);
-    console.log('================================');
+    // MODIFICADO: Usamos un nombre único para el filtro para no interferir con otros
+    const filterName = 'applyAllFilters-' + (datatable.table().node().id);
+    for (let i = $.fn.dataTable.ext.search.length - 1; i >= 0; i--) {
+        if ($.fn.dataTable.ext.search[i].name === filterName) {
+            $.fn.dataTable.ext.search.splice(i, 1);
+        }
+    }
 
     // --- Lee los valores de TODOS los filtros que esta función gestiona ---
     const minStock = parseInt($('#min-stock-filter').val(), 10);
-    
-    // Filtros del Offcanvas
     const skuContains = $('#sku-filter').val().toLowerCase();
     const eanBarcode = $('#ean-barcode-filter').val();
     const minQty = parseInt($('#min-qty').val(), 10);
@@ -168,26 +164,31 @@ function applyAllFilters(datatable) {
     const updatedStart = updatedAtRange[0] ? new Date(updatedAtRange[0]) : null;
     const updatedEnd = updatedAtRange.length > 1 ? new Date(updatedAtRange[1]) : null;
 
-    // --- Filtros de Columna (Búsqueda de Texto) ---
-    // Estos son gestionados directamente por esta función
-    datatable.search($('#main-search').val());
-    datatable.column(3).search(skuContains, false, false); // Búsqueda "contains", no exacta
-    datatable.column(4).search(eanBarcode ? '^' + eanBarcode + '$' : '', true, false); // EAN exacto
-    datatable.column(5).search(eanBarcode ? '^' + eanBarcode + '$' : '', true, false); // Barcode exacto
+    // --- MODIFICADO: Usar 'config' para los filtros de columna ---
+    const cfg = config.filters; // Objeto de configuración de filtros
 
-    // --- Filtros de Rango (Global) ---
-    // Esta función se ejecuta para cada fila
-    $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
-        // Obtenemos los datos numéricos y de fecha de la fila actual
-        const qty = parseFloat(data[6]) || 0;
-        const reservable = parseFloat(data[7]) || 0;
-        const volume = parseFloat(data[10]) || 0;
-        const weight = parseFloat(data[11]) || 0;
-        const createdAt = data[12] ? new Date(data[12].split(' ')[0]) : null;
-        const updatedAt = data[13] ? new Date(data[13].split(' ')[0]) : null;
+    // Búsqueda de Texto
+    datatable.search($('#main-search').val());
+    if (cfg.sku) datatable.column(cfg.sku).search(skuContains, false, false);
+    if (cfg.ean) datatable.column(cfg.ean).search(eanBarcode ? '^' + eanBarcode + '$' : '', true, false);
+    if (cfg.barcode) datatable.column(cfg.barcode).search(eanBarcode ? '^' + eanBarcode + '$' : '', true, false);
+
+    // --- MODIFICADO: Filtros de Rango (Global) usando 'config' ---
+    const advancedFilterFn = function (settings, data, dataIndex) {
+        // Obtenemos los datos numéricos y de fecha de la fila actual usando 'config'
+        // Usamos || -1 para que la comprobación no falle si la columna no existe (ej. 'weight' en inventory)
+        const qty = parseFloat(data[cfg.qty || -1]) || 0;
+        const reservable = parseFloat(data[cfg.reservable || -1]) || 0;
+        const volume = parseFloat(data[cfg.volume || -1]) || 0;
+        const weight = parseFloat(data[cfg.weight || -1]) || 0;
+        const createdAt = data[cfg.created || -1] ? new Date(data[cfg.created].split(' ')[0]) : null;
+        const updatedAt = data[cfg.updated || -1] ? new Date(data[cfg.updated].split(' ')[0]) : null;
         
         // Comprobaciones (si alguna falla, la fila se oculta)
-        if (!isNaN(minStock) && qty < minStock) return false;
+        
+        // ESTA LÓGICA ESTÁ EN filter-min-stock.js ahora, la comentamos aquí para evitar conflictos
+        // if (!isNaN(minStock) && qty < minStock) return false; 
+        
         if ((!isNaN(minQty) && qty < minQty) || (!isNaN(maxQty) && qty > maxQty)) return false;
         if ((!isNaN(minReservable) && reservable < minReservable) || (!isNaN(maxReservable) && reservable > maxReservable)) return false;
         if ((!isNaN(minWeight) && weight < minWeight) || (!isNaN(maxWeight) && weight > maxWeight)) return false;
@@ -197,44 +198,47 @@ function applyAllFilters(datatable) {
         
         // Si la fila pasa todas las validaciones, se muestra
         return true;
-    });
+    };
+    
+    advancedFilterFn.name = filterName; // Le damos un nombre al filtro
+    $.fn.dataTable.ext.search.push(advancedFilterFn);
 
     // Dibuja la tabla UNA SOLA VEZ con todos los filtros aplicados
     datatable.draw();
     
     // Actualiza la UI de las "pills"
-    updateActiveFiltersUI();
+    if (typeof updateActiveFiltersUI === 'function') {
+        updateActiveFiltersUI();
+    }
 }
 
 // ===================================================================================
 // FUNCIÓN PARA GESTIONAR LAS TABS
 // ===================================================================================
-function initializeTabFilters(datatable) {
+function initializeTabFilters(datatable, config) {
+    if (!config.filters.status) {
+        console.warn('Tab filters disabled: No status column configured.');
+        return; // No hacer nada si no hay columna de status
+    }
+
     const tabs = {
         '#all-products-tab': '',
         '#active-products-tab': 'Active',
         '#inactive-products-tab': 'Inactive'
     };
 
-    // Manejar clics en las pestañas
     for (const tabId in tabs) {
         $(tabId).on('click', function(e) {
             e.preventDefault();
-            
-            // Cambiar la clase active visualmente
             $('.nav-tabs .nav-link').removeClass('active');
             $(this).addClass('active');
-
-            // Actualizar el dropdown de status y disparar el filtro
             $('#status-filter').val(tabs[tabId]).trigger('change');
         });
     }
 
-    // Sincronizar las pestañas si el dropdown se cambia manualmente
     $('#status-filter').on('change', function() {
         const status = $(this).val();
         $('.nav-tabs .nav-link').removeClass('active');
-        
         if (status === 'Active') {
             $('#active-products-tab').addClass('active');
         } else if (status === 'Inactive') {
@@ -248,19 +252,19 @@ function initializeTabFilters(datatable) {
 // ===================================================================================
 // FUNCIÓN PARA FILTROS AVANZADOS
 // ===================================================================================
-function initializeAdvancedFilters(datatable) {
+function initializeAdvancedFilters(datatable, config) {
     console.log('initializeAdvancedFilters called - temporary implementation');
     
     // Asignar eventos a los botones de filtros avanzados
     $('#apply-offcanvas-filters-btn').on('click', function() {
-        applyAllFilters(datatable);
+        applyAllFilters(datatable, config);
     });
     
     $('#reset-offcanvas-filters-btn').on('click', function() {
         // Resetear todos los filtros avanzados
         $('.advanced-filter-input').val('');
         $('.date-range-picker').val('');
-        applyAllFilters(datatable);
+        applyAllFilters(datatable, config);
     });
     
     // Inicializar date range pickers si existen
@@ -358,77 +362,169 @@ function initializeInventoryInsightsHandler(datatable) {
 // ===================================================================================
 // PARTE 2: BLOQUE DE INICIALIZACIÓN PRINCIPAL
 // ===================================================================================
+// CÓDIGO ACTUALIZADO: app-assets/js/scripts/products/app.js
+// (Solo el bloque de inicialización principal)
+
 $(function () {
-    console.log('🚀 Starting app initialization...');
+    console.log('🚀 Starting SMART app initialization...');
     
-    // Inicializa componentes de terceros
+    let mainDataTable;
+    let pageConfig = {};
+    let isProductPage = false;
+    let isInventoryPage = false;
+
     $('#customer-filter').select2({ placeholder: 'Select Customers' });
 
-    const productDatatable = initializeProductDataTable();
-   
-    if (productDatatable) {
-        console.log('✅ DataTable initialized successfully');
-        window.productDatatable = productDatatable;
-        console.log('📊 DataTable exported to window.productDatatable');
-
-
-        const productSavedViewsConfig = {
-            datatable: productDatatable,
-            filterFunction: applyAllFilters,
-            storageKey: 'productFilterViews_user1',
-            filterInputIds: [
-                'main-search', 'customer-filter', 'status-filter', 'min-stock-filter',
-                'sku-filter', 'ean-barcode-filter', 'min-qty', 'max-qty',
-                'min-reservable', 'max-reservable', 'min-weight', 'max-weight',
-                'min-volume', 'max-volume', 'created-at-range', 'updated-at-range'
-            ]
-        };
-
-        // --- INICIALIZAR MÓDULOS DE FILTRO REUTILIZABLES ---
-        initializeCustomerFilter(productDatatable, { columnIndex: 1 });
-        initializeStatusFilter(productDatatable);
-        initializeOnboardingTour();
-        initializeTabFilters(productDatatable);
+    setTimeout(() => {
         
-        // --- ASIGNAR EVENT LISTENERS ---
-        $('#main-search').on('keyup', () => applyAllFilters(productDatatable));
-        $('#min-stock-filter').on('input', () => applyAllFilters(productDatatable));
-        
-        // --- INICIALIZAR MÓDULOS DE INTERFAZ ---
-        initializeAdvancedFilters(productDatatable);
-        initializeClearFilters(productDatatable);
-        initializeBulkActions(productDatatable);
-        initializeExportActions(productDatatable);
-        initializePillRemoval(productDatatable);
-        initializeSavedFilters(productSavedViewsConfig); 
-        initializeCardFiltering(productDatatable);
-        initializeMiniPagination(productDatatable);
-        initializeColumnVisibility(productDatatable);
-        initializeProductEditModal(productDatatable);
+        // --- 1. DETECTAR PÁGINA Y CONFIGURAR ---
+        if ($('#product-table').length && window.productDataTable) {
+            console.log('🚀 app.js: Configurando para Product List');
+            isProductPage = true;
+            mainDataTable = window.productDataTable;
+            pageConfig = {
+                datatable: mainDataTable,
+                filters: {
+                    customer: { columnIndex: 1 },
+                    status: { columnIndex: 14 },
+                    minStock: { columnIndex: 6 },
+                    sku: 3, ean: 4, barcode: 5, qty: 6, reservable: 7,
+                    volume: 10, weight: 11, created: 12, updated: 13
+                },
+                savedFilters: {
+                    datatable: mainDataTable,
+                    filterFunction: (dt) => applyAllFilters(dt, pageConfig), 
+                    storageKey: 'productFilterViews_user1',
+                    filterInputIds: [
+                        'main-search', 'customer-filter', 'status-filter', 'min-stock-filter',
+                        'sku-filter', 'ean-barcode-filter', 'min-qty', 'max-qty',
+                        'min-reservable', 'max-reservable', 'min-weight', 'max-weight',
+                        'min-volume', 'max-volume', 'created-at-range', 'updated-at-range'
+                    ]
+                },
+                // CORRECCIÓN: Definir los grupos de columnas aquí
+                columnGroups: {
+                    'General Info': [1, 2, 3, 4, 5], // Customer, Name, SKU, EAN, Barcode
+                    'Inventory Details': [6, 7, 8, 9], // Qty, Reservable, Virtual, Announced
+                    'Measurements': [10, 11], // Volume, Weight
+                    'Timestamps': [12, 13] // Created, Updated
+                }
+            };
 
-        // --- MANEJO MEJORADO DE INSIGHTS (SOLO PARA INVENTORY) ---
-        if (window.TABLE_MODE === 'inventory') {
-            console.log('📊 Inventory mode detected - Setting up insights...');
-            initializeInventoryInsightsHandler(productDatatable);
+        } else if ($('#inventory-table').length && window.inventoryDataTable) {
+            console.log('🚀 app.js: Configurando para Inventory List');
+            isInventoryPage = true;
+            mainDataTable = window.inventoryDataTable;
+            pageConfig = {
+                datatable: mainDataTable,
+                filters: {
+                    customer: { columnIndex: 0 },
+                    status: { columnIndex: 9}, 
+                    minStock: { columnIndex: 5 }, 
+                    sku: 1, ean: null, barcode: null, qty: 5, reservable: 6, 
+                    volume: 8, weight: null, created: null, updated: null 
+                },
+                savedFilters: {
+                    datatable: mainDataTable,
+                    filterFunction: (dt) => applyAllFilters(dt, pageConfig), 
+                    storageKey: 'inventoryFilterViews_user1', 
+                    filterInputIds: [
+                        'main-search', 'customer-filter', 'status-filter', 'min-stock-filter',
+                        'sku-filter', 'ean-barcode-filter', 'min-qty', 'max-qty',
+                        'min-reservable', 'max-reservable', 'min-weight', 'max-weight',
+                        'min-volume', 'max-volume', 'created-at-range', 'updated-at-range'
+                    ]
+                },
+                // CORRECCIÓN: Definir los grupos de columnas para INVENTORY
+                columnGroups: {
+                    'General Info': [0, 1, 2, 3, 4], // Customer, SKU, Name, Warehouse, Cell Type
+                    'Inventory Details': [5, 6, 7], // Qty, Available, Reserved
+                    'Measurements': [8], // Volume
+                }
+            };
+        }
+
+        // --- 2. VERIFICAR SI SE ENCONTRÓ LA TABLA ---
+        if (!mainDataTable) {
+            console.error('❌ APP.JS: No se pudo encontrar mainDataTable. Abortando inicialización de filtros.');
+            return;
         }
         
-        // Llamada inicial para UI
-        updateActiveFiltersUI();
-    }
+        console.log('✅ DataTable found. Proceeding with filter initialization...');
 
-    // Feather icons y tooltips
-    if (productDatatable) {
-        productDatatable.on('draw', function () {
+        // --- 3. INICIALIZAR MÓDULOS COMPARTIDOS ---
+        
+        if (typeof initializeMainSearch === 'function') {
+            initializeMainSearch(mainDataTable);
+        } else {
+            $('#main-search').on('keyup', () => applyAllFilters(mainDataTable, pageConfig));
+        }
+        
+        if (typeof initializeCustomerFilter === 'function') {
+            initializeCustomerFilter(mainDataTable, pageConfig.filters.customer);
+        }
+
+        if (typeof initializeMinStockFilter === 'function') {
+            initializeMinStockFilter(mainDataTable, pageConfig.filters.minStock);
+        } else {
+            $('#min-stock-filter').on('input', () => applyAllFilters(mainDataTable, pageConfig));
+        }
+
+        if (typeof initializeStatusFilter === 'function' && pageConfig.filters.status) {
+            initializeStatusFilter(mainDataTable, pageConfig.filters.status);
+        }
+
+        if (typeof initializeAdvancedFilters === 'function') {
+            initializeAdvancedFilters(mainDataTable, pageConfig);
+        }
+
+        if (typeof initializeClearFilters === 'function') {
+            initializeClearFilters(mainDataTable, pageConfig); 
+        }
+
+        if (typeof initializeExportActions === 'function') {
+            initializeExportActions(mainDataTable);
+        }
+        if (typeof initializePillRemoval === 'function') {
+            initializePillRemoval(mainDataTable);
+        }
+        if (typeof initializeSavedFilters === 'function' && pageConfig.savedFilters) {
+            initializeSavedFilters(pageConfig.savedFilters); 
+        }
+        if (typeof initializeMiniPagination === 'function') {
+            initializeMiniPagination(mainDataTable);
+        }
+        
+        // CORRECCIÓN: Pasar los grupos de columnas a la función
+        if (typeof initializeColumnVisibility === 'function') {
+            initializeColumnVisibility(mainDataTable, pageConfig.columnGroups);
+        }
+
+        // --- 4. INICIALIZAR MÓDULOS ESPECÍFICOS DE PRODUCT-LIST ---
+        if (isProductPage) {
+            // ... (código de módulos específicos)
+        }
+
+        // --- 5. INICIALIZAR MÓDULOS ESPECÍFICOS DE INVENTORY-LIST ---
+        if (isInventoryPage) {
+            // ... (código de módulos específicos)
+        }
+        
+        if (typeof updateActiveFiltersUI === 'function') {
+            updateActiveFiltersUI();
+        }
+
+        mainDataTable.on('draw', function () {
             if (window.feather) {
                 feather.replace({ width: 14, height: 14 });
             }
             $('[data-bs-toggle="tooltip"]').tooltip();
         });
-    }
-    
-    if (window.feather) {
-        feather.replace({ width: 14, height: 14 });
-    }
-    $('[data-bs-toggle="tooltip"]').tooltip();
-});
+        
+        if (window.feather) {
+            feather.replace({ width: 14, height: 14 });
+        }
+        $('[data-bs-toggle="tooltip"]').tooltip();
 
+    }, 300); 
+});

@@ -312,9 +312,20 @@ function initializeInventoryDataTable() {
           return volume ? `<span class="text-muted">${volume}m³</span>` : '-';
         }
       },
+      { data: 'status' }, // <-- 9: NUEVA COLUMNA DE STATUS
       { data: '' }
     ],
     columnDefs: [
+      { // <-- NUEVA DEFINICIÓN PARA LA COLUMNA STATUS
+        targets: -2, // Target a la penúltima columna (la nueva col 9)
+        title: 'Status',
+        orderable: true,
+        render: function (data, type, full, meta) {
+            const status = data || 'Active'; // Asumir Active si los datos son nulos
+            const badgeClass = status === 'Active' ? 'badge-light-success' : 'badge-light-danger';
+            return `<span class="badge rounded-pill ${badgeClass}">${status}</span>`;
+        }
+      },
       {
         targets: -1,
         title: 'Actions',
