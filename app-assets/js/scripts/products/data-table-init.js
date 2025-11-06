@@ -87,9 +87,38 @@ function initializeProductDataTable() {
       { data: 'sku' }, 
       { data: 'ean' },
       { data: 'barcode' },
-      { data: 'quantity' },
-      { data: 'reservableQuantity' },
-      { data: 'virtualQuantity' },
+      { 
+        data: 'quantity',
+        className: 'text-end',
+        render: function (data, type, full, meta) {
+          const quantity = parseInt(data) || 0;
+          let badge = '';
+          if (quantity === 0) {
+            badge = '<span class="badge bg-danger ms-1">Out of Stock</span>';
+          } else if (quantity <= 5) {
+            badge = '<span class="badge bg-warning ms-1">Critical</span>';
+          } else if (quantity <= 20) {
+            badge = '<span class="badge bg-light-warning ms-1">Low</span>';
+          }
+          return `<span class="fw-bold">${quantity}</span>${badge}`;
+        }
+      },
+      { 
+        data: 'available',
+        className: 'text-end',
+        render: function (data, type, full, meta) {
+          const available = data || (full.quantity - full.reservableQuantity);
+          return `<span class="text-success fw-bold">${available}</span>`;
+        }
+      },
+      { 
+        data: 'reserved',
+        className: 'text-end',
+        render: function (data, type, full, meta) {
+          const reserved = data || full.reservableQuantity;
+          return `<span class="text-warning">${reserved}</span>`;
+        }
+      },
       { data: 'announcedQuantity' },
       { data: 'unitVolume' },
       { data: 'weight' },
